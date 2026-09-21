@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { _electron as electron } from 'playwright-core';
-import { mkdtemp,writeFile,copyFile,readdir,rename,mkdir,rm } from 'node:fs/promises';
+import { mkdtemp,writeFile,readFile,copyFile,readdir,rename,mkdir,rm } from 'node:fs/promises';
 import { join,resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { startFormLab } from '../fixtures/form-lab';
@@ -26,8 +26,19 @@ try{
    await call('browser.embedded.visibility',{visible:true});await page.getByRole('button',{name:'模板库',exact:true}).click();await page.locator('.templates-page').evaluate((el:any)=>el.parentElement.scrollTop=0);await page.screenshot({path:resolve('test-results/installed-template-library.png'),fullPage:true});
    const again=await call('template.install',{token:(await call('template.inspect')).token});assert.equal(again.key,installed.key);await assert.rejects(call('template.remove',{key:installed.key}),/引用/);
    if(credential){const model=process.env.FLOWARK_TEST_AI_MODEL;if(!model)throw new Error('Select the explicitly bound model with FLOWARK_TEST_AI_MODEL');await call('template.configure',{id:instance.id,configuration:{url:lab.url,name:'虚构验收用户'},resources:{browser:{browserId:browser.id},ai:{provider:'deepseek',model}},grants:{'form-write':'auto'}});await finish((await call('flow.run',{id:instance.entryFlows.draft})).id);evidence.realAI={provider:'deepseek',model,fictionalInput:true};}
+   await choose(join(packages,'form-laboratory-1.0.1.flowark-template.zip'));
+   const formPackage=await call('template.install',{token:(await call('template.inspect')).token});
+   const form=await call('template.create',{key:formPackage.key});
+   const work=join(data,'form-output');await mkdir(work);await writeFile(join(work,'fictional.txt'),'fictional attachment');
+   await call('template.configure',{id:form.id,configuration:{},resources:{browser:{browserId:browser.id},work:{path:work}},grants:{'form-write':'auto'}});
+   await call('template.input',{id:form.id,entryId:'run',value:{baseUrl:lab.url}});
+   await finish((await call('flow.run',{id:form.entryFlows.run})).id);
+   assert.equal(lab.state.accepted.length,1);assert.equal(lab.state.rejected,0);
+   const receipt=JSON.parse(await readFile(join(work,'form-receipt.json'),'utf8'));
+   assert.equal(receipt.receiptId,lab.state.accepted[0].receiptId);assert.equal(receipt.fields.attachment.content,'fictional attachment');
+   evidence.formReceipt={receiptId:receipt.receiptId,accepted:lab.state.accepted.length,fileReadback:true};
    evidence.phases.push({phase,runs:(await call('bootstrap')).runs.map((r:any)=>({id:r.id,state:r.state})),fileResult:boot.runs[0].id,multiEntry:instance.id});
-  }else{const boot=await call('bootstrap');assert.equal(boot.templates.length,2);assert.equal(boot.instances.length,2);assert.ok(boot.runs.every((r:any)=>r.state==='SUCCEEDED'));const instance=boot.instances.find((i:any)=>i.packageKey.startsWith('multi-entry@'));const detail=await call('template.detail',{id:instance.id});assert.equal(detail.instance.configuration.name,'虚构验收用户');await finish((await call('flow.run',{id:instance.entryFlows.inspect})).id);evidence.phases.push({phase,reopened:true,instances:boot.instances.length});}
+  }else{const boot=await call('bootstrap');assert.equal(boot.templates.length,3);assert.equal(boot.instances.length,3);assert.ok(boot.runs.every((r:any)=>r.state==='SUCCEEDED'));const instance=boot.instances.find((i:any)=>i.packageKey.startsWith('multi-entry@'));const detail=await call('template.detail',{id:instance.id});assert.equal(detail.instance.configuration.name,'虚构验收用户');await finish((await call('flow.run',{id:instance.entryFlows.inspect})).id);evidence.phases.push({phase,reopened:true,instances:boot.instances.length});}
   await app.close();app=undefined;
  }
  evidence.passed=true;

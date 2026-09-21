@@ -3,10 +3,12 @@
   "properties": {
     "baseUrl": {
       "type": "string",
+      "title": "模拟网站地址",
       "default": "http://127.0.0.1:4178"
     }
   },
   "required": [
     "baseUrl"
-  ]
+  ],
+  "additionalProperties": false
 }
