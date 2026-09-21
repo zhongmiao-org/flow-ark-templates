@@ -3,7 +3,7 @@
   "id": "form-laboratory",
   "name": "复杂表单实验室",
   "description": "虚构数据验收模板；不含用户资料或密钥",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "FlowArk Templates",
   "source": "https://github.com/zhongmiao-org/flow-ark-templates",
   "minimumClientVersion": "0.2.0",
