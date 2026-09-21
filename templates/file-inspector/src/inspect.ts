@@ -1,0 +1,1 @@
+export default async ({template:t}:any)=>{const text=await t.file('source',{operation:'read'});const result={characters:text.length,lines:text.split('\n').length};await t.state.set(result);return t.result(result);};

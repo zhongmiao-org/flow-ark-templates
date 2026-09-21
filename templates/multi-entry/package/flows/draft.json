@@ -1,0 +1,25 @@
+{
+  "formatVersion": "1.0",
+  "id": "draft",
+  "name": "结构化 AI 校验",
+  "description": "",
+  "parameters": {},
+  "requiredCapabilities": [
+    "script",
+    "template-sdk-v1",
+    "ai",
+    "state"
+  ],
+  "steps": [
+    {
+      "id": "execute",
+      "type": "script",
+      "version": 1,
+      "language": "js",
+      "input": {},
+      "dependencies": [],
+      "code": "@package:scripts/draft.js",
+      "timeoutMs": 900000
+    }
+  ]
+}

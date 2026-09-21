@@ -1,0 +1,25 @@
+{
+  "formatVersion": "1.0",
+  "id": "fill",
+  "name": "填写并回读",
+  "description": "",
+  "parameters": {},
+  "requiredCapabilities": [
+    "script",
+    "template-sdk-v1",
+    "browser",
+    "effect"
+  ],
+  "steps": [
+    {
+      "id": "execute",
+      "type": "script",
+      "version": 1,
+      "language": "js",
+      "input": {},
+      "dependencies": [],
+      "code": "@package:scripts/fill.js",
+      "timeoutMs": 900000
+    }
+  ]
+}
