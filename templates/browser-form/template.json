@@ -1,0 +1,56 @@
+{
+  "packageFormat": "2.0",
+  "id": "browser-form",
+  "name": "内置浏览器表单",
+  "description": "虚构数据验收模板；不含用户资料或密钥",
+  "version": "1.0.0",
+  "author": "FlowArk Templates",
+  "source": "https://github.com/zhongmiao-org/flow-ark-templates",
+  "minimumClientVersion": "0.2.0",
+  "sdkVersion": "1.0",
+  "configurationSchema": "schemas/configuration.json",
+  "stateSchema": "schemas/state.json",
+  "resources": [
+    {
+      "id": "browser",
+      "name": "测试浏览器",
+      "kind": "browser",
+      "access": "use",
+      "required": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "form-write",
+      "name": "填写测试网页",
+      "description": "修改配置地址中的测试表单",
+      "default": "deny"
+    }
+  ],
+  "dependencies": [],
+  "entries": [
+    {
+      "id": "fill",
+      "name": "填写并回读",
+      "flow": "flows/fill.json",
+      "inputSchema": "schemas/input.json",
+      "resultSchema": "schemas/result.json",
+      "schedulable": false,
+      "capabilities": [
+        "script",
+        "template-sdk-v1",
+        "browser",
+        "effect"
+      ],
+      "resources": [
+        "browser"
+      ],
+      "actions": [
+        "form-write"
+      ]
+    }
+  ],
+  "build": {
+    "fill": "src/fill.ts"
+  }
+}

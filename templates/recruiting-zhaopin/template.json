@@ -1,0 +1,36 @@
+{
+  "packageFormat": "2.0",
+  "id": "recruiting-zhaopin",
+  "name": "智联招聘适配检查",
+  "description": "原业务规则已迁入模板仓库；真实站点尚未校准，入口只返回限制信息",
+  "version": "1.0.0",
+  "author": "FlowArk Templates",
+  "source": "https://github.com/zhongmiao-org/flow-ark-templates",
+  "minimumClientVersion": "0.2.0",
+  "sdkVersion": "1.0",
+  "configurationSchema": "schemas/configuration.json",
+  "stateSchema": "schemas/state.json",
+  "resources": [],
+  "actions": [],
+  "dependencies": [],
+  "entries": [
+    {
+      "id": "inspect",
+      "name": "检查适配状态",
+      "flow": "flows/inspect.json",
+      "inputSchema": "schemas/input.json",
+      "resultSchema": "schemas/result.json",
+      "schedulable": false,
+      "capabilities": [
+        "script",
+        "template-sdk-v1",
+        "attention"
+      ],
+      "resources": [],
+      "actions": []
+    }
+  ],
+  "build": {
+    "inspect": "src/inspect.ts"
+  }
+}

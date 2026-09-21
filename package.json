@@ -1,0 +1,40 @@
+{
+  "name": "flow-ark-templates",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=24.3.0"
+  },
+  "flowark": {
+    "contractsVersion": "0.8.0",
+    "sdkVersion": "1.0",
+    "governanceBaseline": "aff8f5e3ce56d410e52173f736f4327bed156ffa",
+    "contractsTag": "contracts-v0.8.0"
+  },
+  "scripts": {
+    "check": "pnpm validate && pnpm test && pnpm build",
+    "validate": "node --import tsx tooling/validate.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "build": "node --import tsx tooling/build.ts",
+    "forms:serve": "node --import tsx fixtures/form-lab-server.ts",
+    "test:client": "node --import tsx tooling/client-smoke.ts"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "jszip": "3.10.2"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.3",
+    "esbuild": "0.28.2",
+    "playwright-core": "1.63.0",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

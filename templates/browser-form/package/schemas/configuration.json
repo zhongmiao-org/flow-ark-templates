@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "title": "测试网页地址",
+      "default": "http://127.0.0.1:4178/"
+    },
+    "name": {
+      "type": "string",
+      "title": "虚构名称",
+      "default": "示例用户"
+    }
+  },
+  "required": [
+    "url",
+    "name"
+  ],
+  "additionalProperties": false
+}

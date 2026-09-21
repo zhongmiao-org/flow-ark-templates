@@ -1,0 +1,24 @@
+{
+  "formatVersion": "1.0",
+  "id": "inspect",
+  "name": "检查文件",
+  "description": "",
+  "parameters": {},
+  "requiredCapabilities": [
+    "script",
+    "template-sdk-v1",
+    "attention"
+  ],
+  "steps": [
+    {
+      "id": "execute",
+      "type": "script",
+      "version": 1,
+      "language": "js",
+      "input": {},
+      "dependencies": [],
+      "code": "@package:scripts/inspect.js",
+      "timeoutMs": 900000
+    }
+  ]
+}

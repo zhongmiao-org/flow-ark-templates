@@ -1,0 +1,14 @@
+import type { FlowArkP1 as P1Contracts } from './contracts.generated';
+export type Flow = NonNullable<P1Contracts['FlowDefinition']>;
+export type Policy = NonNullable<P1Contracts['RecruitingPolicy']>;
+export type JobSnapshot = NonNullable<P1Contracts['RecruitingJobSnapshot']>;
+export type JobFilter = NonNullable<P1Contracts['RecruitingJobFilter']>;
+export type Draft = NonNullable<P1Contracts['AIReplyDraft']>;
+export type AIRequest = NonNullable<P1Contracts['AIReplyRequest']>;
+export type AIResult = NonNullable<P1Contracts['AIReplyResult']>;
+export type Action = NonNullable<P1Contracts['RecruitingAction']>;
+export type Contact = NonNullable<P1Contracts['ContactExchangeResult']>;
+export type Template = NonNullable<P1Contracts['TemplatePackage']>;
+export type RunState = NonNullable<P1Contracts['RunState']>;
+export type ScriptBundle = NonNullable<P1Contracts['ScriptBundle']>;
+export type BrowserDriver = { perform(command:any, signal?:AbortSignal):Promise<any> };

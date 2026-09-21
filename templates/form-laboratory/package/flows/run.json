@@ -1,0 +1,1183 @@
+{
+  "id": "form-lab",
+  "formatVersion": "1.0",
+  "name": "复杂表单功能验证",
+  "description": "仅本地虚构数据：填写控件、读取当前值、提交后保存服务端回执。work 目录需放置 fictional.txt。",
+  "parameters": {
+    "baseUrl": "http://127.0.0.1:4178"
+  },
+  "requiredCapabilities": [
+    "browser",
+    "browser-forms-v1",
+    "file",
+    "assert"
+  ],
+  "steps": [
+    {
+      "id": "open",
+      "name": "open",
+      "type": "browser",
+      "version": 3,
+      "operation": "navigate",
+      "selector": "",
+      "value": {
+        "$ref": "params.baseUrl"
+      },
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "fill_name",
+      "name": "fill_name",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#full-name",
+      "value": "测试用户甲",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_name",
+      "name": "read_name",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#full-name",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_name",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_name"
+      },
+      "operator": "equals",
+      "expected": "测试用户甲"
+    },
+    {
+      "id": "fill_email",
+      "name": "fill_email",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#email",
+      "value": "tester@example.com",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_email",
+      "name": "read_email",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#email",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_email",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_email"
+      },
+      "operator": "equals",
+      "expected": "tester@example.com"
+    },
+    {
+      "id": "fill_phone",
+      "name": "fill_phone",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#phone",
+      "value": "13800000000",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_phone",
+      "name": "read_phone",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#phone",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_phone",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_phone"
+      },
+      "operator": "equals",
+      "expected": "13800000000"
+    },
+    {
+      "id": "fill_website",
+      "name": "fill_website",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#website",
+      "value": "https://example.com",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_website",
+      "name": "read_website",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#website",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_website",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_website"
+      },
+      "operator": "equals",
+      "expected": "https://example.com"
+    },
+    {
+      "id": "fill_quantity",
+      "name": "fill_quantity",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#quantity",
+      "value": "7",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_quantity",
+      "name": "read_quantity",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#quantity",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_quantity",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_quantity"
+      },
+      "operator": "equals",
+      "expected": "7"
+    },
+    {
+      "id": "fill_search",
+      "name": "fill_search",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#search",
+      "value": "流程 测试",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_search",
+      "name": "read_search",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#search",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_search",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_search"
+      },
+      "operator": "equals",
+      "expected": "流程 测试"
+    },
+    {
+      "id": "fill_language",
+      "name": "fill_language",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#language",
+      "value": "TypeScript",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_language",
+      "name": "read_language",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#language",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_language",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_language"
+      },
+      "operator": "equals",
+      "expected": "TypeScript"
+    },
+    {
+      "id": "fill_notes",
+      "name": "fill_notes",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#notes",
+      "value": "第一行\n第二行 & <测试>",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_notes",
+      "name": "read_notes",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#notes",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_notes",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_notes"
+      },
+      "operator": "equals",
+      "expected": "第一行\n第二行 & <测试>"
+    },
+    {
+      "id": "fill_start",
+      "name": "fill_start",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#start-date",
+      "value": "2026-09-17",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_start",
+      "name": "read_start",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#start-date",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_start",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_start"
+      },
+      "operator": "equals",
+      "expected": "2026-09-17"
+    },
+    {
+      "id": "fill_end",
+      "name": "fill_end",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#end-date",
+      "value": "2026-09-20",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_end",
+      "name": "read_end",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#end-date",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_end",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_end"
+      },
+      "operator": "equals",
+      "expected": "2026-09-20"
+    },
+    {
+      "id": "fill_time",
+      "name": "fill_time",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#time",
+      "value": "09:30",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_time",
+      "name": "read_time",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#time",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_time",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_time"
+      },
+      "operator": "equals",
+      "expected": "09:30"
+    },
+    {
+      "id": "fill_local",
+      "name": "fill_local",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#local-time",
+      "value": "2026-09-17T09:30",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_local",
+      "name": "read_local",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#local-time",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_local",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_local"
+      },
+      "operator": "equals",
+      "expected": "2026-09-17T09:30"
+    },
+    {
+      "id": "fill_month",
+      "name": "fill_month",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#month",
+      "value": "2026-09",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_month",
+      "name": "read_month",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#month",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_month",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_month"
+      },
+      "operator": "equals",
+      "expected": "2026-09"
+    },
+    {
+      "id": "fill_week",
+      "name": "fill_week",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#week",
+      "value": "2026-W38",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_week",
+      "name": "read_week",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#week",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_week",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_week"
+      },
+      "operator": "equals",
+      "expected": "2026-W38"
+    },
+    {
+      "id": "fill_color",
+      "name": "fill_color",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#color",
+      "value": "#cc6633",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_color",
+      "name": "read_color",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#color",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_color",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_color"
+      },
+      "operator": "equals",
+      "expected": "#cc6633"
+    },
+    {
+      "id": "fill_password",
+      "name": "fill_password",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#password",
+      "value": "fictional123",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "fill_rich",
+      "name": "fill_rich",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#rich-note",
+      "value": "可编辑文本",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "readonly",
+      "name": "readonly",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#readonly-code",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_readonly",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.readonly"
+      },
+      "operator": "equals",
+      "expected": "LAB-2026"
+    },
+    {
+      "id": "priority_home",
+      "name": "priority_home",
+      "type": "browser",
+      "version": 3,
+      "operation": "press",
+      "selector": "#priority",
+      "value": "Home",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "priority_right",
+      "name": "priority_right",
+      "type": "browser",
+      "version": 3,
+      "operation": "press",
+      "selector": "#priority",
+      "value": "ArrowRight",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "priority_right_again",
+      "name": "priority_right_again",
+      "type": "browser",
+      "version": 3,
+      "operation": "press",
+      "selector": "#priority",
+      "value": "ArrowRight",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "priority_value",
+      "name": "priority_value",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#priority",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_priority",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.priority_value"
+      },
+      "operator": "equals",
+      "expected": "2"
+    },
+    {
+      "id": "check_phone",
+      "name": "check_phone",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#channel-phone",
+      "value": true,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "check_email",
+      "name": "check_email",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#channel-email",
+      "value": true,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "check_email_again",
+      "name": "check_email_again",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#channel-email",
+      "value": true,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "check_export",
+      "name": "check_export",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#feature-export",
+      "value": false,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "check_export_again",
+      "name": "check_export_again",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#feature-export",
+      "value": false,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "check_audit",
+      "name": "check_audit",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#feature-audit",
+      "value": true,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "check_audit_again",
+      "name": "check_audit_again",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#feature-audit",
+      "value": true,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "check_alert",
+      "name": "check_alert",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#feature-alert",
+      "value": true,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "check_agreement",
+      "name": "check_agreement",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#agreement",
+      "value": true,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "department",
+      "name": "department",
+      "type": "browser",
+      "version": 3,
+      "operation": "select",
+      "selector": "#department",
+      "value": "engineering",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "skills_first",
+      "name": "skills_first",
+      "type": "browser",
+      "version": 3,
+      "operation": "select",
+      "selector": "#skills",
+      "value": [
+        "node"
+      ],
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "skills_clear",
+      "name": "skills_clear",
+      "type": "browser",
+      "version": 3,
+      "operation": "select",
+      "selector": "#skills",
+      "value": [],
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_clear",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.skills_clear"
+      },
+      "operator": "equals",
+      "expected": []
+    },
+    {
+      "id": "skills",
+      "name": "skills",
+      "type": "browser",
+      "version": 3,
+      "operation": "select",
+      "selector": "#skills",
+      "value": [
+        "ts",
+        "qa"
+      ],
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_skills",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.skills"
+      },
+      "operator": "equals",
+      "expected": [
+        "ts",
+        "qa"
+      ]
+    },
+    {
+      "id": "province_first",
+      "name": "province_first",
+      "type": "browser",
+      "version": 3,
+      "operation": "select",
+      "selector": "#province",
+      "value": "jiangsu",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "province",
+      "name": "province",
+      "type": "browser",
+      "version": 3,
+      "operation": "select",
+      "selector": "#province",
+      "value": "zhejiang",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "cities_ready",
+      "name": "cities_ready",
+      "type": "browser",
+      "version": 3,
+      "operation": "wait",
+      "selector": "#city:not(:disabled)",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "city",
+      "name": "city",
+      "type": "browser",
+      "version": 3,
+      "operation": "select",
+      "selector": "#city",
+      "value": "hangzhou",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "fill_project",
+      "name": "fill_project",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#project-search",
+      "value": "FlowArk",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "project_choose",
+      "name": "project_choose",
+      "type": "browser",
+      "version": 3,
+      "operation": "click",
+      "selector": "#project-flowark",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "sync",
+      "name": "sync",
+      "type": "browser",
+      "version": 3,
+      "operation": "click",
+      "selector": "#sync-switch",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "invoice_on",
+      "name": "invoice_on",
+      "type": "browser",
+      "version": 3,
+      "operation": "check",
+      "selector": "#invoice-toggle",
+      "value": true,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "fill_invoice",
+      "name": "fill_invoice",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#invoice-title",
+      "value": "虚构测试公司",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_invoice",
+      "name": "read_invoice",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#invoice-title",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_invoice",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_invoice"
+      },
+      "operator": "equals",
+      "expected": "虚构测试公司"
+    },
+    {
+      "id": "fill_contact_name_1",
+      "name": "fill_contact_name_1",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#contact-name-1",
+      "value": "测试联系人一",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_contact_name_1",
+      "name": "read_contact_name_1",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#contact-name-1",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_contact_name_1",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_contact_name_1"
+      },
+      "operator": "equals",
+      "expected": "测试联系人一"
+    },
+    {
+      "id": "fill_contact_email_1",
+      "name": "fill_contact_email_1",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#contact-email-1",
+      "value": "one@example.com",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_contact_email_1",
+      "name": "read_contact_email_1",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#contact-email-1",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_contact_email_1",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_contact_email_1"
+      },
+      "operator": "equals",
+      "expected": "one@example.com"
+    },
+    {
+      "id": "add_contact",
+      "name": "add_contact",
+      "type": "browser",
+      "version": 3,
+      "operation": "click",
+      "selector": "#add-contact",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "fill_contact_name_2",
+      "name": "fill_contact_name_2",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#contact-name-2",
+      "value": "测试联系人二",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_contact_name_2",
+      "name": "read_contact_name_2",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#contact-name-2",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_contact_name_2",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_contact_name_2"
+      },
+      "operator": "equals",
+      "expected": "测试联系人二"
+    },
+    {
+      "id": "fill_contact_email_2",
+      "name": "fill_contact_email_2",
+      "type": "browser",
+      "version": 3,
+      "operation": "fill",
+      "selector": "#contact-email-2",
+      "value": "two@example.com",
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "read_contact_email_2",
+      "name": "read_contact_email_2",
+      "type": "browser",
+      "version": 3,
+      "operation": "inputValue",
+      "selector": "#contact-email-2",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "verify_contact_email_2",
+      "type": "assert",
+      "version": 1,
+      "actual": {
+        "$ref": "steps.read_contact_email_2"
+      },
+      "operator": "equals",
+      "expected": "two@example.com"
+    },
+    {
+      "id": "add_unused",
+      "name": "add_unused",
+      "type": "browser",
+      "version": 3,
+      "operation": "click",
+      "selector": "#add-contact",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "remove_unused",
+      "name": "remove_unused",
+      "type": "browser",
+      "version": 3,
+      "operation": "click",
+      "selector": "#contact-remove-3",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "upload",
+      "name": "upload",
+      "type": "browser",
+      "version": 3,
+      "operation": "upload",
+      "selector": "#attachment",
+      "value": {
+        "binding": "work",
+        "name": "fictional.txt"
+      },
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "before_submit",
+      "name": "before_submit",
+      "type": "browser",
+      "version": 3,
+      "operation": "screenshot",
+      "selector": "",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "open_events",
+      "name": "open_events",
+      "type": "browser",
+      "version": 3,
+      "operation": "click",
+      "selector": "#event-details-summary",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "events_visible",
+      "name": "events_visible",
+      "type": "browser",
+      "version": 3,
+      "operation": "wait",
+      "selector": "#change-counts",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "changes",
+      "name": "changes",
+      "type": "browser",
+      "version": 3,
+      "operation": "read",
+      "selector": "#change-counts",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "save_changes",
+      "type": "file",
+      "version": 1,
+      "operation": "write",
+      "binding": "work",
+      "name": "event-counts.json",
+      "content": {
+        "$ref": "steps.changes"
+      }
+    },
+    {
+      "id": "submit",
+      "name": "submit",
+      "type": "browser",
+      "version": 3,
+      "operation": "click",
+      "selector": "#submit",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "receipt_ready",
+      "name": "receipt_ready",
+      "type": "browser",
+      "version": 3,
+      "operation": "wait",
+      "selector": "#submit-status[data-state=\"success\"]",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "receipt",
+      "name": "receipt",
+      "type": "browser",
+      "version": 3,
+      "operation": "read",
+      "selector": "#server-result",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    },
+    {
+      "id": "save_receipt",
+      "type": "file",
+      "version": 1,
+      "operation": "write",
+      "binding": "work",
+      "name": "form-receipt.json",
+      "content": {
+        "$ref": "steps.receipt"
+      }
+    },
+    {
+      "id": "after_submit",
+      "name": "after_submit",
+      "type": "browser",
+      "version": 3,
+      "operation": "screenshot",
+      "selector": "",
+      "value": null,
+      "framePath": [],
+      "timeoutMs": 10000
+    }
+  ]
+}

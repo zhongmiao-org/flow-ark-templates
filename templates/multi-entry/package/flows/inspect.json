@@ -1,0 +1,23 @@
+{
+  "formatVersion": "1.0",
+  "id": "inspect",
+  "name": "离线检查",
+  "description": "",
+  "parameters": {},
+  "requiredCapabilities": [
+    "script",
+    "template-sdk-v1"
+  ],
+  "steps": [
+    {
+      "id": "execute",
+      "type": "script",
+      "version": 1,
+      "language": "js",
+      "input": {},
+      "dependencies": [],
+      "code": "@package:scripts/inspect.js",
+      "timeoutMs": 900000
+    }
+  ]
+}
