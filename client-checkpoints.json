@@ -36,5 +36,42 @@
         "node": "n_ce29c164"
       }
     ]
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/update-checkpoint/personal-distillation-update-checkpoint.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/update-checkpoint/package",
+    "sha256": "bd2b04ef25be466fc61b60040edd69f397dec123868db1f69973229a06709636",
+    "contentDigest": "43871481e18305fdca1413950e3f785e59a311313c347fb1538616606c118dda",
+    "status": "in-progress",
+    "scope": "Client-authored fixed-parent partial update with confirmed interview gate and pending Skill; own-Key execution, conflict behavior and full reuse remain unverified",
+    "scriptSources": [
+      {
+        "source": "templates/personal-distillation/authoring/source-evidence.ts",
+        "file": "scripts/author/interview/n_d1d422e5.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/update-prepare.ts",
+        "file": "scripts/author/update/n_c3ac3171.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/update-apply.ts",
+        "file": "scripts/author/update/n_3ba4cd8e.js",
+        "loader": "ts"
+      }
+    ],
+    "nodeSchemas": [
+      {
+        "source": "templates/personal-distillation/authoring/profile-output.schema.json",
+        "entry": "interview",
+        "node": "n_ce29c164"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/update-output.schema.json",
+        "entry": "update",
+        "node": "n_58af03d2"
+      }
+    ]
   }
 ]

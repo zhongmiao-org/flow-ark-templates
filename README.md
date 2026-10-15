@@ -27,3 +27,7 @@ FLOWARK_TEST_EXECUTABLE=/Applications/FlowArk.app/Contents/MacOS/FlowArk pnpm te
 确认后生成草稿的0.3.0检查点位于 `templates/personal-distillation/authoring/synthesis-checkpoint`，仍为制作中。在同一访谈入口增加`confirmed`条件分支、来源映射、结构化AI整理和Skill待确认草稿；未确认时结束本批，用户到待办继续，确认后显式重新运行同一入口。除资料与自有AI服务，还须选择个人Skill工作区。来源映射是独立、无依赖的数据转换；`source-evidence.ts`与输出格式Schema供审阅，现有校验同时核对脚本编译字节和AI节点Schema，未重新生成ZIP。
 
 0.3.0已在独立原生工作区安装并创建未绑定三类资源的新实例，旧版本与记录保留。七步生成路径已制作和静态核对；真实自有Key执行、Skill确认、局部更新及完整复用仍待验收。初始草稿不带父版本，已有确认版本的修改须使用后续独立局部更新入口，不能把本入口当作覆盖旧版本的操作。
+
+0.4.0局部更新检查点位于 `templates/personal-distillation/authoring/update-checkpoint`，仍为制作中，并保留前三个原始检查点。通过客户端新增独立update入口：读取固定确认版本、核对范围、补充访谈、确认条件、结构化局部提案、明确性断言、单项应用和待确认Skill草稿。使用者选择修改项目和准确原文片段，模型只建议新值与片段替换，不决定修改路径；无关手工内容及旧来源从父版本保留，再追加真实确认会话来源。父版本和目标工作区分别绑定，不能通过初始生成入口覆盖既有确认版本。
+
+`update-prepare.ts`、`update-apply.ts`和两份Schema是公开审阅来源；流程节点通过客户端添加、映射、核对带回并导出，`package/`仍为原ZIP的逐字节提取文件。校验核对全部三个映射脚本的编译字节及两个AI节点的格式，未执行模型或重建业务ZIP。真实自有Key补充访谈、单处变化、外部修改冲突、本人确认及完整G3/BOSS验收仍待完成。
