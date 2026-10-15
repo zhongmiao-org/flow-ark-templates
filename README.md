@@ -19,3 +19,7 @@ FLOWARK_TEST_EXECUTABLE=/Applications/FlowArk.app/Contents/MacOS/FlowArk pnpm te
 安装版测试会临时隐藏模板源码目录，使用复制到临时目录的正式 ZIP，经公共 IPC 验证文件、多入口、完整表单提交／附件／回执及重开；不访问真实招聘账号。可选真实 AI 验证需显式设置 `FLOWARK_TEST_ENCRYPTED_CREDENTIAL` 为本机 DeepSeek 加密凭据文件路径，并设置 `FLOWARK_TEST_AI_MODEL` 为用户选择的模型。凭据只临时复制到隔离数据目录，结束后删除；不在命令行传明文 Key。
 
 个人蒸馏模板正在通过客户端制作：公开规程与固定来源位于 `templates/personal-distillation/authoring`，nuwa 上游快照与许可位于 `vendor/nuwa-skill`。这些资料尚不是完整可用模板；正式流程须由客户端可视化编排并导出后纳入，不从源码生成业务大脚本代替。当前 UI/UE 阶段保留既有测试，暂不新增或运行单元测试。
+
+客户端导出的访谈检查点为 `templates/personal-distillation/authoring/interview-checkpoint/personal-distillation-interview-checkpoint.flowark-template.zip`（0.2.0，制作中），保留原0.1.0资料检查点。导入后创建独立实例，在资源页选择自己的资料目录及AI供应商/模型，并在本地设置配置自己的Key；资料核对入口可以单独离线使用。访谈入口填写目录内选定文件名与访谈标识，先解析并检查资料完整可读，再建立或读取引导会话。相同实例、标识、内容及完整会话配置对应同一访谈；更换标识表示新访谈。
+
+首次建立会话的步骤本身不调用模型，但运行前仍要求可用的自有Key；每轮发送在会话面板显式核对后进行。Key只在本地设置录入，不粘贴进聊天或公开文件。该检查点已核对原生导出、另一工作区复导、资源重新绑定和缺Key阻断；真实多轮、确认后生成Skill、局部更新及完整闭环仍待制作和验收。`package/`为同一ZIP的逐字节提取文件，不能手改其中JSON补完流程；后续改动继续由客户端编排、核对带回和导出。

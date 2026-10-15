@@ -6,5 +6,13 @@
     "contentDigest": "ed1ece8395a2b29957f62a01e7323e5d14e1f0ba6752ca718c9f9a06d9aee390",
     "status": "in-progress",
     "scope": "Only materials entry exercised; not a complete personal distillation template"
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/interview-checkpoint/personal-distillation-interview-checkpoint.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/interview-checkpoint/package",
+    "sha256": "af32b0ac868567f8857e02ec42ef1f34329ef587cf646034c63cf4caf5e7d497",
+    "contentDigest": "6b4d82cffac82c248121d95e074f9ecd8436f42fc56fda7088198847b6330da4",
+    "status": "in-progress",
+    "scope": "Client-authored materials and guided interview entries; real own-Key rounds, synthesis and partial update remain unverified"
   }
 ]
