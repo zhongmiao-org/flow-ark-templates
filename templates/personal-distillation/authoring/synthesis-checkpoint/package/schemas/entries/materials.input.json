@@ -1,0 +1,1 @@
+{"additionalProperties":false,"properties":{"file":{"default":"资料.txt","title":"所选资料文件名","type":"string"}},"required":["file"],"type":"object"}
