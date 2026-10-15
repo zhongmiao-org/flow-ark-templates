@@ -14,5 +14,27 @@
     "contentDigest": "6b4d82cffac82c248121d95e074f9ecd8436f42fc56fda7088198847b6330da4",
     "status": "in-progress",
     "scope": "Client-authored materials and guided interview entries; real own-Key rounds, synthesis and partial update remain unverified"
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/synthesis-checkpoint/personal-distillation-synthesis-checkpoint.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/synthesis-checkpoint/package",
+    "sha256": "7c3dff7ddf7d5aedae166b41a8e29aeba3a04572a1ed9e3e25a74b96a5c4a2eb",
+    "contentDigest": "41d33f99ea73966ecb9124e704984186e34aa5c6395481cd8cba355097461909",
+    "status": "in-progress",
+    "scope": "Client-authored confirmed interview branch, structured synthesis and pending Skill; own-Key execution and partial update still unverified",
+    "scriptSources": [
+      {
+        "source": "templates/personal-distillation/authoring/source-evidence.ts",
+        "file": "scripts/author/interview/n_d1d422e5.js",
+        "loader": "ts"
+      }
+    ],
+    "nodeSchemas": [
+      {
+        "source": "templates/personal-distillation/authoring/profile-output.schema.json",
+        "entry": "interview",
+        "node": "n_ce29c164"
+      }
+    ]
   }
 ]

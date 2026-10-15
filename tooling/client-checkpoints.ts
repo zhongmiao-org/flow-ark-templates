@@ -1,7 +1,8 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import JSZip from 'jszip';
-import { LIMITS, sha256, validatePackage } from '../contracts/package-format';
+import { transform } from 'esbuild';
+import { canonical, LIMITS, sha256, validatePackage } from '../contracts/package-format';
 
 /** Read-only source verification. Checkpoints are client exports, not generated business flows. */
 export async function validateClientCheckpoints() {
@@ -17,6 +18,8 @@ export async function validateClientCheckpoints() {
     sha256: string;
     contentDigest: string;
     status: string;
+    scriptSources?: { source: string; file: string; loader: 'ts' | 'js' }[];
+    nodeSchemas?: { source: string; entry: string; node: string }[];
   }[];
   for (const entry of entries) {
     const bytes = await readFile(entry.archive);
@@ -48,6 +51,35 @@ export async function validateClientCheckpoints() {
       [...files].some(([name, body]) => !source.get(name)?.equals(body))
     )
       throw Error('可审阅源文件与客户端原始导出不一致：' + entry.directory);
+    for (const mapping of entry.scriptSources ?? []) {
+      const compiled = await transform(await readFile(mapping.source, 'utf8'), {
+        loader: mapping.loader,
+        format: 'esm',
+        target: 'node24',
+      });
+      if (!files.get(mapping.file)?.equals(Buffer.from(compiled.code)))
+        throw Error('可审阅脚本编译结果与客户端原始导出不一致：' + mapping.source);
+    }
+    for (const mapping of entry.nodeSchemas ?? []) {
+      const definition = pkg.manifest.entries.find((value) => value.id === mapping.entry);
+      if (!definition) throw Error('Schema来源的入口不存在：' + mapping.entry);
+      const flow = JSON.parse(files.get(definition.flow)!.toString('utf8'));
+      const find = (nodes: any[]): any => {
+        for (const node of nodes) {
+          if (node.id === mapping.node) return node;
+          for (const key of ['then', 'else', 'body']) {
+            const found = Array.isArray(node[key]) && find(node[key]);
+            if (found) return found;
+          }
+        }
+      };
+      const node = find(flow.steps);
+      if (
+        node?.type !== 'ai' ||
+        canonical(node.schema) !== canonical(JSON.parse(await readFile(mapping.source, 'utf8')))
+      )
+        throw Error('可审阅Schema与客户端原始导出不一致：' + mapping.source);
+    }
     console.log(`${entry.archive} ${entry.status} ${pkg.manifest.contentDigest}`);
   }
 }
