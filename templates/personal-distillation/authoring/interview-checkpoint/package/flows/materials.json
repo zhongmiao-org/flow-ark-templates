@@ -1,0 +1,1 @@
+{"description":"","formatVersion":"1.0","id":"materials","name":"核对所选资料","parameters":{"file":"资料.txt"},"requiredCapabilities":["document-extract-v1"],"steps":[{"binding":"materials","file":{"$ref":"params.file"},"id":"n_d62dc8dd","name":"解析所选资料并保留来源","type":"document","version":1}]}
