@@ -1,0 +1,1 @@
+{"additionalProperties":false,"properties":{"file":{"default":"资料.txt","description":"仅解析 materials 目录中明确选择的 PDF、DOCX 或 UTF-8 文件；正文将在核对后用于访谈。","title":"所选资料文件名","type":"string"},"round":{"default":"initial","description":"保持相同标识、资料和服务可继续已有访谈；需要重新访谈时改用新的标识。确认访谈不会直接确认 Skill。","title":"访谈标识","type":"string"}},"required":["file","round"],"type":"object"}
