@@ -1,0 +1,10 @@
+[
+  {
+    "archive": "templates/personal-distillation/authoring/checkpoint/personal-distillation-materials-checkpoint.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/checkpoint/package",
+    "sha256": "f6ad5dd10b78ccdffa92dfa012d44b92ec2e4a8a85f61706c1cc7dbb74711e02",
+    "contentDigest": "ed1ece8395a2b29957f62a01e7323e5d14e1f0ba6752ca718c9f9a06d9aee390",
+    "status": "in-progress",
+    "scope": "Only materials entry exercised; not a complete personal distillation template"
+  }
+]
