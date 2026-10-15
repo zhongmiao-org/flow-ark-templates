@@ -6,7 +6,6 @@
 pnpm install --frozen-lockfile
 pnpm validate
 pnpm build
-pnpm build
 pnpm forms:serve
 FLOWARK_TEST_EXECUTABLE=/Applications/FlowArk.app/Contents/MacOS/FlowArk pnpm test:client
 ```
