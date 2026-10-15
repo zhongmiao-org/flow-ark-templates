@@ -98,5 +98,30 @@
         "loader": "ts"
       }
     ]
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/inline-login-checkpoint/boss-job-search-0.1.2.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/inline-login-checkpoint/package",
+    "sha256": "471c26b972545f05575884a96fc315ea2ef980163b12dbd77c7e66a094692b97",
+    "contentDigest": "8145f6b833640a0552a9719c52de8d0908b15a484e1b363fa28cf4b86614bd0d",
+    "status": "in-progress",
+    "scope": "Client-authored visible-text login-gate preflight; partial JD requires human login; absent marker still leaves account and complete JD unverified; no recruiting actions",
+    "scriptSources": [
+      {
+        "source": "templates/boss-job-search/authoring/classify-page-v2.ts",
+        "file": "scripts/author/preflight/n_bb9ceca5.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-login.ts",
+        "file": "scripts/author/preflight/n_7aac6071.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-unverified.ts",
+        "file": "scripts/author/preflight/n_9daec46d.js",
+        "loader": "ts"
+      }
+    ]
   }
 ]
