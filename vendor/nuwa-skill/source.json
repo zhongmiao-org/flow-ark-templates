@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/alchaincyf/nuwa-skill",
+  "commit": "7fa1f60cfe3cf495e38c93626f239e06ecc2ee8e",
+  "committedAt": "2026-10-15T03:28:58Z",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Huashu (花叔)",
+  "files": {
+    "LICENSE": {
+      "upstreamPath": "LICENSE",
+      "sha256": "d0952e801d7484cc5344f41cc0378567d20a3c996b784eb97460287adde9ab37"
+    },
+    "SKILL.md": {
+      "upstreamPath": "SKILL.md",
+      "sha256": "218d2d2b0003255d152772f46586a39874d94d0df3480b5a6f51a274ef2249fd"
+    },
+    "extraction-framework.md": {
+      "upstreamPath": "references/extraction-framework.md",
+      "sha256": "71ba03c80f86141a5adaec1690e510d821ecfc30eca5dcf7b455ec6df2339e81"
+    }
+  }
+}
