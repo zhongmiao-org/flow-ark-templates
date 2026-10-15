@@ -16,6 +16,12 @@ FLOWARK_TEST_EXECUTABLE=/Applications/FlowArk.app/Contents/MacOS/FlowArk pnpm te
 
 原 BOSS/智联业务模块与测试位于 templates/recruiting，两个适配检查包明确返回未校准；前程无忧真实简历更新属于后续阶段。架构、验收记录、包/SDK 规范在独立治理仓库 flow-ark 的 docs/templates；本仓库不读取父目录，契约已固定复制到 contracts。
 
+BOSS 的可视化制作检查点位于 `templates/boss-job-search/authoring/login-checkpoint/boss-job-search-0.1.1.flowark-template.zip`，名称明确为“制作中”。这是客户端原始导出，`package/`为逐字节相同的可审阅内容；流程不能在仓库手改后冒充客户端制作。三个小脚本只整理只读观察、登记本人待办及返回结果，网页读取和条件分流由独立可视化节点完成。原有适配检查包继续保留，不代表完整新模板已经交付。
+
+导入并创建实例后，只需为两个手动入口绑定同一个“BOSS 求职者会话浏览器”。“打开指定 BOSS 起点”访问用户指定城市页；该地址不替代使用者的期望城市。“核对当前页面（只读）”读取前后网址与标题，核对地址一致，再分流为需要本人登录、账号尚待核验或站点不匹配，保存本地待办后结束运行。它不以网址或页面打开成功认定求职者身份，也不等待扫码、发送短信验证码或接受网站协议。
+
+本检查点无需 AI Key，不调用模型，没有投递、简历发送、聊天或“不感兴趣”动作；这些后续入口仍需完成真实账号/JD校准及明确权限。真实模型调用继续使用使用者自己的 Key，不使用开发者共享额度。仓库已固定采用 `contracts-v0.25.0`；格式/来源校验不等于登录、招聘或完整蒸馏验收。
+
 安装版测试会临时隐藏模板源码目录，使用复制到临时目录的正式 ZIP，经公共 IPC 验证文件、多入口、完整表单提交／附件／回执及重开；不访问真实招聘账号。可选真实 AI 验证需显式设置 `FLOWARK_TEST_ENCRYPTED_CREDENTIAL` 为本机 DeepSeek 加密凭据文件路径，并设置 `FLOWARK_TEST_AI_MODEL` 为用户选择的模型。凭据只临时复制到隔离数据目录，结束后删除；不在命令行传明文 Key。
 
 个人蒸馏模板正在通过客户端制作：公开规程与固定来源位于 `templates/personal-distillation/authoring`，nuwa 上游快照与许可位于 `vendor/nuwa-skill`。这些资料尚不是完整可用模板；正式流程须由客户端可视化编排并导出后纳入，不从源码生成业务大脚本代替。当前 UI/UE 阶段保留既有测试，暂不新增或运行单元测试。

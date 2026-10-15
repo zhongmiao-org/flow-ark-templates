@@ -73,5 +73,30 @@
         "node": "n_58af03d2"
       }
     ]
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/login-checkpoint/boss-job-search-0.1.1.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/login-checkpoint/package",
+    "sha256": "ab86c5753b22e10a9c2f0d70f7cc953a3c8ed8c1d32f5aa027036f69a95a64ab",
+    "contentDigest": "2bbc4d55f1fbc7af658c383baf500735d8e848443eb7d6f58811ed8dbe5c5aa7",
+    "status": "in-progress",
+    "scope": "Client-authored browser-only BOSS opening and current-page preflight; login and account remain human verification; no application or chat actions",
+    "scriptSources": [
+      {
+        "source": "templates/boss-job-search/authoring/classify-page.ts",
+        "file": "scripts/author/preflight/n_bb9ceca5.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-login.ts",
+        "file": "scripts/author/preflight/n_7aac6071.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-unverified.ts",
+        "file": "scripts/author/preflight/n_9daec46d.js",
+        "loader": "ts"
+      }
+    ]
   }
 ]
