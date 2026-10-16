@@ -123,5 +123,45 @@
         "loader": "ts"
       }
     ]
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/conditions-checkpoint/boss-job-search-0.1.3.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/conditions-checkpoint/package",
+    "sha256": "239042d0a292ebb3aa079d3a5b4c7e067458065dd6b3d126ffdd0f2fbb533f00",
+    "contentDigest": "4033c193c21729fff8006212e2885c4ef2aa23597ac802e1adb9bd4921a34cd8",
+    "status": "in-progress",
+    "scope": "Client-authored neutral job-preference configuration and standalone read-only consistency check; no browser or AI needed for conditions; existing login-gate flows unchanged; no recruiting actions",
+    "scriptSources": [
+      {
+        "source": "templates/boss-job-search/authoring/classify-page-v2.ts",
+        "file": "scripts/author/preflight/n_bb9ceca5.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-login.ts",
+        "file": "scripts/author/preflight/n_7aac6071.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-unverified.ts",
+        "file": "scripts/author/preflight/n_9daec46d.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/check-conditions.ts",
+        "file": "scripts/author/conditions/n_70c234d1.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conditions-ready.ts",
+        "file": "scripts/author/conditions/n_888b575d.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conditions-review.ts",
+        "file": "scripts/author/conditions/n_e5c83f60.js",
+        "loader": "ts"
+      }
+    ]
   }
 ]
