@@ -163,5 +163,60 @@
         "loader": "ts"
       }
     ]
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/profile-sources-checkpoint/boss-job-search-0.1.4.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/profile-sources-checkpoint/package",
+    "sha256": "ba5f13f013c8354102dc89dbc3cc2ff3b4465fddc26af51d8d9daebcf437a45e",
+    "contentDigest": "a758a5a37d45719b6dd4aaea485357d0b4f0c46686ece24c709300b4cc2a4b03",
+    "status": "in-progress",
+    "scope": "Client-authored explicit résumé file and fixed confirmed Skill source check; no model, account verification, fact matching or recruiting actions",
+    "scriptSources": [
+      {
+        "source": "templates/boss-job-search/authoring/classify-page-v2.ts",
+        "file": "scripts/author/preflight/n_bb9ceca5.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-login.ts",
+        "file": "scripts/author/preflight/n_7aac6071.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-unverified.ts",
+        "file": "scripts/author/preflight/n_9daec46d.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/check-conditions.ts",
+        "file": "scripts/author/conditions/n_70c234d1.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conditions-ready.ts",
+        "file": "scripts/author/conditions/n_888b575d.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conditions-review.ts",
+        "file": "scripts/author/conditions/n_e5c83f60.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/source-summary.ts",
+        "file": "scripts/author/profile-sources/n_ba7226ce.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/sources-ready.ts",
+        "file": "scripts/author/profile-sources/n_d5d8705e.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/sources-review.ts",
+        "file": "scripts/author/profile-sources/n_00b866de.js",
+        "loader": "ts"
+      }
+    ]
   }
 ]
