@@ -45,3 +45,7 @@ BOSS 的可视化制作检查点位于 `templates/boss-job-search/authoring/logi
 0.1.3客户端原始检查点位于`templates/boss-job-search/authoring/conditions-checkpoint/boss-job-search-0.1.3.flowark-template.zip`，新增共享求职条件和无资源依赖的独立一致性核对入口，README随包公开。初始空条件会通知本人，格式通过不代表JD匹配或发送授权；没有模型调用或招聘动作。三个新增TS源与原始导出编译字节核对，旧网页流程不改。本批仍为制作检查点，完整账号/JD/会话、个人Skill/自有Key和外发回执继续验收。
 
 0.1.4客户端原始检查点位于`templates/boss-job-search/authoring/profile-sources-checkpoint/boss-job-search-0.1.4.flowark-template.zip`。新增独立只读入口，明确选择简历相对文件和已注册固定确认Skill，保存来源摘要；空或部分提取登记本人待办。此入口只需自己的资料目录与Skill，浏览器可未绑定，不调用模型。来源就绪不表示同一身份、事实一致、完整JD、模型采用或招聘授权通过。三个新增TS编译来源与原始ZIP逐字节核对，前三个流程原样保留；真实个人蒸馏、完整匹配和外发仍待验收。
+
+0.1.5客户端原始检查点位于`templates/boss-job-search/authoring/jd-assessment-checkpoint/boss-job-search-0.1.5.flowark-template.zip`。新增十二步JD方向建议入口：固定共享配置、明确JD输入及完整性声明、固定确认Skill、自有AI服务、原句/规则核对和match/mismatch/review分支；缺口或不确定登记本人待办。配置自己的profile和ai资源，其他四入口保持原资源要求。来源备注不是实际账号/会话核验，明确符合仅准备草稿，明确不符合仅准备独立不感兴趣建议；当前不执行投递、简历发送、回复或不感兴趣动作。
+
+公开规程、四份小脚本及输出Schema分别供审阅；原ZIP与逐字节提取资产来自客户端，未生成或手改流程JSON。缺Key/未确认Skill阻止运行；真实模型判断、同键运行行为、登录后完整JD关联及完整业务仍待验收。公开默认JD为空、完整性为false，不携带作者的简历、Key、Skill或本机绑定。
