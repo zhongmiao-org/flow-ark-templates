@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "intent": {
+      "type": "string",
+      "enum": [
+        "greeting",
+        "introduction",
+        "resume-fact",
+        "technical",
+        "resume-request",
+        "interview",
+        "identity",
+        "commitment",
+        "review"
+      ]
+    },
+    "draft": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 800
+    },
+    "facts": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 500
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    }
+  },
+  "required": [
+    "intent",
+    "draft",
+    "reason",
+    "facts",
+    "unknowns",
+    "conflicts"
+  ],
+  "additionalProperties": false
+}
