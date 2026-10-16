@@ -49,3 +49,5 @@ BOSS 的可视化制作检查点位于 `templates/boss-job-search/authoring/logi
 0.1.5客户端原始检查点位于`templates/boss-job-search/authoring/jd-assessment-checkpoint/boss-job-search-0.1.5.flowark-template.zip`。新增十二步JD方向建议入口：固定共享配置、明确JD输入及完整性声明、固定确认Skill、自有AI服务、原句/规则核对和match/mismatch/review分支；缺口或不确定登记本人待办。配置自己的profile和ai资源，其他四入口保持原资源要求。来源备注不是实际账号/会话核验，明确符合仅准备草稿，明确不符合仅准备独立不感兴趣建议；当前不执行投递、简历发送、回复或不感兴趣动作。
 
 公开规程、四份小脚本及输出Schema分别供审阅；原ZIP与逐字节提取资产来自客户端，未生成或手改流程JSON。缺Key/未确认Skill阻止运行；真实模型判断、同键运行行为、登录后完整JD关联及完整业务仍待验收。公开默认JD为空、完整性为false，不携带作者的简历、Key、Skill或本机绑定。
+
+BOSS 0.1.8 来信草稿检查点由客户端可视化复用JD编排并扩为16步后原始导出，六入口并存。普通事实/介绍/技术交流形成内部草稿，索要简历/正式题目/身份质疑/承诺或不确定交本人，来源与动作边界显式保留。来信默认空、未完整、接管中；最多两次用户自己的Key请求，不发送消息/附件，不代表真实账号会话或完整业务已验收。原始ZIP与48文件位于 `templates/boss-job-search/authoring/message-draft-checkpoint/`，TS/Schema来源由validate重新编译和核对；个人资料与绑定不进入包。0.1.6/0.1.7为本机未发布候选，修正名称、说明及独立导入发现的中文表单后，按版本不可变规则升至0.1.8，未覆盖旧候选。
