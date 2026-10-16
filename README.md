@@ -43,3 +43,5 @@ BOSS 的可视化制作检查点位于 `templates/boss-job-search/authoring/logi
 `update-prepare.ts`、`update-apply.ts`和两份Schema是公开审阅来源；流程节点通过客户端添加、映射、核对带回并导出，`package/`仍为原ZIP的逐字节提取文件。校验核对全部三个映射脚本的编译字节及两个AI节点的格式，未执行模型或重建业务ZIP。真实自有Key补充访谈、单处变化、外部修改冲突、本人确认及完整G3/BOSS验收仍待完成。
 
 0.1.3客户端原始检查点位于`templates/boss-job-search/authoring/conditions-checkpoint/boss-job-search-0.1.3.flowark-template.zip`，新增共享求职条件和无资源依赖的独立一致性核对入口，README随包公开。初始空条件会通知本人，格式通过不代表JD匹配或发送授权；没有模型调用或招聘动作。三个新增TS源与原始导出编译字节核对，旧网页流程不改。本批仍为制作检查点，完整账号/JD/会话、个人Skill/自有Key和外发回执继续验收。
+
+0.1.4客户端原始检查点位于`templates/boss-job-search/authoring/profile-sources-checkpoint/boss-job-search-0.1.4.flowark-template.zip`。新增独立只读入口，明确选择简历相对文件和已注册固定确认Skill，保存来源摘要；空或部分提取登记本人待办。此入口只需自己的资料目录与Skill，浏览器可未绑定，不调用模型。来源就绪不表示同一身份、事实一致、完整JD、模型采用或招聘授权通过。三个新增TS编译来源与原始ZIP逐字节核对，前三个流程原样保留；真实个人蒸馏、完整匹配和外发仍待验收。
