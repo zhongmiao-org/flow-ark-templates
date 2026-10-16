@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": [
+        "match",
+        "mismatch",
+        "review"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 800
+    },
+    "targetRole": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "quotes": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 500
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    }
+  },
+  "required": [
+    "decision",
+    "reason",
+    "targetRole",
+    "quotes",
+    "unknowns",
+    "conflicts"
+  ],
+  "additionalProperties": false
+}

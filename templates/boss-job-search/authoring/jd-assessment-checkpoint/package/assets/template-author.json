@@ -1,0 +1,1 @@
+{"bindings":[{"entryId":"job-assessment","field":"instructions","nodeId":"n_86f9736c","promptId":"jd-assessment"}],"prompts":[{"id":"jd-assessment","name":"JD与求职方向三路评估","path":"prompts/jd-assessment.md"}],"version":1}
