@@ -594,5 +594,67 @@
         "node": "n_d596ea4f"
       }
     ]
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/multi-materials-checkpoint/personal-distillation-0.5.1.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/multi-materials-checkpoint/package",
+    "sha256": "9ec2b05c897b00de483e565ff27b7d8f8ab7613461b98c65f75ab14a5cd728d5",
+    "contentDigest": "0435c8874a23cbcdab07ea2eda5cec78cdba90754ba17e448796a7eab86c21a7",
+    "status": "in-progress",
+    "scope": "Native multi-material array, ordered document loop, aggregate budgets, guided interview and complete sources in pending Skill; real user Key/confirmation and full BOSS remain unverified",
+    "scriptSources": [
+      {
+        "source": "templates/personal-distillation/authoring/update-prepare.ts",
+        "file": "scripts/author/update/n_c3ac3171.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/update-apply.ts",
+        "file": "scripts/author/update/n_3ba4cd8e.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/files-prepare.ts",
+        "file": "scripts/author/materials/n_1020574c.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/documents-collect.ts",
+        "file": "scripts/author/materials/n_223d1098.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/materials-result.ts",
+        "file": "scripts/author/materials/n_9348f052.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/files-prepare.ts",
+        "file": "scripts/author/interview/n_137c897c.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/documents-collect.ts",
+        "file": "scripts/author/interview/n_21d1071a.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/multi-source-evidence.ts",
+        "file": "scripts/author/interview/n_d1d422e5.js",
+        "loader": "ts"
+      }
+    ],
+    "nodeSchemas": [
+      {
+        "source": "templates/personal-distillation/authoring/profile-output.schema.json",
+        "entry": "interview",
+        "node": "n_ce29c164"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/update-output.schema.json",
+        "entry": "update",
+        "node": "n_58af03d2"
+      }
+    ]
   }
 ]
