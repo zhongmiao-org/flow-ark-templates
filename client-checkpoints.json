@@ -813,5 +813,67 @@
         "node": "n_d596ea4f"
       }
     ]
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/directory-default-checkpoint/personal-distillation-0.5.2.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/directory-default-checkpoint/package",
+    "sha256": "b0389ec581e99f733d157cc9ae42bfd480913effb7f5f19842290022683da231",
+    "contentDigest": "11a535b8f599dc561b0c40744c4bf9cc886080fe3d03ce1a4916609df1fd4c76",
+    "status": "in-progress",
+    "scope": "Native client fork of exact 0.5.1, version 0.5.2: workspace defaults from materials. Independent native reimport/default/manual override/clear/save/reopen verified; three flows/prompts/schemas/scripts unchanged. No real own-Key, user confirmation or full business acceptance.",
+    "scriptSources": [
+      {
+        "source": "templates/personal-distillation/authoring/update-prepare.ts",
+        "file": "scripts/author/update/n_c3ac3171.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/update-apply.ts",
+        "file": "scripts/author/update/n_3ba4cd8e.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/files-prepare.ts",
+        "file": "scripts/author/materials/n_1020574c.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/documents-collect.ts",
+        "file": "scripts/author/materials/n_223d1098.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/materials-result.ts",
+        "file": "scripts/author/materials/n_9348f052.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/files-prepare.ts",
+        "file": "scripts/author/interview/n_137c897c.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/documents-collect.ts",
+        "file": "scripts/author/interview/n_21d1071a.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/multi-source-evidence.ts",
+        "file": "scripts/author/interview/n_d1d422e5.js",
+        "loader": "ts"
+      }
+    ],
+    "nodeSchemas": [
+      {
+        "source": "templates/personal-distillation/authoring/profile-output.schema.json",
+        "entry": "interview",
+        "node": "n_ce29c164"
+      },
+      {
+        "source": "templates/personal-distillation/authoring/update-output.schema.json",
+        "entry": "update",
+        "node": "n_58af03d2"
+      }
+    ]
   }
 ]
