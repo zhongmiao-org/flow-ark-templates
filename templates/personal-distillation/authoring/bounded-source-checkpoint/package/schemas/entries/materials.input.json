@@ -1,0 +1,1 @@
+{"additionalProperties":false,"properties":{"files":{"default":[],"description":"逐项填写materials目录中的明确相对文件名，按清单顺序解析；不扫描仓库。1–10份，合计最多50,000字符/192KiB上下文。","items":{"maxLength":1000,"minLength":1,"title":"相对文件名","type":"string"},"maxItems":10,"minItems":1,"title":"所选简历与项目资料","type":"array","uniqueItems":true}},"required":["files"],"type":"object"}
