@@ -1,3 +1,6 @@
+import { assertSourceReductionNode } from './source-reduction';
+import { assertConversationSourceNode } from './conversation-source';
+import { assertContinuousConversationCapabilities } from './continuous-conversation';
 /** Normative author definitions and optional portable metadata, contracts 0.31.0. */
 import { assertDirectoryDefaults } from './directory-defaults';
 import { assertAIOutcomeCapabilities } from './ai-outcome';
@@ -112,14 +115,24 @@ export function validateAuthorDefinition(value: unknown): any {
     for (const id of entry.actionIds)
       if (!d.actions.some((a: any) => a.id === id)) throw Error('入口引用未知动作：' + id);
     const steps = nodes(entry.flow.steps);
-    for (const node of steps) assertAIOutcomeCapabilities(node, entry.flow.requiredCapabilities);
+    for (const node of steps) {
+      assertAIOutcomeCapabilities(node, entry.flow.requiredCapabilities);
+      assertContinuousConversationCapabilities(node, entry.flow.requiredCapabilities);
+      assertConversationSourceNode(node, entry.flow.requiredCapabilities, d, { capabilities: entry.flow.requiredCapabilities, resources: entry.resourceIds });
+      assertSourceReductionNode(node, entry.flow.requiredCapabilities, d, { capabilities: entry.flow.requiredCapabilities, resources: entry.resourceIds });
+      if (node.type === 'conversation' && node.version === 2) {
+        const r = d.resources.find((r: any) => r.id === node.binding);
+        if (!entry.resourceIds.includes(node.binding) || r?.kind !== 'ai' || r.access !== 'use')
+          throw Error('持续会话作者入口未声明自己的ai/use资源');
+      }
+    }
     unique(steps.map((n: any) => n.id), '入口节点');
     unique(entry.promptBindings.map((b: any) => b.nodeId), '入口提示词目标');
     for (const binding of entry.promptBindings) {
       if (++bindings > AUTHOR_LIMITS.bindings) throw Error('提示词绑定总数超限');
       const prompt = d.prompts.find((p: any) => p.id === binding.promptId);
       const n = steps.find((n: any) => n.id === binding.nodeId);
-      if (!prompt || !n || !['ai', 'conversation'].includes(n.type) ||
+      if (!prompt || !n || !['ai', 'conversation', 'source-reduce'].includes(n.type) ||
         n.instructions !== authorPromptMarker(prompt.id))
         throw Error('提示词绑定或正文标记不一致：' + entry.id + '/' + binding.nodeId);
     }
@@ -174,7 +187,7 @@ export function validateAuthorMetadata(
       entries.set(entry.id, nodes(JSON.parse(utf8(flow)).steps));
     }
     const node = entries.get(entry.id)!.find((n) => n.id === binding.nodeId);
-    if (!node || !['ai', 'conversation'].includes(node.type) ||
+    if (!node || !['ai', 'conversation', 'source-reduce'].includes(node.type) ||
       node.instructions !== prompts.get(binding.promptId))
       throw Error('公开提示词原文与步骤不一致：' + binding.entryId + '/' + binding.nodeId);
   }

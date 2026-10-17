@@ -875,5 +875,19 @@
         "node": "n_58af03d2"
       }
     ]
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/complete-source-checkpoint/personal-distillation-0.6.0.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/complete-source-checkpoint/package",
+    "sha256": "3ab953f7ae9de465f45328c03bb644a266367a6c347f4a9656be35c52c5cab7f",
+    "contentDigest": "73231dd2b0f856637ed5d94b7b86bd220b393042e7633be405b34e211baab579",
+    "status": "原生修订11导出/复导、新实例初始解绑；独立Runtime/Worker受控10条来源分2批后仅创建草稿；本人Key整理已启动，未确认/写出；客户端PR301因计费未合并",
+    "scriptSources": [
+      {
+        "source": "templates/personal-distillation/authoring/complete-source-result.ts",
+        "file": "scripts/author/distill/n_b960818f.js",
+        "loader": "ts"
+      }
+    ]
   }
 ]
