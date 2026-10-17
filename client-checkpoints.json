@@ -881,7 +881,21 @@
     "directory": "templates/personal-distillation/authoring/complete-source-checkpoint/package",
     "sha256": "3ab953f7ae9de465f45328c03bb644a266367a6c347f4a9656be35c52c5cab7f",
     "contentDigest": "73231dd2b0f856637ed5d94b7b86bd220b393042e7633be405b34e211baab579",
-    "status": "原生修订11导出/复导、新实例初始解绑；独立Runtime/Worker受控10条来源分2批后仅创建草稿；本人Key整理已启动，未确认/写出；客户端PR301因计费未合并",
+    "status": "UI原始导出/复导、独立受控运行通过；本人真实4次请求85,591 token，前三片段采用，第四输出长度受限未推进；旧任务保持，无Skill发布",
+    "scriptSources": [
+      {
+        "source": "templates/personal-distillation/authoring/complete-source-result.ts",
+        "file": "scripts/author/distill/n_b960818f.js",
+        "loader": "ts"
+      }
+    ]
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/bounded-source-checkpoint/personal-distillation-0.6.1.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/bounded-source-checkpoint/package",
+    "sha256": "28fc5be80fd6a5408cb7ac9c9ea1c5835c1e1edbbcb02264d4f1f97af5181874",
+    "contentDigest": "6d5f670403a2a5a3afd43e297ac016cbb27759af8c3b26b6018f9c7e916871ba",
+    "status": "原生修订13导出/复导、新实例初始解绑，独立Runtime/Worker受控10条来源分2批后仅草稿；本人22次来源新任务已启动，最终覆盖/确认待核对",
     "scriptSources": [
       {
         "source": "templates/personal-distillation/authoring/complete-source-result.ts",
