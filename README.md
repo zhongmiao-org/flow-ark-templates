@@ -14,6 +14,12 @@ FLOWARK_TEST_EXECUTABLE=/Applications/FlowArk.app/Contents/MacOS/FlowArk pnpm te
 
 正常模板制作通过客户端编排、资源/字段/公开规程维护、调试和标准ZIP导出完成；使用者通过客户端导入、配置和运行。`templates/<id>/authoring/*-checkpoint`保留原始UI导出及逐字节解包，不能手改归档或流程定义代替普通使用路径。`template.json`、源码和旧构建样例用于开发调试与高阶配置；正式包不包含测试、模拟网站和本机资料。构建器验证大小、Schema、入口及所有文件摘要，固定生成调试样例，原始UI检查点只读核验、不重生成。资源由SDK获取；普通Node可信脚本不是系统级沙箱。
 
+BOSS 当前只读预检检查点为 `templates/boss-job-search/authoring/associated-preflight-checkpoint/boss-job-search-0.2.5.flowark-template.zip`，从准确 0.2.4 在客户端复制制作，修订 5 原始导出。五步预检在同一次 DOM 采集中关联网址、标题与明确正文登录提示，再分类、条件分流和登记本人待办；其余六个入口与公开规程保持原字节。`package/` 是同一 ZIP 的精确提取，`classify-associated-page.ts` 是 UI 维护的脚本来源，校验时编译比对导出字节，不重生成业务包。
+
+普通使用者导入、安装、创建实例后，为只读预检和打开起点两个入口绑定自己的内置浏览器或 Chrome 即可，无需 AI Key、个人资料或状态写权限。独立空白原生工作区已实际完成公开城市页、登录页和正文登录遮挡职位页的只读运行；城市页转账号待核验，另两页转本人登录待办。同类登录提醒去重，正常重开保留四条已完成运行和两条待办、记录摘要不变。定位缺失不证明完整 JD 或账号身份；不唯一/不完整转人工核对，导航、根定位和预算等故障停止且不自动重试。Firefox/Safari 当前明确阻止关联采集，不切换驱动。未登录，未调用模型或执行招聘动作，完整个人 Skill、账号/会话、onmessage 和外发验收继续独立进行。
+
+当前开发契约固定采用已发布 `contracts-v0.38.0`（121 份机器文件及摘要清单），治理基线 `17d7aa5cbfd7d3616a730e19d4324c4bbb5749d3`。独立克隆可校验和构建，不读取父目录；下列旧版本检查点的采用版本和验收描述保留为历史。
+
 原 BOSS/智联业务模块与测试位于 templates/recruiting，两个适配检查包明确返回未校准；前程无忧真实简历更新属于后续阶段。架构、验收记录、包/SDK 规范在独立治理仓库 flow-ark 的 docs/templates；本仓库不读取父目录，契约已固定复制到 contracts。
 
 个人完整来源更新的0.7.0检查点位于`templates/personal-distillation/authoring/complete-update-checkpoint/personal-distillation-0.7.0.flowark-template.zip`，原生UI制作修订6导出，34份原样文件。四入口中的update替换旧局部结构：先读取本人所选固定父版本、核对分类文本格式，把准确引用与父内容固定为初始输入，再以自己的Key分批处理完整补充来源；全部覆盖后才保存逐项更新建议，无关手工字段保持。用户在界面核对采纳和最终保存，旧版本与BOSS绑定不自动替换。普通使用不编辑JSON或填写会话ID；README列明不支持结构、未知、预算、恢复和权限边界。
