@@ -1060,5 +1060,19 @@
         "node": "n_d596ea4f"
       }
     ]
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/public-guide-checkpoint/personal-distillation-0.6.2.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/public-guide-checkpoint/package",
+    "sha256": "04a335cfab55b37a1cbca2871fc88acef3a05faedba4b6d97ee122ad7e76bf55",
+    "contentDigest": "23037f71477e0ed6f2e1c643b9bc180660384b1e2046e9a469f43f225057c96a",
+    "status": "in-progress",
+    "scriptSources": [
+      {
+        "source": "templates/personal-distillation/authoring/complete-source-result.ts",
+        "file": "scripts/author/distill/n_b960818f.js",
+        "loader": "ts"
+      }
+    ]
   }
 ]
