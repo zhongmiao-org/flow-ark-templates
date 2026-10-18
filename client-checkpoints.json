@@ -1238,5 +1238,172 @@
         "node": "n_d596ea4f"
       }
     ]
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/web-jd-source-checkpoint/boss-job-search-0.2.6.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/web-jd-source-checkpoint/package",
+    "sha256": "d5c415b3d8b35dbd6a0a9e89cc6ae3238b5d913674fd0d3706e6815b6c7c2f29",
+    "contentDigest": "d0f2ed680cc63dd3ba13fc5d98397199ab411b3961eccb70ce461cdca0b02829",
+    "status": "client-native-web-jd-source-checkpoint-not-full-body-or-business-acceptance",
+    "scope": "Client-authored associated DOM preflight; independent empty native UI install, public city/login/gated-job and normal reopen observed; no account, own-Key model, onmessage or recruiting action acceptance",
+    "scriptSources": [
+      {
+        "source": "templates/boss-job-search/authoring/notify-login.ts",
+        "file": "scripts/author/preflight/n_7aac6071.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/notify-unverified.ts",
+        "file": "scripts/author/preflight/n_9daec46d.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/check-conditions.ts",
+        "file": "scripts/author/conditions/n_70c234d1.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conditions-ready.ts",
+        "file": "scripts/author/conditions/n_888b575d.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conditions-review.ts",
+        "file": "scripts/author/conditions/n_e5c83f60.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/source-summary.ts",
+        "file": "scripts/author/profile-sources/n_ba7226ce.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/sources-ready.ts",
+        "file": "scripts/author/profile-sources/n_d5d8705e.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/sources-review.ts",
+        "file": "scripts/author/profile-sources/n_00b866de.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-prepare.ts",
+        "file": "scripts/author/job-assessment/n_22f52238.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-normalize-v2.ts",
+        "file": "scripts/author/job-assessment/n_2d0a046c.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-review.ts",
+        "file": "scripts/author/job-assessment/n_60242c2b.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-save.ts",
+        "file": "scripts/author/job-assessment/n_124dba53.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-save.ts",
+        "file": "scripts/author/job-assessment/n_dd293c99.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-review.ts",
+        "file": "scripts/author/job-assessment/n_bfb208ae.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conversation-control-checkpoint/message-prepare-v3.ts",
+        "file": "scripts/author/message-draft/n_22f52238.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conversation-control-checkpoint/jd-normalize-control.ts",
+        "file": "scripts/author/message-draft/n_2d0a046c.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-review.ts",
+        "file": "scripts/author/message-draft/n_60242c2b.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-save.ts",
+        "file": "scripts/author/message-draft/n_dd293c99.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/message-review.ts",
+        "file": "scripts/author/message-draft/n_bfb208ae.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conversation-control-checkpoint/message-normalize-v3.ts",
+        "file": "scripts/author/message-draft/n_adc66c1e.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/message-review.ts",
+        "file": "scripts/author/message-draft/n_5447c54f.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-save.ts",
+        "file": "scripts/author/message-draft/n_e46dfa6e.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conversation-control-checkpoint/control-prepare.ts",
+        "file": "scripts/author/conversation-control/n_d1a1db47.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conversation-control-checkpoint/control-result.ts",
+        "file": "scripts/author/conversation-control/n_25cdcbf0.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/conversation-control-checkpoint/control-result.ts",
+        "file": "scripts/author/conversation-control/n_4feb36ab.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/classify-associated-page.ts",
+        "file": "scripts/author/preflight/n_bb9ceca5.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/web-jd-source.ts",
+        "file": "scripts/author/web-jd-source/n_b6b29ad6.js",
+        "loader": "ts"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/save-web-jd-source.ts",
+        "file": "scripts/author/web-jd-source/n_e5995039.js",
+        "loader": "ts"
+      }
+    ],
+    "nodeSchemas": [
+      {
+        "source": "templates/boss-job-search/authoring/jd-output.schema.json",
+        "entry": "job-assessment",
+        "node": "n_86f9736c"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/jd-output.schema.json",
+        "entry": "message-draft",
+        "node": "n_86f9736c"
+      },
+      {
+        "source": "templates/boss-job-search/authoring/message-output.schema.json",
+        "entry": "message-draft",
+        "node": "n_d596ea4f"
+      }
+    ]
   }
 ]
