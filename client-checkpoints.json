@@ -1074,5 +1074,12 @@
         "loader": "ts"
       }
     ]
+  },
+  {
+    "archive": "templates/personal-distillation/authoring/complete-update-checkpoint/personal-distillation-0.7.0.flowark-template.zip",
+    "directory": "templates/personal-distillation/authoring/complete-update-checkpoint/package",
+    "sha256": "39157219de2b30b1c34298b573b8e47d1363d3842c638271d77d4859fc6c5081",
+    "contentDigest": "356d808919571a828daa695eb088d07f7dbf9937e556eaa6f772478a40e0ab62",
+    "status": "native-ui-complete-update-checkpoint"
   }
 ]
