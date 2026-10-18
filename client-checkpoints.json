@@ -1864,5 +1864,12 @@
         "node": "n_f1d80eef"
       }
     ]
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/reply-readiness-checkpoint/boss-job-search-0.2.13.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/reply-readiness-checkpoint/package",
+    "sha256": "97dc89a8e63c85f46525d0bbbe513a7301a4f99e6553be26ed3536f9ee64160d",
+    "contentDigest": "bdc0635f479d823a3274046026af78455ad036f3c37b36f7bb96551cf0cb2cee",
+    "status": "原生UI制作/独立复导的十一入口检查点；只读回复门槛，无预留/状态写/发送；账号、来源绑定和真实业务未验收"
   }
 ]
