@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "conflicts": {
+      "items": {
+        "maxLength": 500,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10,
+      "title": "尚未解决的冲突",
+      "type": "array"
+    },
+    "decision": {
+      "enum": [
+        "match",
+        "mismatch",
+        "review"
+      ],
+      "type": "string"
+    },
+    "quotes": {
+      "items": {
+        "maxLength": 500,
+        "minLength": 2,
+        "type": "string"
+      },
+      "maxItems": 3,
+      "title": "JD原句依据",
+      "type": "array"
+    },
+    "reason": {
+      "maxLength": 800,
+      "minLength": 1,
+      "title": "评估理由",
+      "type": "string"
+    },
+    "targetRole": {
+      "maxLength": 100,
+      "title": "明确目标职位",
+      "type": "string"
+    },
+    "unknowns": {
+      "items": {
+        "maxLength": 500,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10,
+      "title": "待确认的未知条件",
+      "type": "array"
+    }
+  },
+  "required": [
+    "decision",
+    "reason",
+    "targetRole",
+    "quotes",
+    "unknowns",
+    "conflicts"
+  ],
+  "type": "object"
+}
