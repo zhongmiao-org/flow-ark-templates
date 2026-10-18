@@ -57,3 +57,6 @@ BOSS 0.1.11 原生检查点位于 `templates/boss-job-search/authoring/ai-failur
 BOSS 0.2.1 原生七入口检查点位于 `templates/boss-job-search/authoring/conversation-control-checkpoint/`。新增无需模型/浏览器/Skill的独立会话控制入口，按显式账号与会话来源键隔离，默认暂停与状态写动作deny；核对最新JD/来信和配置修订后仅恢复内部草稿。来信入口在模型前、两次模型之间和草稿后读取持久状态，变化则转本人，重复同范围控制不改写状态。控制入口按当前单运行槽排队，不能立即打断在途模型；需先取消当前Run并核对结束，再执行暂停。0.2.0为本机未发布候选，补充此限制后原生递增0.2.1，原ZIP及精确提取文件均未手改。受控Runtime/Worker与原生消费证据在治理仓库分别记录，真实Key、账号来源、完整onmessage及外发仍未验收。
 
 个人 0.5.2 原生检查点位于 `templates/personal-distillation/authoring/directory-default-checkpoint/`。通过客户端从准确 0.5.1 复制制作，为 workspace 声明默认 materials 并维护公开说明，再导出原始 ZIP；三个流程、Schema、提示词和脚本字节保持。选择资料目录时默认填入 Skill 工作区，可另选或清除，明确保存后成为独立绑定；已有保存值不随来源修改。公开包不携带作者本机路径，需要支持目录默认来源的客户端（契约 0.31.0）；模型仍使用本人配置的 Key，Skill 仍需本人确认后保存。独立原生复导与正常重开取得局部证据，真实 Key/本人确认与完整业务继续验收。
+
+
+个人 0.6.2 原生检查点位于 `templates/personal-distillation/authoring/public-guide-checkpoint/`。通过客户端从准确0.6.1复制，仅将资源改为“简历与项目资料”“本人 AI 服务”“Skill 保存目录”“已确认个人 Skill”，并在包内README明确没有补充时固定完整来源、按结果核对0/1/N调用上限、采用已保存响应及同次确认恢复。原始ZIP与逐字节提取资料一并保存，四入口、提示词、Schema、脚本和作者元数据保持原字节；不是从源码重建导出包。使用者仍须配置自己的资料、AI与来源，最终Skill确认和完整业务分别验收。
