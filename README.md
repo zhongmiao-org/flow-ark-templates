@@ -12,9 +12,13 @@ FLOWARK_TEST_EXECUTABLE=/Applications/FlowArk.app/Contents/MacOS/FlowArk pnpm te
 
 包生成到 dist。模板库导入 → 安装 → 创建实例 → 配置 → 保存 → 运行入口。纯文件入口只需一个文本文件，多入口模板的离线检查无需 AI/浏览器。模型由用户绑定，测试不会使用真实简历。模板 scripts 在开发阶段静态打包；运行不安装依赖或浏览器。
 
-模板开发在 templates/<id>/template.json、package/、src/；正式包不包含测试、模拟网站和本机资料。构建器验证大小、Schema、入口、所有文件摘要，按固定顺序和时间戳生成 ZIP。包内内容只读；资源由 SDK 获取。普通 Node 可信脚本不是系统级沙箱。
+正常模板制作通过客户端编排、资源/字段/公开规程维护、调试和标准ZIP导出完成；使用者通过客户端导入、配置和运行。`templates/<id>/authoring/*-checkpoint`保留原始UI导出及逐字节解包，不能手改归档或流程定义代替普通使用路径。`template.json`、源码和旧构建样例用于开发调试与高阶配置；正式包不包含测试、模拟网站和本机资料。构建器验证大小、Schema、入口及所有文件摘要，固定生成调试样例，原始UI检查点只读核验、不重生成。资源由SDK获取；普通Node可信脚本不是系统级沙箱。
 
 原 BOSS/智联业务模块与测试位于 templates/recruiting，两个适配检查包明确返回未校准；前程无忧真实简历更新属于后续阶段。架构、验收记录、包/SDK 规范在独立治理仓库 flow-ark 的 docs/templates；本仓库不读取父目录，契约已固定复制到 contracts。
+
+个人完整来源更新的0.7.0检查点位于`templates/personal-distillation/authoring/complete-update-checkpoint/personal-distillation-0.7.0.flowark-template.zip`，原生UI制作修订6导出，34份原样文件。四入口中的update替换旧局部结构：先读取本人所选固定父版本、核对分类文本格式，把准确引用与父内容固定为初始输入，再以自己的Key分批处理完整补充来源；全部覆盖后才保存逐项更新建议，无关手工字段保持。用户在界面核对采纳和最终保存，旧版本与BOSS绑定不自动替换。普通使用不编辑JSON或填写会话ID；README列明不支持结构、未知、预算、恢复和权限边界。
+
+该原始ZIP已在独立空白原生工作区安装，资源初始全解绑；使用者选择自己的资料目录后Skill目录默认采用同一路径，正常重启保持，缺AI/父版本/完整来源仍禁运行。实际Runtime/Worker以全虚构父内容和来源、受控供应商传输并保留生产准入，核对两批完整覆盖后才有更新建议、原草稿默认保留、手工字段和字面$ref保持及旧结构在模型前停止。不是本人资料或真实API验收。机器资料固定采用已发布`contracts-v0.37.1`的118文件，原始归档/摘要/源码一致性由现有`pnpm validate`核对；本阶段不新增或运行单元测试。
 
 BOSS 的可视化制作检查点位于 `templates/boss-job-search/authoring/login-checkpoint/boss-job-search-0.1.1.flowark-template.zip`，名称明确为“制作中”。这是客户端原始导出，`package/`为逐字节相同的可审阅内容；流程不能在仓库手改后冒充客户端制作。三个小脚本只整理只读观察、登记本人待办及返回结果，网页读取和条件分流由独立可视化节点完成。原有适配检查包继续保留，不代表完整新模板已经交付。
 
