@@ -8,10 +8,10 @@
     "node": ">=24.3.0"
   },
   "flowark": {
-    "contractsVersion": "0.38.0",
+    "contractsVersion": "0.39.0",
     "sdkVersion": "1.0",
-    "governanceBaseline": "e8d391996bf07a41ff471d26e298c8a68d6fc2c5",
-    "contractsTag": "contracts-v0.38.0"
+    "governanceBaseline": "f86fed96957d472ccf8ec06476f21ab21a11f510",
+    "contractsTag": "contracts-v0.39.0"
   },
   "scripts": {
     "check": "pnpm validate && pnpm test && pnpm build",
