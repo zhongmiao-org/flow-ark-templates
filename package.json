@@ -10,7 +10,7 @@
   "flowark": {
     "contractsVersion": "0.39.0",
     "sdkVersion": "1.0",
-    "governanceBaseline": "f86fed96957d472ccf8ec06476f21ab21a11f510",
+    "governanceBaseline": "7165cb498f101745bc1838f32322af9a652172cb",
     "contractsTag": "contracts-v0.39.0"
   },
   "scripts": {
