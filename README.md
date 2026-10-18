@@ -14,7 +14,9 @@ FLOWARK_TEST_EXECUTABLE=/Applications/FlowArk.app/Contents/MacOS/FlowArk pnpm te
 
 正常模板制作通过客户端编排、资源/字段/公开规程维护、调试和标准ZIP导出完成；使用者通过客户端导入、配置和运行。`templates/<id>/authoring/*-checkpoint`保留原始UI导出及逐字节解包，不能手改归档或流程定义代替普通使用路径。`template.json`、源码和旧构建样例用于开发调试与高阶配置；正式包不包含测试、模拟网站和本机资料。构建器验证大小、Schema、入口及所有文件摘要，固定生成调试样例，原始UI检查点只读核验、不重生成。资源由SDK获取；普通Node可信脚本不是系统级沙箱。
 
-BOSS 当前只读预检检查点为 `templates/boss-job-search/authoring/associated-preflight-checkpoint/boss-job-search-0.2.5.flowark-template.zip`，从准确 0.2.4 在客户端复制制作，修订 5 原始导出。五步预检在同一次 DOM 采集中关联网址、标题与明确正文登录提示，再分类、条件分流和登记本人待办；其余六个入口与公开规程保持原字节。`package/` 是同一 ZIP 的精确提取，`classify-associated-page.ts` 是 UI 维护的脚本来源，校验时编译比对导出字节，不重生成业务包。
+BOSS 当前检查点为 `templates/boss-job-search/authoring/web-jd-source-checkpoint/boss-job-search-0.2.6.flowark-template.zip`，从准确 0.2.5 经客户端制作，修订 7 原始导出。新增仅需浏览器的三步网页 JD 来源入口：同次采集页面标题、明确登录提示、岗位与公司区标签，再分类并保存本地结果及去重待办。公司区文字不代表身份核验；本入口不读取正文或 Skill、不调用模型，完整网页正文与评估尚待接续。旧七入口及规程逐字节保持，README 明确新入口边界。`package/` 为同一 ZIP 精确提取，两个 TS 审阅来源编译后逐字节比对，不重生成业务包。
+
+独立空工作区通过 UI 导入、创建实例、缺浏览器禁运行、自选内置浏览器后，实际城市页转非职位页待办，真实职位登录遮挡转本人登录待办；明确重复运行保留首次来源和已读状态。正常重开四条 Run、两条待办及受保护记录保持，AI/Skill 未绑定、状态写禁止；这些证据仅证明本批来源检查。原 0.2.5 同次预检保留在 `templates/boss-job-search/authoring/associated-preflight-checkpoint/`。
 
 普通使用者导入、安装、创建实例后，为只读预检和打开起点两个入口绑定自己的内置浏览器或 Chrome 即可，无需 AI Key、个人资料或状态写权限。独立空白原生工作区已实际完成公开城市页、登录页和正文登录遮挡职位页的只读运行；城市页转账号待核验，另两页转本人登录待办。同类登录提醒去重，正常重开保留四条已完成运行和两条待办、记录摘要不变。定位缺失不证明完整 JD 或账号身份；不唯一/不完整转人工核对，导航、根定位和预算等故障停止且不自动重试。Firefox/Safari 当前明确阻止关联采集，不切换驱动。未登录，未调用模型或执行招聘动作，完整个人 Skill、账号/会话、onmessage 和外发验收继续独立进行。
 
