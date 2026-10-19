@@ -1927,5 +1927,12 @@
     "sha256": "13138b9de8140b8988b9cee4227571fc12c0d91e345ca6536de452a60f9c29ec",
     "contentDigest": "4d3d80f5132814a6224838d946784c703c41cb03c10a2d55ac4ab218fe6aed3d",
     "status": "客户端UI修订50原始导出；首次浏览节点设置五分钟有限期限，三项普通确认后的54步新正式实例一项北京JD文字/公司来源及返回复验通过。独立空工作区UI复导、空配置/资源解绑/六项动作禁止、0/20/1默认、缺资源阻止运行及正常重开通过；隐藏点击另有失败，完整条件/账号/个人Skill、去重投递回执/续批及网站150次弹框未验收。"
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/account-source-checkpoint/boss-job-search-0.2.23.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/account-source-checkpoint/package",
+    "sha256": "afc4c2fa9a2e788e307a8af5a33819f7acede982c99e035e4a0b370a219ec25f",
+    "contentDigest": "a72e9f0db5c61de273dadb96972d7c40de85bcfd2091df0a53671217b4e08d22",
+    "status": "Original client UI revision 59 export; 12-step account source entry and Chinese result labels. Existing 12 entry files unchanged. Readiness and source preparation verified; formal instance awaits the user, not confirmed. Independent empty-workspace reimport/reopen, post-confirmation/rejection/change matrix, result binding and daily integration remain unverified. No new model request or recruiting action; full Skill and real site daily-limit acceptance remain pending."
   }
 ]
