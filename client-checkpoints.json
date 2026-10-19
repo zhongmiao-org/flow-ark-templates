@@ -1892,5 +1892,12 @@
     "sha256": "958dc0ed71c200a39526babb9602facf372cc30d923a9b964157d0ab7d13d204",
     "contentDigest": "321c548ca87db0123b910cd88a69c7b3bbb67b4cfb34fb4da38f3fc8fb6b0743",
     "status": "原生UI修订28原始导出；真实两项不同候选读取、空工作区复导/默认缺配置停止及重开另验；本项详情/岗位城市/JD/账号、范围前后身份复验、投递与150次网站上限未验收"
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/candidate-detail-checkpoint/boss-job-search-0.2.17.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/candidate-detail-checkpoint/package",
+    "sha256": "cfddfdfd2201e44c63f1e8a65efc4fe0010b891de93c6b74d99dc5ec3bcb4940",
+    "contentDigest": "a9528240910af612a8f3e6aa05ddf3e5cb58fb4f74ffad0be8fd7d01a6e05b0b",
+    "status": "原生UI修订33原始导出；作者两项详情及受控等待失败停止、正式实例独立确认后两项详情/北京匹配、空工作区复导缺配置/重开通过；完整JD/账号/筛选、去重/投递/回执/续批及150次网站上限未验收"
   }
 ]
