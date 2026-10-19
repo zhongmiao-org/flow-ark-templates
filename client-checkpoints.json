@@ -1920,5 +1920,12 @@
     "sha256": "0304a8c1bccf945c3e9d792830ced30259199116775c403dccaf28a5a01774f9",
     "contentDigest": "97783178ad1c198b8c053065bc316542b99871a93083e4b1f67059aa5673afcf",
     "status": "客户端UI修订47原始导出；54步每日入口从通用起点自动按配置选城、两项只读详情及返回复验通过，缺正文通知跳过不计投递。独立空工作区UI复导、空城市职位、0/20/1默认、资源解绑与六项动作禁止、缺资源阻止启动及正常重开通过；正式实例正向、隐藏输入、完整条件账号/去重投递回执/续批及网站150次上限未验收。"
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/first-confirmation-checkpoint/boss-job-search-0.2.22.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/first-confirmation-checkpoint/package",
+    "sha256": "13138b9de8140b8988b9cee4227571fc12c0d91e345ca6536de452a60f9c29ec",
+    "contentDigest": "4d3d80f5132814a6224838d946784c703c41cb03c10a2d55ac4ab218fe6aed3d",
+    "status": "客户端UI修订50原始导出；首次浏览节点设置五分钟有限期限，三项普通确认后的54步新正式实例一项北京JD文字/公司来源及返回复验通过。独立空工作区UI复导、空配置/资源解绑/六项动作禁止、0/20/1默认、缺资源阻止运行及正常重开通过；隐藏点击另有失败，完整条件/账号/个人Skill、去重投递回执/续批及网站150次弹框未验收。"
   }
 ]
