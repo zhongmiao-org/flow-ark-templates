@@ -1884,6 +1884,6 @@
     "directory": "templates/boss-job-search/authoring/city-source-checkpoint/package",
     "sha256": "46c6a44fb50fcf2125ec31aa4a88e3ea87c07b4bcbd9986cdf7fb0fb4c01d550",
     "contentDigest": "685553afa515d843db6933406edaa5b09f9c4d87444987197dd11a546442b4e3",
-    "status": "原生UI修订24原始导出；每日入口按配置核对同次城市与岗位来源，作者正向/私有异常停止待办、空工作区复导缺配置及重开保持另验；正式正向、完整JD/账号、投递回执/续批及150次网站上限未验收"
+    "status": "原生UI修订24原始导出；作者正向/私有异常停止待办、空工作区复导缺配置与重开、正式实例自动选城及每日城市/岗位来源正向比对另验；完整停止矩阵、JD/账号、投递回执/续批及150次网站上限未验收"
   }
 ]
