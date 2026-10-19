@@ -1948,5 +1948,12 @@
     "sha256": "02a21776a64f632330d210a5c67b64ccdc9409af1914183fb65004ff25793321",
     "contentDigest": "86133a817715a0da4f295771452b4af60857545ee947e9ddc79c20458bf83f20",
     "status": "Original client UI revision 67 export, 126 exact files and 62 daily steps. Real Beijing salary collection verified. Byte-identical classification module completed 21 synthetic cases through native author and independent formal template runs: 7 ready for Skill assessment, 3 mismatch, 11 review. Wrong-city fixture stopped at the first item. Original BOSS ZIP reimport, empty defaults/unbound resources/six denied actions/0-20-1 inputs/missing-resource blocking/reopen verified. README retains export-time validation status. Actual full daily classification, personal account confirmation, final Skill, applications/receipts/continuation and real site daily-limit acceptance remain unverified."
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/condition-chain-checkpoint/boss-job-search-0.2.26.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/condition-chain-checkpoint/package",
+    "sha256": "8d3a6e08d03d5a08fc514804bbafad6b47afbef9e0a6d1985a22d0729875a4e5",
+    "contentDigest": "a3373e5fde1bc414b6a1b7cac223a6b5edf086d1e0b8d491b1b3024e91a2205e",
+    "status": "Original client UI revision 70 export; fixes configuration-to-classifier mismatch: five condition fields, fixed outer timeZone. Only README, manifest and classifier changed from 0.2.25; all flow definitions unchanged. Byte-identical original configuration and fixed classifier modules chained through native author and independent formal template runs: all 21 synthetic cases completed, 7 ready/3 mismatch/11 review. Old classifier reproduces first-item failure; wrong-city and empty-city negative runs stop before the summary. Independent ordinary BOSS reimport/default empty cities and roles/unbound resources/six denied actions/0-20-1 inputs/missing-resource blocking verified; normal reopen preserves all 82 documents and 144 events. No model or recruiting action. Actual full daily flow, personal account confirmation, final Skill, durable applications/quota/receipts/continuation and real site daily-limit acceptance remain unverified."
   }
 ]
