@@ -1913,5 +1913,12 @@
     "sha256": "d80b7cf975a25abcfdd57cab3c63973ab9961f2b0508a1b767189b5ba695e394",
     "contentDigest": "6ed10a6fc9b32db3f7f5be52507682da7430f00dca2dafa56205a20a7f54c783",
     "status": "客户端修订42原始导出；24步每日入口两项只读串行来源/返回核对通过，不确定内容通知并跳过，不计投递。空工作区UI独立复导、空默认/资源解绑/五项动作禁止、每日入口缺资源阻止启动、只读条件待办及正常重开已核对；正式每日入口正向运行、完整招聘和网站150次上限未验收。"
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/daily-start-checkpoint/boss-job-search-0.2.21.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/daily-start-checkpoint/package",
+    "sha256": "0304a8c1bccf945c3e9d792830ced30259199116775c403dccaf28a5a01774f9",
+    "contentDigest": "97783178ad1c198b8c053065bc316542b99871a93083e4b1f67059aa5673afcf",
+    "status": "客户端UI修订47原始导出；54步每日入口从通用起点自动按配置选城、两项只读详情及返回复验通过，缺正文通知跳过不计投递。独立空工作区UI复导、空城市职位、0/20/1默认、资源解绑与六项动作禁止、缺资源阻止启动及正常重开通过；正式实例正向、隐藏输入、完整条件账号/去重投递回执/续批及网站150次上限未验收。"
   }
 ]
