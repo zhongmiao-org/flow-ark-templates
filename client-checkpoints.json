@@ -1941,5 +1941,12 @@
     "sha256": "46349b092fba02c77a4824b76caa402316138ffe9e83730625b1982547d5529b",
     "contentDigest": "708133c0308caf968afb102fa4a08a55c3012d586402af517c6659bd93ce7c1c",
     "status": "客户端UI修订64原始导出；61步每日入口新增同实例准确账号来源读取、严格确认守卫及当前账号页同次复验。未确认来源在首次网页导航前拒绝，其他十二入口及原54步逐字节保持。独立空工作区UI导入/默认空配置与解绑/六项禁止/0与20与1默认/空来源目录/缺资源禁运行及正常重开通过。尚无本人账号确认正向、最终Skill或招聘外发；完整循环和真实网站150次上限未验收。"
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/job-condition-checkpoint/boss-job-search-0.2.25.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/job-condition-checkpoint/package",
+    "sha256": "02a21776a64f632330d210a5c67b64ccdc9409af1914183fb65004ff25793321",
+    "contentDigest": "86133a817715a0da4f295771452b4af60857545ee947e9ddc79c20458bf83f20",
+    "status": "Original client UI revision 67 export, 126 exact files and 62 daily steps. Real Beijing salary collection verified. Byte-identical classification module completed 21 synthetic cases through native author and independent formal template runs: 7 ready for Skill assessment, 3 mismatch, 11 review. Wrong-city fixture stopped at the first item. Original BOSS ZIP reimport, empty defaults/unbound resources/six denied actions/0-20-1 inputs/missing-resource blocking/reopen verified. README retains export-time validation status. Actual full daily classification, personal account confirmation, final Skill, applications/receipts/continuation and real site daily-limit acceptance remain unverified."
   }
 ]
