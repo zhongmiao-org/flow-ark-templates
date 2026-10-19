@@ -1,3 +1,6 @@
+import { assertBrowserTargetCapabilities } from './browser-target-input';
+import { assertRunResultNode, assertRunResultResources } from './run-result-binding';
+import { assertEffectNodeCapabilities } from './effect-node';
 import { assertBrowserRenderedFieldsCapabilities } from './browser-rendered-fields';
 import { assertBrowserFieldsCapabilities } from './browser-fields';
 import { assertSkillUpdateNode } from './skill-update-review';
@@ -92,6 +95,7 @@ function nodes(steps: any[], depth = 0, result: any[] = []): any[] {
 export function validateAuthorDefinition(value: unknown): any {
   budget(value);
   shape('TemplateAuthorDefinition', value);
+  assertRunResultResources(value);
   const d = value as any;
   unique(d.entries.map((e: any) => e.id), '作者入口');
   unique(d.resources.map((r: any) => r.id), '作者资源');
@@ -119,8 +123,11 @@ export function validateAuthorDefinition(value: unknown): any {
       if (!d.actions.some((a: any) => a.id === id)) throw Error('入口引用未知动作：' + id);
     const steps = nodes(entry.flow.steps);
     for (const node of steps) {
+      assertRunResultNode(node, entry.flow.requiredCapabilities, d, { capabilities: entry.capabilities, resources: entry.resourceIds });
+      assertEffectNodeCapabilities(node, entry.flow.requiredCapabilities, d, { capabilities: entry.flow.requiredCapabilities, actions: entry.actionIds });
       assertBrowserRenderedFieldsCapabilities(node, entry.flow.requiredCapabilities, d, { resources: entry.resourceIds });
       assertBrowserFieldsCapabilities(node, entry.flow.requiredCapabilities, d, { resources: entry.resourceIds });
+      assertBrowserTargetCapabilities(node, entry.flow.requiredCapabilities, d, { capabilities: [...entry.flow.requiredCapabilities, ...entry.capabilities], resources: entry.resourceIds, actions: entry.actionIds });
       assertAIOutcomeCapabilities(node, entry.flow.requiredCapabilities);
       assertContinuousConversationCapabilities(node, entry.flow.requiredCapabilities);
       assertConversationSourceNode(node, entry.flow.requiredCapabilities, d, { capabilities: entry.flow.requiredCapabilities, resources: entry.resourceIds });

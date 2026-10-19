@@ -1871,5 +1871,12 @@
     "sha256": "97dc89a8e63c85f46525d0bbbe513a7301a4f99e6553be26ed3536f9ee64160d",
     "contentDigest": "bdc0635f479d823a3274046026af78455ad036f3c37b36f7bb96551cf0cb2cee",
     "status": "原生UI制作/独立复导的十一入口检查点；只读回复门槛，无预留/状态写/发送；账号、来源绑定和真实业务未验收"
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/city-selection-checkpoint/boss-job-search-0.2.14.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/city-selection-checkpoint/package",
+    "sha256": "412ea0a64b7160065b7decc580be3f057caceed43d93a5883457e1aa4b7a7e00",
+    "contentDigest": "6018737a8167a2b0d9fa3ad12df600147f978a7c7fc181e359aca24035b4ad08",
+    "status": "原生UI修订19原始导出/独立空工作区复导；正式实例按配置选城通过，显示面板/人工确认路径；每日入口仍制作，账号/投递资格/150次网站上限未验收"
   }
 ]
