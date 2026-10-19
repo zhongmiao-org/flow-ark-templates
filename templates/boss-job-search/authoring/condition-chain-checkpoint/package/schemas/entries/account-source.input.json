@@ -1,0 +1,1 @@
+{"additionalProperties":false,"properties":{"accountAlias":{"default":"","description":"为当前BOSS求职账号填写固定的本地名称。用于后续核对，不是平台唯一账号ID；改名不会清除旧意图或额度。","maxLength":100,"title":"账号别名","type":"string"}},"required":["accountAlias"],"type":"object"}
