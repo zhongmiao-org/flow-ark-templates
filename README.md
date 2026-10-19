@@ -1,5 +1,7 @@
 # FlowArk Templates
 
+
+BOSS每日Skill评估检查点为 `templates/boss-job-search/authoring/daily-skill-checkpoint/boss-job-search-0.2.29.flowark-template.zip`，客户端UI修订81原始ZIP及133份精确展开文件。每日77步在硬条件/账本之后连接固定Skill、自有AI与原句核对、符合/不符/待本人三路。相似标题不再提前阻断；本项候选完整性和外观仍未人工核验。14组受控导出图及生产模块观察不含网络或真实Skill，不能代替真实模型/原生业务验证。普通UI导入安装与新实例默认值/缺资源禁运行已核对，个人实例另经UI保存唯一北京和前端方向。实际预留、投递回执、续批与网站150次上限尚未完成。旧检查点证据继续保留。
 BOSS 投递账本读取检查点为 `templates/boss-job-search/authoring/application-ledger-checkpoint/boss-job-search-0.2.28.flowark-template.zip`，客户端UI修订77原始ZIP及127份精确展开文件。每日64步增加最新状态读取和独立去重/额度门槛，状态结构新增13项严格字段、四种可读状态和500条容量；旧两类状态及其余十二入口保持。仅核对和记录待办，不预留、不提交，完整Skill/外发分支与任务挂起仍待接通。相同账本代码/Schema在无浏览器或模型资源的原生作者及独立正式实例中完成19组虚构CAS保存/重读：修订0→19，成功与失败去重、未知占额、150额度、500容量、来源/日期损坏和改名不重置均符合预期；错误城市/配置变更负向首项停止。普通BOSS复导默认空配置/解绑/六项禁止/0-20-1/缺资源禁运行保持，正常重开205文档/311事件逐项相同。公开README保留导出时状态，本段及登记补充后续有限证据。实际投递预留/回执、活动unknown恢复、归档/跨实例额度、跨批与真实150次网站弹框仍未验收；无新模型或招聘外发。
 
 BOSS 配置与分类衔接修复历史检查点为 `templates/boss-job-search/authoring/condition-chain-checkpoint/boss-job-search-0.2.26.flowark-template.zip`，客户端UI修订70原始ZIP及126份精确展开文件。原配置模块和修复后分类模块在原生作者与独立正式实例中各串联21组虚构资料；修复前七项/五项衔接缺陷已复现，城市及空配置负向保持。原始内容保留，不将有限观察计为完整每日投递通过。
