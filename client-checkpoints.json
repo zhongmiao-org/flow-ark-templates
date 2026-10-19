@@ -1899,5 +1899,12 @@
     "sha256": "cfddfdfd2201e44c63f1e8a65efc4fe0010b891de93c6b74d99dc5ec3bcb4940",
     "contentDigest": "a9528240910af612a8f3e6aa05ddf3e5cb58fb4f74ffad0be8fd7d01a6e05b0b",
     "status": "原生UI修订33原始导出；作者两项详情及受控等待失败停止、正式实例独立确认后两项详情/北京匹配、空工作区复导缺配置/重开通过；完整JD/账号/筛选、去重/投递/回执/续批及150次网站上限未验收"
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/selection-text-checkpoint/boss-job-search-0.2.19.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/selection-text-checkpoint/package",
+    "sha256": "0574c7f0e758310b45e70302adf109c6c3d36fd2da7db7bb73d1785f083f1829",
+    "contentDigest": "77fdf62b5a1b48dab2ee843794d8bf4e598a82200550baf1ec80c0f1d946c8fe",
+    "status": "原生UI修订39原始导出；实际拾取修正公司字段，正式新实例唯一北京/自有浏览器后同次采集与来源核对通过、进入完整原文人工请求；尚无本人确认。空工作区独立复导、确认持久化、完整招聘及网站150次上限未验收"
   }
 ]
