@@ -1878,5 +1878,12 @@
     "sha256": "412ea0a64b7160065b7decc580be3f057caceed43d93a5883457e1aa4b7a7e00",
     "contentDigest": "6018737a8167a2b0d9fa3ad12df600147f978a7c7fc181e359aca24035b4ad08",
     "status": "原生UI修订19原始导出/独立空工作区复导；正式实例按配置选城通过，显示面板/人工确认路径；每日入口仍制作，账号/投递资格/150次网站上限未验收"
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/city-source-checkpoint/boss-job-search-0.2.15.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/city-source-checkpoint/package",
+    "sha256": "46c6a44fb50fcf2125ec31aa4a88e3ea87c07b4bcbd9986cdf7fb0fb4c01d550",
+    "contentDigest": "685553afa515d843db6933406edaa5b09f9c4d87444987197dd11a546442b4e3",
+    "status": "原生UI修订24原始导出；每日入口按配置核对同次城市与岗位来源，作者正向/私有异常停止待办、空工作区复导缺配置及重开保持另验；正式正向、完整JD/账号、投递回执/续批及150次网站上限未验收"
   }
 ]
