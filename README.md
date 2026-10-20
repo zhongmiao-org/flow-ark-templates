@@ -1,5 +1,7 @@
 # FlowArk Templates
 
+BOSS 完整链接队列与未知岗位隔离候选为 `templates/boss-job-search/authoring/unknown-quarantine-checkpoint/boss-job-search-0.2.51.flowark-template.zip`，客户端UI修订174原始ZIP及150份精确展开文件，13入口/每日120步。独立采用正式0.49.0；保留旧未知及占额并隔离同岗位，其他候选复验后可继续，新未知仍结束本Run，损坏或身份异常整体停止。真实原实例已核对北京、CAS、旧reserved/队列unknown及另一岗位账本已用7/剩余143，在模型前取消，无新招呼；独立工作区普通UI复导/空配置/默认禁止及重开已核对。该包仍制作中，真实新回执、完整故障矩阵、跨Run自动续批、站点招呼语口径、150次上限及回话后附件/聊天尚未完成。使用者须配置自己的资料、确认Skill、Key和资源，所有业务配置经UI维护。
+
 BOSS点击后等待修复候选为 `templates/boss-job-search/authoring/click-wait-checkpoint/boss-job-search-0.2.46.flowark-template.zip`，客户端UI修订144、100步/142份原始文件。修复实际首次招呼后遇到的空等待脚本；校验唯一点击来源并可取消等待1500毫秒，不计成功或重试点击。0.2.45原快照实跑13项/1次模型/1次实际点击后失败，后续网站聊天、关联岗位及消息“送达”已只读核对，确认首次招呼发生；原未知操作及额度保留。新候选尚未实跑，不通过新实例/换版本重放旧账号岗位。自动回执/旧未知核销、跨实例去重、边界与网站旧招呼同步、翻页续批及网站真实150次打招呼上限仍待完成。对方回复后简历附件另计，历史检查点保留追溯。
 
 BOSS显式生成设置候选为 `templates/boss-job-search/authoring/generation-settings-checkpoint/boss-job-search-0.2.43.flowark-template.zip`，客户端UI修订131原始ZIP及141份准确展开文件。只将每日JD分析节点显式采用通用v3生成设置：DeepSeek关闭思考、8192输出预算，沿用v2结果及故障分流；95脚本、全部Schema/提示词和其他12入口原字节保持。独立采用已发布contracts-v0.46.0；使用者绑定自己的模型与Key，不携带作者资源或授权，旧客户端须拒绝新能力。普通UI复导、新实例空条件/解绑/七动作禁止已核对；本人资源与实际账号来源接续中，新的真实模型与实际投递尚未验证。预算不是实际Token，截断不采用、不自动重试；完整每日循环、提交回执、unknown恢复、跨批/聊天及真实网站150次弹框未完成。
