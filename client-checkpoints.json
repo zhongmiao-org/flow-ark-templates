@@ -1997,5 +1997,13 @@
     "sha256": "919e15500aa67219c926064921d24c48de98d775553538d3aadef2d69a3ecb3d",
     "contentDigest": "6fd1c7f8183b123a3142350a84711b9f904eab7d966225dae1a6804df8b7419b",
     "status": "Original client UI revision 105 export; 99 daily steps, 141 exact files, 95 scripts. Replaces exhaustive city enumeration with a bounded standalone template SDK lookup: read real groups and city positions, return after an exact unique match in the current group; retain downstream visual group/city reread, selection and actual-city verification. No fixed city/code/pinyin mapping. Three JD collection nodes and three strict expected-source constants share the real-page-picked unique description selector. Twelve other entry flows and all schemas remain byte-identical to 0.2.33. Private 0.2.34 real daily Run reached Beijing and stopped after 29 seconds because old source guards expected the prior selector; no application/model request in that run. This version synchronizes only those three constants. Ordinary UI import/install/new-instance configuration performed; Exact-version real daily Run started at 11:16:01: within 31 seconds actual Beijing, first independent JD and return-list checks passed, and fixed Skill/real model evaluation started. Other real pages still report hidden-descendant source gaps, and current real model reviews report resume/Skill chronology conflicts; no recruiting submission so far. These source/material gaps, complete recruiting/continuation/site150 popup acceptance remain incomplete. No unit test or new synthetic business run."
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/assessment-unknowns-checkpoint/boss-job-search-0.2.36.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/assessment-unknowns-checkpoint/package",
+    "sha256": "33ed96998a42c98bb9e44274168ab4271943538bab1b31dc5d3f97e51ac776e9",
+    "contentDigest": "2d3dcb7071a5827669cbaf41e88519b250ac7065acdd9bbd79d73483805baa51",
+    "status": "in-progress",
+    "scope": "Original UI revision 109, 99-step daily entry. Refines blocking unknowns versus nonblocking first-contact details in daily and shared JD instructions. All 95 scripts, schemas and deterministic guards unchanged from 0.2.35. Normal reimport and real account source confirmed; Beijing real run started. Actual application receipts, unknown recovery, full batches/paging/chat and real site 150-limit dialog still unverified."
   }
 ]
