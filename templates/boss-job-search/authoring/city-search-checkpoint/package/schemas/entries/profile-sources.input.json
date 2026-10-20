@@ -1,0 +1,1 @@
+{"additionalProperties":false,"properties":{"resumeFile":{"description":"只解析所选目录中的明确文件。安全相对路径，不自动扫描目录；UTF-8、PDF或DOCX。","maxLength":1000,"minLength":1,"title":"简历相对文件名","type":"string"}},"required":["resumeFile"],"type":"object"}
