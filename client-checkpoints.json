@@ -2005,5 +2005,13 @@
     "contentDigest": "2d3dcb7071a5827669cbaf41e88519b250ac7065acdd9bbd79d73483805baa51",
     "status": "in-progress",
     "scope": "Original UI revision 109, 99-step daily entry. Refines blocking unknowns versus nonblocking first-contact details in daily and shared JD instructions. All 95 scripts, schemas and deterministic guards unchanged from 0.2.35. Normal reimport and real account source confirmed; Beijing real run started. Actual application receipts, unknown recovery, full batches/paging/chat and real site 150-limit dialog still unverified."
+  },
+  {
+    "archive": "templates/boss-job-search/authoring/configured-search-checkpoint/boss-job-search-0.2.40.flowark-template.zip",
+    "directory": "templates/boss-job-search/authoring/configured-search-checkpoint/package",
+    "sha256": "839d966dcc4ed1f2773b0f1ee92178145c76bf489d7e6558bd6ce46984568a7c",
+    "contentDigest": "634a5950a09e648dc6976de82f970a49855bfa13d27f6c0433f2956b6a924c60",
+    "status": "in-progress",
+    "scope": "Original client UI revision 122, 99 daily steps, 141 exact files. Adds configured single-target query, anchored real city scope and stable job-link return collection with independently rebuilt selector. Private 0.2.37 failed ambiguous city scope; 0.2.38/39 real runs passed Beijing but stopped after 29 seconds when the original list position changed job link/title. Exact 0.2.40 changes two collector references and two scripts only beyond diagnostic candidate. Normal reimport, empty/unbound/default-denied instance and private UI setup/current account revalidation performed; exact-version real Run started. No full candidate freeze/coverage, receipt/unknown recovery/paging/chat/site150 acceptance. Exact-version real Run at 12:31:14 stopped after 29 seconds at first return verification because same-run stable-link collection was incomplete; not yet attributed to missing/duplicate/visibility. Beijing and prior navigation passed, no model/reservation/recruiting submission. Stable-return behavior is not accepted; inspect actual field count/status/issues next."
   }
 ]
