@@ -1,0 +1,1 @@
+{"additionalProperties":true,"properties":{"decision":{"enum":["continue","complete","review"],"maxLength":8,"minLength":1,"title":"后续处理","type":"string"},"progress":{"maxLength":256,"minLength":1,"title":"处理进度","type":"string"},"reason":{"maxLength":1000,"minLength":1,"title":"状态说明","type":"string"}},"required":["decision","progress","reason"],"type":"object"}
