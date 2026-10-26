@@ -1,5 +1,7 @@
 # FlowArk Templates
 
+BOSS沟通证据缓存候选0.2.56位于 `templates/boss-job-search/authoring/communication-cache-checkpoint/boss-job-search-0.2.56.flowark-template.zip`，原生作者修订19原始ZIP与152份逐字节展开文件，保留13入口/每日105步及0.2.54七步既有修复。五处脚本自动保存实际读取的沟通证据并读回核验，按账号、上下文、完整岗位和证据链保守避重；新增必填读写缓存目录，使用者通过普通资源页选择自己的目录。原账本、已发/预留/unknown优先，缓存不清除unknown、不补写成功或额度，未命中不表示从未沟通。原生复导仅安装包定义，未新建实例或启动正式Run；有限既有会话证据已在私有流程写出并跨Run只读消费，该私有生产流程不包含于公开包。全部历史回填、正式缓存分支和网站真实150弹框仍未验收，原点击根因未定位。旧0.2.54原包和历史检查点保持。
+
 BOSS连续招呼候选0.2.54位于 `templates/boss-job-search/authoring/continuous-receipt-checkpoint/boss-job-search-0.2.54.flowark-template.zip`，原生作者修订15原始ZIP与152份逐字节展开文件，13入口/每日105步。回带有候选即处理、24次发现、准确base地冲突转本人、猎头完整标题窄映射与真实列表进度等七步既有修复；普通UI复导、版本并存、独立空实例无绑定/七动作默认禁止及缺项阻止已核对。当前原正式会话因可信按下回执缺失停止，根因未定位；新岗位城市守卫/猎头完整保存及网站真实150次上限未通过。仅制作检查点，不配置或运行空实例、不借新版本重放旧unknown；使用者仍须自己的资料、确认Skill、Key和资源。 独立固定采用已发布 `contracts-v0.52.0`（治理 `9cb03704fe882aacc013073babfd3f1dc0895af1`），183项封存摘要逐一核对；旧原始检查点继续校验，不修改客户端或原包。
 
 BOSS 完整链接队列与未知岗位隔离候选为 `templates/boss-job-search/authoring/unknown-quarantine-checkpoint/boss-job-search-0.2.51.flowark-template.zip`，客户端UI修订174原始ZIP及150份精确展开文件，13入口/每日120步。独立采用正式0.49.0；保留旧未知及占额并隔离同岗位，其他候选复验后可继续，新未知仍结束本Run，损坏或身份异常整体停止。真实原实例已核对北京、CAS、旧reserved/队列unknown及另一岗位账本已用7/剩余143，在模型前取消，无新招呼；独立工作区普通UI复导/空配置/默认禁止及重开已核对。该包仍制作中，真实新回执、完整故障矩阵、跨Run自动续批、站点招呼语口径、150次上限及回话后附件/聊天尚未完成。使用者须配置自己的资料、确认Skill、Key和资源，所有业务配置经UI维护。
