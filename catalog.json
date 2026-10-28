@@ -1,10 +1,10 @@
 [
   {
     "id": "boss-job-search",
-    "version": "0.2.60",
+    "version": "0.2.61",
     "kind": "client-export",
     "status": "candidate",
-    "archive": "templates/boss-job-search/boss-job-search-0.2.60.flowark-template.zip"
+    "archive": "templates/boss-job-search/boss-job-search-0.2.61.flowark-template.zip"
   },
   {
     "id": "browser-form",
