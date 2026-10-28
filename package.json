@@ -19,7 +19,8 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "build": "node --import tsx tooling/build.ts",
     "forms:serve": "node --import tsx fixtures/form-lab-server.ts",
-    "test:client": "node --import tsx tooling/client-smoke.ts"
+    "test:client": "node --import tsx tooling/client-smoke.ts",
+    "package:templates": "node --import tsx tooling/publish.ts"
   },
   "dependencies": {
     "ajv": "8.20.0",

@@ -1,1 +1,0 @@
-{"additionalProperties":false,"properties":{"replyText":{"description":"可核对和编辑的完整正文；不能替代账号、职位、来信、固定 Skill 和事实来源核验。制作中入口在站点未校准时停止，不会发送。","maxLength":300,"minLength":1,"title":"本次完整回复正文","type":"string"}},"required":["replyText"],"type":"object"}
