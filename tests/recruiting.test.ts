@@ -4,9 +4,9 @@ import { mkdtemp } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { randomBytes } from 'node:crypto';
-import { Store } from '../templates/recruiting/shared/store';
-import { defaultPolicy } from '../templates/recruiting/src/policy';
-import { RecruitingActions, policyDecision, type Proposal } from '../templates/recruiting/src/actions';
+import { Store } from '../development/recruiting/shared/store';
+import { defaultPolicy } from '../development/recruiting/src/policy';
+import { RecruitingActions, policyDecision, type Proposal } from '../development/recruiting/src/actions';
 const time = new Date('2026-09-16T04:00:00Z');
 const p: Proposal = {
   platform: 'boss',

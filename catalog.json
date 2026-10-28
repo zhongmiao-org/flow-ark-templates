@@ -1,0 +1,72 @@
+[
+  {
+    "id": "boss-job-search",
+    "version": "0.2.60",
+    "kind": "client-export",
+    "status": "candidate",
+    "archive": "templates/boss-job-search/boss-job-search-0.2.60.flowark-template.zip"
+  },
+  {
+    "id": "browser-form",
+    "version": "1.0.1",
+    "kind": "source",
+    "status": "example",
+    "source": "development/browser-form",
+    "archive": "templates/browser-form/browser-form-1.0.1.flowark-template.zip"
+  },
+  {
+    "id": "file-inspector",
+    "version": "1.0.1",
+    "kind": "source",
+    "status": "example",
+    "source": "development/file-inspector",
+    "archive": "templates/file-inspector/file-inspector-1.0.1.flowark-template.zip"
+  },
+  {
+    "id": "form-laboratory",
+    "version": "1.0.2",
+    "kind": "source",
+    "status": "example",
+    "source": "development/form-laboratory",
+    "archive": "templates/form-laboratory/form-laboratory-1.0.2.flowark-template.zip"
+  },
+  {
+    "id": "multi-entry",
+    "version": "1.0.1",
+    "kind": "source",
+    "status": "example",
+    "source": "development/multi-entry",
+    "archive": "templates/multi-entry/multi-entry-1.0.1.flowark-template.zip"
+  },
+  {
+    "id": "personal-distillation",
+    "version": "0.7.0",
+    "kind": "client-export",
+    "status": "candidate",
+    "archive": "templates/personal-distillation/personal-distillation-0.7.0.flowark-template.zip"
+  },
+  {
+    "id": "recruiting-boss",
+    "version": "1.0.1",
+    "kind": "source",
+    "status": "example",
+    "source": "development/recruiting-boss",
+    "archive": "templates/recruiting-boss/recruiting-boss-1.0.1.flowark-template.zip"
+  },
+  {
+    "id": "recruiting-zhaopin",
+    "version": "1.0.1",
+    "kind": "source",
+    "status": "example",
+    "source": "development/recruiting-zhaopin",
+    "archive": "templates/recruiting-zhaopin/recruiting-zhaopin-1.0.1.flowark-template.zip"
+  },
+  {
+    "id": "simple-web-form",
+    "version": "1.0.1",
+    "kind": "source",
+    "status": "example",
+    "source": "development/simple-web-form",
+    "archive": "templates/simple-web-form/simple-web-form-1.0.1.flowark-template.zip"
+  }
+]

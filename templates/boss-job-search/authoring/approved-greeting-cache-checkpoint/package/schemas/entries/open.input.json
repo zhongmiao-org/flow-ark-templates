@@ -1,1 +1,0 @@
-{"additionalProperties":false,"properties":{"cityPosition":{"default":1,"description":"按共享期望城市列表选择，从 1 开始；超出列表或缺少配置时停止。","maximum":20,"minimum":1,"title":"配置城市序号（从 1 开始）","type":"integer"}},"required":["cityPosition"],"type":"object"}

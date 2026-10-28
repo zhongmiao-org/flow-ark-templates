@@ -4,19 +4,19 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { randomBytes } from 'node:crypto';
-import { Store } from '../templates/recruiting/shared/store';
-import { RecruitingCoordinator } from '../templates/recruiting/src/coordinator';
+import { Store } from '../development/recruiting/shared/store';
+import { RecruitingCoordinator } from '../development/recruiting/src/coordinator';
 import {
   RecruitingActions,
   authorizationHash,
   type Proposal,
   type PreparedAction,
-} from '../templates/recruiting/src/actions';
-import { defaultPolicy, validateRecruitingPolicy } from '../templates/recruiting/src/policy';
-import { defaultJobFilter, jobFilterDecision } from '../templates/recruiting/src/job-filter';
+} from '../development/recruiting/src/actions';
+import { defaultPolicy, validateRecruitingPolicy } from '../development/recruiting/src/policy';
+import { defaultJobFilter, jobFilterDecision } from '../development/recruiting/src/job-filter';
 const policyOf=(bindings:any)=>validateRecruitingPolicy(bindings.policy);
-import type { RecruitingSiteAdapter, Conversation } from '../templates/recruiting/src/sites';
-import type { JobSnapshot, Policy, AIRequest, AIResult } from '../templates/recruiting/shared/types';
+import type { RecruitingSiteAdapter, Conversation } from '../development/recruiting/src/sites';
+import type { JobSnapshot, Policy, AIRequest, AIResult } from '../development/recruiting/shared/types';
 
 const observedAt = '2026-09-16T02:00:00.000Z';
 const pageJob = (): JobSnapshot => ({

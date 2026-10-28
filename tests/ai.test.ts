@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateDraft, draftReply } from '../templates/recruiting/src/ai';
-import type { AIRequest, Draft } from '../templates/recruiting/shared/types';
+import { validateDraft, draftReply } from '../development/recruiting/src/ai';
+import type { AIRequest, Draft } from '../development/recruiting/shared/types';
 const input: AIRequest = {
   provider: 'openai-codex',
   model: 'gpt-5.3-codex',

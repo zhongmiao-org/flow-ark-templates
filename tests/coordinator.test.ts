@@ -4,15 +4,15 @@ import { mkdtemp } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { randomBytes } from 'node:crypto';
-import { Store } from '../templates/recruiting/shared/store';
-import { RecruitingCoordinator } from '../templates/recruiting/src/coordinator';
-import { defaultPolicy } from '../templates/recruiting/src/policy';
+import { Store } from '../development/recruiting/shared/store';
+import { RecruitingCoordinator } from '../development/recruiting/src/coordinator';
+import { defaultPolicy } from '../development/recruiting/src/policy';
 import {
   BossRecruitingAdapter,
   ZhaopinRecruitingAdapter,
   type RecruitingSiteAdapter,
-} from '../templates/recruiting/src/sites';
-import type { AIRequest, AIResult, Policy } from '../templates/recruiting/shared/types';
+} from '../development/recruiting/src/sites';
+import type { AIRequest, AIResult, Policy } from '../development/recruiting/shared/types';
 
 async function fixture(platform: Policy['platform'] = 'boss') {
   const store = new Store(
