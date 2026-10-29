@@ -1,15 +1,27 @@
 name: CI
 
 on:
+  push:
+    branches: [main]
+  workflow_dispatch:
   pull_request:
     branches: [main]
-    types: [opened, synchronize, reopened, ready_for_review, labeled, unlabeled, edited]
+    types:
+      [
+        opened,
+        synchronize,
+        reopened,
+        ready_for_review,
+        labeled,
+        unlabeled,
+        edited,
+      ]
 
 permissions:
   contents: read
 
 concurrency:
-  group: templates-pr-${{ github.event.pull_request.number }}
+  group: templates-ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -18,12 +30,13 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
-      ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
-      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
-      SE_AVOID_BROWSER_DOWNLOAD: 'true'
-      SE_OFFLINE: 'true'
+      ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+      SE_AVOID_BROWSER_DOWNLOAD: "true"
+      SE_OFFLINE: "true"
     steps:
       - name: Check branch and PR title conventions
+        if: github.event_name == 'pull_request'
         env:
           PR_BRANCH: ${{ github.head_ref }}
           PR_TITLE: ${{ github.event.pull_request.title }}
@@ -57,6 +70,7 @@ jobs:
     name: Auto Merge
     needs: validate
     if: >-
+      github.event_name == 'pull_request' &&
       github.event.pull_request.head.repo.full_name == github.repository &&
       !github.event.pull_request.draft &&
       contains(github.event.pull_request.labels.*.name, 'automerge')
