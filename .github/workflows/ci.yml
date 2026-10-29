@@ -78,6 +78,7 @@ jobs:
     timeout-minutes: 5
     permissions:
       checks: read
+      actions: write
       contents: write
       pull-requests: write
     steps:
@@ -117,3 +118,5 @@ jobs:
             -f sha="$EXPECTED_HEAD" -f merge_method=squash \
             -f commit_title="$title (#$PR_NUMBER)" \
             --jq 'if .merged then .sha else error(.message) end'
+          # GITHUB_TOKEN merges do not trigger push workflows; dispatch main explicitly.
+          gh workflow run ci.yml --ref main
