@@ -29,7 +29,9 @@ export async function readCatalog(): Promise<CatalogEntry[]> {
     if (
       !/^[a-z][a-z0-9-]*$/.test(entry.id) ||
       ids.has(entry.id) ||
-      !/^\d+\.\d+\.\d+$/.test(entry.version) ||
+      !/^\d+\.\d+\.\d+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/.test(
+        entry.version,
+      ) ||
       !["source", "client-export"].includes(entry.kind) ||
       !["candidate", "example"].includes(entry.status) ||
       entry.archive !==
@@ -81,15 +83,18 @@ export async function verifyDelivery(
   const folder = dirname(entry.archive),
     items = await readdir(folder, { withFileTypes: true });
   if (
-    items.length !== 2 ||
     items.some(
       (i) =>
-        !i.isFile() ||
         i.isSymbolicLink() ||
-        !["README.md", basename(entry.archive)].includes(i.name),
+        (i.name === "assets"
+          ? !i.isDirectory()
+          : !i.isFile() ||
+            !["README.md", basename(entry.archive)].includes(i.name)),
     )
   )
-    throw Error("模板交付目录只允许 README 和单个当前 ZIP：" + folder);
+    throw Error(
+      "模板交付目录只允许 README、单个当前 ZIP 和引用图片 assets：" + folder,
+    );
   if (!(await readFile(entry.archive)).equals(pkg.bytes))
     throw Error("源码构建与交付 ZIP 不一致，请显式重新打包：" + entry.id);
   const readme = pkg.files.get("README.md");
@@ -99,6 +104,48 @@ export async function verifyDelivery(
     !(await readFile(join(folder, "README.md"))).equals(readme)
   )
     throw Error("README 必须非空且与 ZIP 内逐字节一致：" + entry.id);
+  const images = new Set(
+    [
+      ...readme
+        .toString("utf8")
+        .matchAll(
+          /!\[[^\]\r\n]*\]\((assets\/[A-Za-z0-9_./-]+\.(?:png|jpe?g))\)/gi,
+        ),
+    ].map((m) => m[1]),
+  );
+  const found = new Set<string>();
+  async function mirror(path: string) {
+    for (const file of await readdir(join(folder, path), {
+      withFileTypes: true,
+    })) {
+      const relative = path + "/" + file.name;
+      if (file.isSymbolicLink())
+        throw Error("公开图片镜像不允许符号链接：" + relative);
+      if (file.isDirectory()) {
+        if (![...images].some((image) => image.startsWith(relative + "/")))
+          throw Error("公开图片目录没有 README 引用：" + relative);
+        await mirror(relative);
+      } else if (
+        !file.isFile() ||
+        !images.has(relative) ||
+        !pkg.files.has(relative) ||
+        !(await readFile(join(folder, relative))).equals(
+          pkg.files.get(relative)!,
+        )
+      )
+        throw Error(
+          "公开图片必须被 README 引用且与 ZIP 原字节一致：" + relative,
+        );
+      else found.add(relative);
+    }
+  }
+  if (items.some((i) => i.name === "assets")) {
+    if (!images.size)
+      throw Error("assets 目录没有 README 图片引用：" + entry.id);
+    await mirror("assets");
+  }
+  if (images.size !== found.size)
+    throw Error("README 引用的公开图片镜像缺失：" + entry.id);
   for (const path of pkg.manifest.scripts) {
     const result = await build({
       stdin: {
