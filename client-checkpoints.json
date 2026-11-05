@@ -1,8 +1,8 @@
 [
   {
-    "archive": "templates/boss-job-search/boss-job-search-0.2.67-rc.13.flowark-template.zip",
-    "sha256": "4e0ea35885a2bd60acb2a7aa99654e358513eda9834d72f1410e79af8fd065fb",
-    "contentDigest": "02efdc130bf5bf2ace3b83293e07c1f2d774b5e9ecbc1233095e780f6f447e34",
+    "archive": "templates/boss-job-search/boss-job-search-0.2.67-rc.15.flowark-template.zip",
+    "sha256": "7cf52b43b424c41952e0a5dbf6e17f799fb587d431afb50f5f477ef1d3f1ecc2",
+    "contentDigest": "314e123b16be3a078ba122ac321fbff394596b7ef59c0bfaf178643df791c399",
     "status": "candidate"
   },
   {
