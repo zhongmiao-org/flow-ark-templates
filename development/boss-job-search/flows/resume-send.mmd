@@ -1,0 +1,18 @@
+flowchart TD
+n_b7b624d7ae1d4929a26cf1cfa3f59f9f["n_b7b624d7ae1d4929a26cf1cfa3f59f9f"]
+n_333cb9baf6034e6eaa73b26d4fac22c6["读取本实例已选择的账号确认结果"]
+n_fd3e8c48d8e44596beddfc937aa65216["入队前读取最新完整状态"]
+n_8933b35270be45b99001cee0fddd72e0["核对当前附件请求与关联岗位"]
+n_45629fc1["核对本人确认的网站现有附件并预留"]
+n_74cdd663["仅本次新附件请求允许继续"]
+subgraph n_74cdd663__then["then"]
+n_7946f87b["原生发送现有附件并核对同会话回执"]
+end
+subgraph n_74cdd663__else["else"]
+end
+n_b7b624d7ae1d4929a26cf1cfa3f59f9f --> n_333cb9baf6034e6eaa73b26d4fac22c6
+n_333cb9baf6034e6eaa73b26d4fac22c6 --> n_fd3e8c48d8e44596beddfc937aa65216
+n_fd3e8c48d8e44596beddfc937aa65216 --> n_8933b35270be45b99001cee0fddd72e0
+n_8933b35270be45b99001cee0fddd72e0 --> n_45629fc1
+n_45629fc1 --> n_74cdd663
+n_74cdd663 -->|then| n_7946f87b

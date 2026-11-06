@@ -1,0 +1,14 @@
+flowchart TD
+n_054c884e["读取本次求职条件"]
+n_70c234d1["检查求职条件一致性（不判断JD）"]
+n_da51cdf5["求职条件格式是否通过"]
+subgraph n_da51cdf5__then["then"]
+n_888b575d["保存条件核对通过结果（不授权外发）"]
+end
+subgraph n_da51cdf5__else["else"]
+n_e5c83f60["登记条件待核对提醒并结束"]
+end
+n_054c884e --> n_70c234d1
+n_70c234d1 --> n_da51cdf5
+n_da51cdf5 -->|then| n_888b575d
+n_da51cdf5 -->|else| n_e5c83f60

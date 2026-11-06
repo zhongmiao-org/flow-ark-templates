@@ -1,0 +1,58 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "approvedGreetingText": {
+      "default": "",
+      "description": "先在BOSS App保存自己的默认招呼，网页核对已启用，再填写完整正文。每项以网站成功弹窗中的完整内容核对；不会额外补发介绍。内容不同、截断或无法确认时保留未知并停止，不自动缩写或重新发送。",
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "App中已保存的完整招呼语",
+      "type": "string"
+    },
+    "batchSize": {
+      "default": 3,
+      "description": "默认每批检查3个岗位，是检查数量而非成功数量；通过连续有限批次复用初始化并继续处理。每批保留完整结果，网站上限以实际提示为准，不将20次验收数写为发送上限。",
+      "maximum": 150,
+      "minimum": 1,
+      "title": "单批检查次数（不代表成功数）",
+      "type": "integer"
+    },
+    "cityPosition": {
+      "default": 1,
+      "description": "按共享期望城市列表选择序号，从1开始；实际网页城市必须回读匹配，缺失或不一致停止。",
+      "maximum": 20,
+      "minimum": 1,
+      "title": "配置城市序号",
+      "type": "integer"
+    },
+    "dailyApplyLimit": {
+      "default": 0,
+      "description": "0禁止岗位浏览与首次沟通；150采用网站真实当天上限模式，本地计数不作为网站上限证据。连续20次仅为验收标准，不自动停止于20。其他现有数值按使用者自己的有限数量配置保守停止。",
+      "maximum": 150,
+      "minimum": 0,
+      "title": "每日打招呼额度（0为禁止）",
+      "type": "integer"
+    },
+    "restoreExistingClosing": {
+      "default": false,
+      "description": "默认关闭。开启后只恢复当前账号原日期的真实网站上限、固定未读集合和已保存进度，不新建集合、不扫描新增会话、不发新招呼。缺少任一原证据即停止；已完成成员只汇总，未完成成员仍须原回复授权与逐次核对。此模式不代表今天已经达到网站上限。",
+      "title": "仅恢复既有消息收尾（不打新招呼）",
+      "type": "boolean"
+    },
+    "resumeFile": {
+      "description": "请本人先在BOSS维护并确认最新PDF，填写网站附件的完整文件名。主流程只用原生同意、选件、发送控件，不上传本地文件、不默认选第一份；缺失或同名歧义时停止。资料核对入口的本地文件名另行配置。",
+      "maxLength": 1000,
+      "minLength": 1,
+      "title": "本人确认的网站现有PDF完整名称",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dailyApplyLimit",
+    "batchSize",
+    "cityPosition",
+    "resumeFile",
+    "approvedGreetingText"
+  ],
+  "type": "object"
+}

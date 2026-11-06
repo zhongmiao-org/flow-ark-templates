@@ -1,0 +1,18 @@
+flowchart TD
+n_e9c6ac3b["读取本次固定求职配置修订"]
+n_dcec071a["读取该实例最新会话控制状态"]
+n_d1a1db47["校验控制范围并生成完整新状态"]
+n_447fb85e["仅有变化时按修订更新状态"]
+subgraph n_447fb85e__then["then"]
+n_f7c53d6c["按预期修订保存该会话控制状态"]
+n_25cdcbf0["保存已提交的会话控制回执"]
+end
+subgraph n_447fb85e__else["else"]
+n_4feb36ab["保留无变化状态并保存核对结果"]
+end
+n_e9c6ac3b --> n_dcec071a
+n_dcec071a --> n_d1a1db47
+n_d1a1db47 --> n_447fb85e
+n_447fb85e -->|then| n_f7c53d6c
+n_f7c53d6c --> n_25cdcbf0
+n_447fb85e -->|else| n_4feb36ab

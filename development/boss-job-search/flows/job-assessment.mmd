@@ -1,0 +1,36 @@
+flowchart TD
+n_bfd6c7e8["读取本次固定求职条件"]
+n_22f52238["核对JD输入与固定求职条件"]
+n_39f0804e["JD完整且求职条件可评估"]
+subgraph n_39f0804e__then["then"]
+n_e1b60b6f["读取固定确认的个人Skill"]
+n_86f9736c["使用自有Key评估JD方向（仅建议）"]
+n_2d0a046c["核对JD原句或请求故障；缺口转本人"]
+n_2dfc8270["评估建议是否需要本人判断"]
+subgraph n_2dfc8270__then["then"]
+n_60242c2b["登记本人判断待办并保存建议"]
+end
+subgraph n_2dfc8270__else["else"]
+n_71b730e8["明确建议是否符合目标"]
+subgraph n_71b730e8__then["then"]
+n_124dba53["保存明确符合建议；仅准备后续草稿"]
+end
+subgraph n_71b730e8__else["else"]
+n_dd293c99["保存明确不符合建议；尚未点击不感兴趣"]
+end
+end
+end
+subgraph n_39f0804e__else["else"]
+n_bfb208ae["登记JD或求职条件缺口并保存结果"]
+end
+n_bfd6c7e8 --> n_22f52238
+n_22f52238 --> n_39f0804e
+n_39f0804e -->|then| n_e1b60b6f
+n_e1b60b6f --> n_86f9736c
+n_86f9736c --> n_2d0a046c
+n_2d0a046c --> n_2dfc8270
+n_2dfc8270 -->|then| n_60242c2b
+n_2dfc8270 -->|else| n_71b730e8
+n_71b730e8 -->|then| n_124dba53
+n_71b730e8 -->|else| n_dd293c99
+n_39f0804e -->|else| n_bfb208ae

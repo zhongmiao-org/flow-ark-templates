@@ -1,0 +1,960 @@
+{
+  "projectVersion": 1,
+  "metadata": {
+    "id": "boss-job-search",
+    "name": "BOSS 求职 · 单岗位循环（候选）",
+    "description": "开发候选：17入口完整ZIP，支持首次本机建立安全索引、两次新招呼测试自动切换、明确空未读及既有两次证据恢复。本人API与确认Skill生成50字内回复，单次Enter与送达核对，已发/预留/unknown不重放。本轮两次成功后自动切换，修复后固定两条未读：一条跳过、一条送达，重开无重发；不是全程无中断或网站150位上限。附件、微信/手机号及新unknown本轮未出现，不登记分支实站通过。默认预算0、动作禁止，其他平台未验收；API Key费用由使用者承担。",
+    "version": "0.2.67-rc.20",
+    "author": "FlowArk Templates",
+    "source": "https://github.com/zhongmiao-org/flow-ark-templates",
+    "minimumClientVersion": "0.3.1"
+  },
+  "configurationSchema": "schemas/configuration.json",
+  "stateSchema": "schemas/state.json",
+  "constants": "config/constants.json",
+  "defaults": "config/defaults.json",
+  "entries": [
+    {
+      "id": "preflight",
+      "name": "核对当前页面（只读）",
+      "graph": "flows/preflight.mmd",
+      "nodes": "nodes/preflight.json",
+      "inputSchema": "schemas/inputs/preflight.json",
+      "resultSchema": "schemas/results/preflight.json",
+      "parameters": {},
+      "capabilities": [
+        "browser-observe-v1",
+        "browser",
+        "browser-fields-v1",
+        "attention",
+        "template-sdk-v1",
+        "script",
+        "condition"
+      ],
+      "resourceIds": [
+        "browser"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "open",
+      "name": "按配置打开职位页并选城",
+      "graph": "flows/open.mmd",
+      "nodes": "nodes/open.json",
+      "inputSchema": "schemas/inputs/open.json",
+      "resultSchema": "schemas/results/open.json",
+      "parameters": {
+        "cityPosition": 0
+      },
+      "capabilities": [
+        "browser-observe-v1",
+        "template-data-v1",
+        "browser",
+        "browser-target-input-v1",
+        "template-sdk-v1",
+        "attention",
+        "context",
+        "script",
+        "loop",
+        "value",
+        "condition"
+      ],
+      "resourceIds": [
+        "browser"
+      ],
+      "actionIds": [
+        "workflow-write",
+        "select-city"
+      ],
+      "schedulable": false
+    },
+    {
+      "id": "conditions",
+      "name": "核对求职条件（只读）",
+      "graph": "flows/conditions.mmd",
+      "nodes": "nodes/conditions.json",
+      "inputSchema": "schemas/inputs/conditions.json",
+      "resultSchema": "schemas/results/conditions.json",
+      "parameters": {},
+      "capabilities": [
+        "template-data-v1",
+        "template-sdk-v1",
+        "attention",
+        "context",
+        "script",
+        "condition"
+      ],
+      "resourceIds": [],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "profile-sources",
+      "name": "核对简历与固定Skill（只读）",
+      "graph": "flows/profile-sources.mmd",
+      "nodes": "nodes/profile-sources.json",
+      "inputSchema": "schemas/inputs/profile-sources.json",
+      "resultSchema": "schemas/results/profile-sources.json",
+      "parameters": {
+        "resumeFile": ""
+      },
+      "capabilities": [
+        "document-extract-v1",
+        "skill-v1",
+        "template-sdk-v1",
+        "attention",
+        "document",
+        "skill",
+        "script",
+        "condition"
+      ],
+      "resourceIds": [
+        "resume-materials",
+        "profile"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "job-assessment",
+      "name": "评估JD与求职方向（建议）",
+      "graph": "flows/job-assessment.mmd",
+      "nodes": "nodes/job-assessment.json",
+      "inputSchema": "schemas/inputs/job-assessment.json",
+      "resultSchema": "schemas/results/job-assessment.json",
+      "parameters": {
+        "descriptionComplete": false,
+        "jobDescription": "",
+        "jobTitle": "",
+        "sourceLabel": ""
+      },
+      "capabilities": [
+        "template-data-v1",
+        "skill-v1",
+        "ai-node-v1",
+        "ai-outcome-v1",
+        "template-sdk-v1",
+        "attention",
+        "context",
+        "script",
+        "condition",
+        "skill",
+        "ai"
+      ],
+      "resourceIds": [
+        "profile",
+        "ai"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "message-draft",
+      "name": "处理来信与回复草稿（仅内部）",
+      "graph": "flows/message-draft.mmd",
+      "nodes": "nodes/message-draft.json",
+      "inputSchema": "schemas/inputs/message-draft.json",
+      "resultSchema": "schemas/results/message-draft.json",
+      "parameters": {
+        "accountKey": "",
+        "conversationKey": "",
+        "descriptionComplete": false,
+        "incomingMessage": "",
+        "jobDescription": "",
+        "jobTitle": "",
+        "manualTakeover": false,
+        "messageComplete": false,
+        "sourceLabel": ""
+      },
+      "capabilities": [
+        "template-data-v1",
+        "skill-v1",
+        "ai-node-v1",
+        "ai-outcome-v1",
+        "template-sdk-v1",
+        "attention",
+        "context",
+        "script",
+        "condition",
+        "skill",
+        "ai",
+        "state"
+      ],
+      "resourceIds": [
+        "profile",
+        "ai"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "conversation-control",
+      "name": "会话接管与内部草稿恢复",
+      "graph": "flows/conversation-control.mmd",
+      "nodes": "nodes/conversation-control.json",
+      "inputSchema": "schemas/inputs/conversation-control.json",
+      "resultSchema": "schemas/results/conversation-control.json",
+      "parameters": {
+        "accountKey": "",
+        "conversationKey": "",
+        "incomingMessage": "",
+        "jobDescription": "",
+        "mode": "",
+        "reviewedLatest": false
+      },
+      "capabilities": [
+        "template-data-v1",
+        "template-sdk-v1",
+        "context",
+        "script",
+        "condition",
+        "state"
+      ],
+      "resourceIds": [],
+      "actionIds": [
+        "state-write"
+      ],
+      "schedulable": false
+    },
+    {
+      "id": "web-jd-source",
+      "name": "核对当前网页JD来源（只读）",
+      "graph": "flows/web-jd-source.mmd",
+      "nodes": "nodes/web-jd-source.json",
+      "inputSchema": "schemas/inputs/web-jd-source.json",
+      "resultSchema": "schemas/results/web-jd-source.json",
+      "parameters": {},
+      "capabilities": [
+        "browser",
+        "browser-fields-v1",
+        "template-sdk-v1",
+        "attention",
+        "script"
+      ],
+      "resourceIds": [
+        "browser"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "web-jd-body",
+      "name": "核对网页JD正文（本人确认）",
+      "graph": "flows/web-jd-body.mmd",
+      "nodes": "nodes/web-jd-body.json",
+      "inputSchema": "schemas/inputs/web-jd-body.json",
+      "resultSchema": "schemas/results/web-jd-body.json",
+      "parameters": {},
+      "capabilities": [
+        "browser",
+        "browser-fields-v1",
+        "browser-rendered-fields-v1",
+        "browser-rendered-fields-v2",
+        "browser-selection-text-v1",
+        "template-sdk-v1",
+        "attention",
+        "human",
+        "human-review-v1",
+        "script",
+        "condition"
+      ],
+      "resourceIds": [
+        "browser"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "web-job-assessment",
+      "name": "评估当前网页JD方向（本人核对后）",
+      "graph": "flows/web-job-assessment.mmd",
+      "nodes": "nodes/web-job-assessment.json",
+      "inputSchema": "schemas/inputs/web-job-assessment.json",
+      "resultSchema": "schemas/results/web-job-assessment.json",
+      "parameters": {},
+      "capabilities": [
+        "browser",
+        "browser-fields-v1",
+        "browser-rendered-fields-v1",
+        "template-data-v1",
+        "skill-v1",
+        "ai-node-v1",
+        "ai-outcome-v1",
+        "template-sdk-v1",
+        "attention",
+        "human",
+        "human-review-v1",
+        "script",
+        "condition",
+        "context",
+        "skill",
+        "ai"
+      ],
+      "resourceIds": [
+        "browser",
+        "profile",
+        "ai"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "confirmed-reply",
+      "name": "回复前核对（制作检查点）",
+      "graph": "flows/confirmed-reply.mmd",
+      "nodes": "nodes/confirmed-reply.json",
+      "inputSchema": "schemas/inputs/confirmed-reply.json",
+      "resultSchema": "schemas/results/confirmed-reply.json",
+      "parameters": {
+        "replyText": ""
+      },
+      "capabilities": [
+        "template-data-v1",
+        "browser-observe-v1",
+        "template-sdk-v1",
+        "attention",
+        "context",
+        "browser",
+        "script",
+        "state"
+      ],
+      "resourceIds": [
+        "browser"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "daily-apply",
+      "name": "每日循环打招呼（制作中）",
+      "graph": "flows/daily-apply.mmd",
+      "nodes": "nodes/daily-apply.json",
+      "inputSchema": "schemas/inputs/daily-apply.json",
+      "resultSchema": "schemas/results/daily-apply.json",
+      "parameters": {
+        "approvedGreetingText": "",
+        "batchSize": 0,
+        "cityPosition": 0,
+        "dailyApplyLimit": 0,
+        "restoreExistingClosing": false,
+        "resumeFile": ""
+      },
+      "capabilities": [
+        "template-data-v1",
+        "browser",
+        "browser-rendered-fields-v2",
+        "browser-observe-v1",
+        "browser-target-input-v1",
+        "browser-selection-text-v1",
+        "run-result-read-v1",
+        "skill-v1",
+        "ai-node-v1",
+        "ai-outcome-v1",
+        "document-extract-v1",
+        "effect",
+        "effect-node-v1",
+        "human-review-v1",
+        "ai-generation-v1",
+        "ai",
+        "browser-empty-leaf-text-v1",
+        "browser-visible-text-v1",
+        "browser-scroll-v1",
+        "template-sdk-v1",
+        "attention",
+        "context",
+        "script",
+        "condition",
+        "document",
+        "run-result",
+        "loop",
+        "skill",
+        "state",
+        "entry-batches-v1",
+        "file",
+        "human",
+        "entry-initialization-v1"
+      ],
+      "resourceIds": [
+        "browser",
+        "account-source-result",
+        "profile",
+        "communication-cache",
+        "ai",
+        "resume-materials"
+      ],
+      "actionIds": [
+        "state-write",
+        "workflow-write-2",
+        "workflow-write-1",
+        "select-job",
+        "select-city",
+        "apply",
+        "reply",
+        "send-resume",
+        "exchange-wechat",
+        "exchange-phone"
+      ],
+      "schedulable": false,
+      "batching": {
+        "decisionPath": [
+          "decision"
+        ],
+        "initializationSteps": [
+          "n_b7b624d7ae1d4929a26cf1cfa3f59f9f",
+          "n_17229d62d7ef4f3badf8155fc5371841",
+          "n_1fa3b414954b43c18745bc184523b308",
+          "n_add977e6c9ec43aebc6871cb23b56ba1",
+          "n_333cb9baf6034e6eaa73b26d4fac22c6",
+          "n_fdf93140598a462499b395442cb4314e",
+          "n_e94d08c7632b4dacbaff713c1ec6c88e",
+          "n_96692eb6211548ce8415b6132fa2c62a",
+          "n_c03e7ed7b0c945afb46e76e4936a730f",
+          "n_b391cc7e4a1541f3b50d2ca8284d0048",
+          "n_1688f8d4556f46c4bb900c2ff628c8d5",
+          "n_592e51a000c44c899cf2f3decfeab860",
+          "n_0f440ee2aa8d4eaab43c5c6dc0a48f0b"
+        ],
+        "progressPath": [
+          "progress"
+        ],
+        "reasonPath": [
+          "reason"
+        ],
+        "version": 1
+      }
+    },
+    {
+      "id": "account-source",
+      "name": "核对当前求职账号（本人确认）",
+      "graph": "flows/account-source.mmd",
+      "nodes": "nodes/account-source.json",
+      "inputSchema": "schemas/inputs/account-source.json",
+      "resultSchema": "schemas/results/account-source.json",
+      "parameters": {
+        "accountAlias": ""
+      },
+      "capabilities": [
+        "browser",
+        "browser-rendered-fields-v2",
+        "template-sdk-v1",
+        "human",
+        "human-review-v1",
+        "attention",
+        "script",
+        "condition"
+      ],
+      "resourceIds": [
+        "browser"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    },
+    {
+      "id": "account-safety-index",
+      "name": "核对或首次建立账号安全索引（本人确认）",
+      "graph": "flows/account-safety-index.mmd",
+      "nodes": "nodes/account-safety-index.json",
+      "inputSchema": "schemas/inputs/account-safety-index.json",
+      "resultSchema": "schemas/results/account-safety-index.json",
+      "parameters": {},
+      "capabilities": [
+        "run-result-read-v1",
+        "template-sdk-v1",
+        "template-data-v1",
+        "run-result",
+        "script",
+        "browser",
+        "state",
+        "file",
+        "human",
+        "effect"
+      ],
+      "resourceIds": [
+        "browser",
+        "account-source-result",
+        "communication-cache"
+      ],
+      "actionIds": [
+        "workflow-write-1"
+      ],
+      "schedulable": false
+    },
+    {
+      "id": "unread-closing",
+      "name": "上限后固定未读消息收尾",
+      "graph": "flows/unread-closing.mmd",
+      "nodes": "nodes/unread-closing.json",
+      "inputSchema": "schemas/inputs/unread-closing.json",
+      "resultSchema": "schemas/results/unread-closing.json",
+      "parameters": {},
+      "capabilities": [
+        "template-data-v1",
+        "browser",
+        "browser-rendered-fields-v2",
+        "browser-observe-v1",
+        "browser-target-input-v1",
+        "browser-selection-text-v1",
+        "run-result-read-v1",
+        "skill-v1",
+        "ai-node-v1",
+        "ai-outcome-v1",
+        "document-extract-v1",
+        "effect",
+        "effect-node-v1",
+        "human-review-v1",
+        "ai-generation-v1",
+        "ai",
+        "browser-empty-leaf-text-v1",
+        "browser-visible-text-v1",
+        "browser-scroll-v1",
+        "template-sdk-v1",
+        "state",
+        "file",
+        "skill",
+        "attention",
+        "human",
+        "context",
+        "run-result",
+        "script",
+        "loop"
+      ],
+      "resourceIds": [
+        "browser",
+        "profile",
+        "ai",
+        "account-source-result",
+        "communication-cache"
+      ],
+      "actionIds": [
+        "state-write",
+        "reply",
+        "workflow-write-1"
+      ],
+      "schedulable": false
+    },
+    {
+      "id": "resume-send",
+      "name": "核对请求并原生发送现有附件",
+      "graph": "flows/resume-send.mmd",
+      "nodes": "nodes/resume-send.json",
+      "inputSchema": "schemas/inputs/resume-send.json",
+      "resultSchema": "schemas/results/resume-send.json",
+      "parameters": {
+        "resumeFile": ""
+      },
+      "capabilities": [
+        "template-data-v1",
+        "browser",
+        "browser-rendered-fields-v2",
+        "browser-observe-v1",
+        "browser-target-input-v1",
+        "browser-selection-text-v1",
+        "run-result-read-v1",
+        "skill-v1",
+        "ai-node-v1",
+        "ai-outcome-v1",
+        "document-extract-v1",
+        "effect",
+        "effect-node-v1",
+        "human-review-v1",
+        "ai-generation-v1",
+        "ai",
+        "browser-empty-leaf-text-v1",
+        "browser-visible-text-v1",
+        "browser-scroll-v1",
+        "template-sdk-v1",
+        "file",
+        "state",
+        "attention",
+        "script",
+        "condition",
+        "context",
+        "run-result"
+      ],
+      "resourceIds": [
+        "browser",
+        "account-source-result",
+        "communication-cache"
+      ],
+      "actionIds": [
+        "workflow-write-3",
+        "select-job",
+        "workflow-write-1",
+        "send-resume"
+      ],
+      "schedulable": false
+    },
+    {
+      "id": "job-title-scope",
+      "name": "只读核对岗位范围",
+      "graph": "flows/job-title-scope.mmd",
+      "nodes": "nodes/job-title-scope.json",
+      "inputSchema": "schemas/inputs/job-title-scope.json",
+      "resultSchema": "schemas/results/job-title-scope.json",
+      "parameters": {},
+      "capabilities": [
+        "template-data-v1",
+        "browser",
+        "template-sdk-v1",
+        "context",
+        "script"
+      ],
+      "resourceIds": [
+        "browser"
+      ],
+      "actionIds": [],
+      "schedulable": false
+    }
+  ],
+  "resources": [
+    {
+      "access": "use",
+      "id": "browser",
+      "kind": "browser",
+      "name": "BOSS 求职者会话浏览器",
+      "required": true
+    },
+    {
+      "access": "read",
+      "id": "resume-materials",
+      "kind": "directory",
+      "name": "简历与项目资料目录",
+      "required": true
+    },
+    {
+      "access": "read",
+      "id": "profile",
+      "kind": "skill",
+      "name": "已确认的个人求职Skill",
+      "required": true
+    },
+    {
+      "access": "use",
+      "id": "ai",
+      "kind": "ai",
+      "name": "自己的AI服务与模型",
+      "required": true
+    },
+    {
+      "access": "read",
+      "id": "account-source-result",
+      "kind": "run-result",
+      "name": "已确认求职账号来源",
+      "required": true,
+      "sourceEntries": [
+        "account-source"
+      ]
+    },
+    {
+      "access": "readwrite",
+      "id": "communication-cache",
+      "kind": "directory",
+      "name": "沟通记录与网页观察缓存",
+      "required": true
+    }
+  ],
+  "actions": [
+    {
+      "default": "deny",
+      "description": "按预期修订替换本实例的完整状态；提交后不因运行取消而撤销",
+      "id": "state-write",
+      "name": "更新模板状态"
+    },
+    {
+      "default": "deny",
+      "description": "处理本人授权的固定未读集合，或先读取当前账号unknown原会话并由本人API结合确认Skill判断。仅回复尚未回答且有事实依据的工作问题，含标点空格最多50字。原unknown历史保留；必要回复建立关联原来信的唯一接管预留，不通过改键反复发送。发前等待网站发送状态两个样本稳定，复验账号、消息链、预留与完整正文，点击输入框后仅按一次Enter，核对同会话新消息与送达。拒绝、客套、已回答、关键事实缺失或重要承诺不回复；已有关联预留和接管unknown不重试，原生附件及联系方式由独立动作处理。默认禁止，使用者须明确授权。",
+      "id": "reply",
+      "name": "发送已核对的回复"
+    },
+    {
+      "default": "deny",
+      "description": "只打开城市筛选弹层、读取真实分组与选项并选择本次配置城市；点击前回读匹配项，选择后核对实际城市。不投递、不发消息、不发送简历；配置缺失、歧义或页面变化时停止。",
+      "id": "select-city",
+      "name": "按用户配置选择求职城市"
+    },
+    {
+      "default": "deny",
+      "description": "仅点击本轮已复验的左侧岗位卡片并核对右侧详情、准确岗位与实际城市。只浏览详情，不触发沟通、消息或附件。来源、配置、日期或城市变化时停止；点击回执不代表匹配或发送成功。",
+      "id": "select-job",
+      "name": "浏览并核对候选职位详情"
+    },
+    {
+      "default": "deny",
+      "description": "仅对当前已核对账号、配置城市和准确岗位发起一次首次沟通。点击前持久预留、写出并读回账号安全索引、复验JD和立即沟通入口；来源变化、跨日或账号复验超时即停止。由网站发送使用者在App保存并批准的默认招呼，取得明确成功提示后留在本页；不补发详细介绍。每日首条实际自动消息仅作只读全文、网站消息编号、时间、送达及关联岗位核对，返回后按岗位ID核对恢复。正文截断、不符或送达未知时停止并保留记录。已沟通及confirmed/reserved/unknown不重放。不发送附件、后续回复、联系方式或重要承诺。",
+      "id": "apply",
+      "name": "发起已核对职位的首次沟通"
+    },
+    {
+      "default": "deny",
+      "description": "允许此入口的文件写入、网页修改和外部请求；执行范围以流程定义为准",
+      "id": "workflow-write",
+      "name": "执行流程写入"
+    },
+    {
+      "default": "deny",
+      "description": "仅在绑定的沟通缓存目录保存列表位置、网站证据和本工作区账号安全索引；不清除或覆盖既有历史。当前实例与绑定缓存均无本地历史时，经确认建立空的本地索引并持久记录初始化；不要求网站账号从未沟通，不导入旧数据，也不证明完整网站历史。已有本地历史却缺索引时停止。不授权发送网站消息。",
+      "id": "workflow-write-1",
+      "name": "写入沟通缓存与安全索引"
+    },
+    {
+      "default": "deny",
+      "description": "仅对本人授权的固定未读集合中的合适岗位、准确账号和未处理附件请求，使用本人确认最新的网站现有PDF完整文件名。先核对原生附件库唯一匹配项，持久预留，通过原生同意、选件、发送控件执行一次并核对同会话回执。不读取或上传本地PDF，���删除改名附件。校园岗位及既有confirmed/reserved/unknown不重放，来源或对象不明保留待办。默认拒绝，实例须明确授权。",
+      "id": "send-resume",
+      "name": "原生发送本人确认的网站现有附件"
+    },
+    {
+      "default": "deny",
+      "description": "允许此入口的文件写入、网页修改和外部请求；执行范围以流程定义为准",
+      "id": "workflow-write-2",
+      "name": "执行流程写入"
+    },
+    {
+      "default": "deny",
+      "description": "允许此入口的文件写入、网页修改和外部请求；执行范围以流程定义为准",
+      "id": "workflow-write-3",
+      "name": "执行流程写入"
+    },
+    {
+      "default": "deny",
+      "description": "仅处理本轮固定未读集合中符合岗位规则且对方主动提出的微信交换请求。准确核对账号、联系人、岗位和请求编号，持久预留后原生同意一次，核对网站回执。取得微信号后建立包含联系人及来源的本地提醒。不主动发起交换，不把微信号拼进聊天，不自动加好友。已有意图或unknown不重放，默认拒绝。",
+      "id": "exchange-wechat",
+      "name": "原生同意请求交换微信"
+    },
+    {
+      "default": "deny",
+      "description": "仅处理本轮固定未读集合中符合岗位规则且对方主动提出的手机号交换请求。核对准确账号、联系人、岗位和请求编号，持久预留后通过原生同意控件执行一次并核对回执。不主动发起交换，不将手机号另行拼入聊天文字。已有意图或unknown不重放，来源不明保留待办，默认拒绝。",
+      "id": "exchange-phone",
+      "name": "原生同意请求交换手机号"
+    }
+  ],
+  "prompts": [],
+  "promptBindings": {
+    "preflight": [],
+    "open": [],
+    "conditions": [],
+    "profile-sources": [],
+    "job-assessment": [],
+    "message-draft": [],
+    "conversation-control": [],
+    "web-jd-source": [],
+    "web-jd-body": [],
+    "web-job-assessment": [],
+    "confirmed-reply": [],
+    "daily-apply": [],
+    "account-source": [],
+    "account-safety-index": [],
+    "unread-closing": [],
+    "resume-send": [],
+    "job-title-scope": []
+  },
+  "dependencies": [],
+  "environment": [],
+  "publicFiles": [
+    "scripts/preflight/n_bb9ceca5.js",
+    "scripts/preflight/n_7aac6071.js",
+    "scripts/preflight/n_9daec46d.js",
+    "flows/preflight.mmd",
+    "nodes/preflight.json",
+    "schemas/inputs/preflight.json",
+    "schemas/results/preflight.json",
+    "scripts/open/n_4ef509b7.js",
+    "scripts/open/n_d3dc71d5.js",
+    "scripts/open/n_b52d8b61.js",
+    "scripts/open/n_70024104.js",
+    "scripts/open/n_db345564.js",
+    "scripts/open/n_f439da11.js",
+    "scripts/open/n_1fceccf3.js",
+    "scripts/open/n_caed06ce.js",
+    "flows/open.mmd",
+    "nodes/open.json",
+    "schemas/inputs/open.json",
+    "schemas/results/open.json",
+    "scripts/conditions/n_70c234d1.js",
+    "scripts/conditions/n_888b575d.js",
+    "scripts/conditions/n_e5c83f60.js",
+    "flows/conditions.mmd",
+    "nodes/conditions.json",
+    "schemas/inputs/conditions.json",
+    "schemas/results/conditions.json",
+    "scripts/profile-sources/n_ba7226ce.js",
+    "scripts/profile-sources/n_d5d8705e.js",
+    "scripts/profile-sources/n_00b866de.js",
+    "flows/profile-sources.mmd",
+    "nodes/profile-sources.json",
+    "schemas/inputs/profile-sources.json",
+    "schemas/results/profile-sources.json",
+    "scripts/job-assessment/n_22f52238.js",
+    "scripts/job-assessment/n_2d0a046c.js",
+    "scripts/job-assessment/n_60242c2b.js",
+    "scripts/job-assessment/n_124dba53.js",
+    "scripts/job-assessment/n_dd293c99.js",
+    "scripts/job-assessment/n_bfb208ae.js",
+    "flows/job-assessment.mmd",
+    "nodes/job-assessment.json",
+    "schemas/inputs/job-assessment.json",
+    "schemas/results/job-assessment.json",
+    "scripts/message-draft/n_22f52238.js",
+    "scripts/message-draft/n_2d0a046c.js",
+    "scripts/message-draft/n_60242c2b.js",
+    "scripts/message-draft/n_adc66c1e.js",
+    "scripts/message-draft/n_5447c54f.js",
+    "scripts/message-draft/n_e46dfa6e.js",
+    "scripts/message-draft/n_dd293c99.js",
+    "scripts/message-draft/n_bfb208ae.js",
+    "flows/message-draft.mmd",
+    "nodes/message-draft.json",
+    "schemas/inputs/message-draft.json",
+    "schemas/results/message-draft.json",
+    "scripts/conversation-control/n_d1a1db47.js",
+    "scripts/conversation-control/n_25cdcbf0.js",
+    "scripts/conversation-control/n_4feb36ab.js",
+    "flows/conversation-control.mmd",
+    "nodes/conversation-control.json",
+    "schemas/inputs/conversation-control.json",
+    "schemas/results/conversation-control.json",
+    "scripts/web-jd-source/n_b6b29ad6.js",
+    "scripts/web-jd-source/n_e5995039.js",
+    "flows/web-jd-source.mmd",
+    "nodes/web-jd-source.json",
+    "schemas/inputs/web-jd-source.json",
+    "schemas/results/web-jd-source.json",
+    "scripts/web-jd-body/n_b6b29ad6.js",
+    "scripts/web-jd-body/n_92e815ba.js",
+    "scripts/web-jd-body/n_61a97a4d.js",
+    "scripts/web-jd-body/n_7ae96796.js",
+    "scripts/web-jd-body/n_66c37dd6.js",
+    "scripts/web-jd-body/n_e5995039.js",
+    "flows/web-jd-body.mmd",
+    "nodes/web-jd-body.json",
+    "schemas/inputs/web-jd-body.json",
+    "schemas/results/web-jd-body.json",
+    "scripts/web-job-assessment/n_b6b29ad6.js",
+    "scripts/web-job-assessment/n_92e815ba.js",
+    "scripts/web-job-assessment/n_61a97a4d.js",
+    "scripts/web-job-assessment/n_4445b1ba.js",
+    "scripts/web-job-assessment/n_a3006719.js",
+    "scripts/web-job-assessment/n_4022575b.js",
+    "scripts/web-job-assessment/n_422f0834.js",
+    "scripts/web-job-assessment/n_696bb0c6.js",
+    "scripts/web-job-assessment/n_099a54fa.js",
+    "scripts/web-job-assessment/n_2e755d6f.js",
+    "scripts/web-job-assessment/n_66c37dd6.js",
+    "scripts/web-job-assessment/n_e5995039.js",
+    "flows/web-job-assessment.mmd",
+    "nodes/web-job-assessment.json",
+    "schemas/inputs/web-job-assessment.json",
+    "schemas/results/web-job-assessment.json",
+    "scripts/confirmed-reply/n_34c7aa2b.js",
+    "scripts/confirmed-reply/n_50872b8f.js",
+    "flows/confirmed-reply.mmd",
+    "nodes/confirmed-reply.json",
+    "schemas/inputs/confirmed-reply.json",
+    "schemas/results/confirmed-reply.json",
+    "scripts/daily-apply/n_249ad5a9325343da974caa1323c35a67.js",
+    "scripts/daily-apply/n_b1779b2afd1e4d05911f06b6a36a9a6c.js",
+    "scripts/daily-apply/n_ea3bcba738ed4a0b9a46df1f35ea04d9.js",
+    "scripts/daily-apply/n_0d7b5e2f421b4b2da77e162f4bddca7e.js",
+    "scripts/daily-apply/n_67364d3f00314fe89ac4d820c2876e94.js",
+    "scripts/daily-apply/n_63b3ea9d.js",
+    "scripts/daily-apply/n_dba391ce.js",
+    "scripts/daily-apply/n_30e96516.js",
+    "scripts/daily-apply/n_740c3cd1711d448caa25e3eaddf770c7.js",
+    "scripts/daily-apply/n_3d1228bd6ec24938a3f78b663238a589.js",
+    "scripts/daily-apply/n_66b8619abf9d4a94a5548ede5aa3e191.js",
+    "scripts/daily-apply/n_f7142cfb34f843dbb59308d417a1d272.js",
+    "scripts/daily-apply/n_8933b35270be45b99001cee0fddd72e0.js",
+    "scripts/daily-apply/n_add977e6c9ec43aebc6871cb23b56ba1.js",
+    "scripts/daily-apply/n_fdf93140598a462499b395442cb4314e.js",
+    "scripts/daily-apply/n_e94d08c7632b4dacbaff713c1ec6c88e.js",
+    "scripts/daily-apply/n_96692eb6211548ce8415b6132fa2c62a.js",
+    "scripts/daily-apply/n_633c3edee66142e3866872888ef0247e.js",
+    "scripts/daily-apply/n_9c7035536d134f6d8cd382eb20618a46.js",
+    "scripts/daily-apply/n_a7b94c9ae1d94346835023545fceedcb.js",
+    "scripts/daily-apply/n_0a52c6290a954606ba265c8bc59be714.js",
+    "scripts/daily-apply/n_4e79da15f9314336a7346b85f25d387e.js",
+    "scripts/daily-apply/n_22a446adfaf2478196d8e322096c0abe.js",
+    "scripts/daily-apply/n_b8959b1328e44601b4237a4dafcb6bbd.js",
+    "scripts/daily-apply/n_140b18b639a04c5b93cf91053b42dec6.js",
+    "scripts/daily-apply/n_6110bfca69e146e19d5d41a3b5519f7a.js",
+    "scripts/daily-apply/n_3f15667cd7f9435ea1eb71f4749b0658.js",
+    "scripts/daily-apply/n_a532f131bc0441d7bb4982b692cc076c.js",
+    "scripts/daily-apply/n_04d937c01f4d4675b7d7b4fe874c50a2.js",
+    "scripts/daily-apply/n_53166be296cb41189803a0eb662506c0.js",
+    "scripts/daily-apply/n_9852d7d94937499ca93d92c90ea70d5c.js",
+    "scripts/daily-apply/n_5b42f65cafe14677907e766892a3f829.js",
+    "scripts/daily-apply/n_b90f34a5fd954712866954542c8173a4.js",
+    "scripts/daily-apply/n_96244c537ddc46d9ac05dc43bce980e7.js",
+    "scripts/daily-apply/n_fd5d40ec392d47e298048edb099f7623.js",
+    "scripts/daily-apply/n_a02a6d7ebb4f477aa6279ad88dc99661.js",
+    "scripts/daily-apply/n_fcf5b3b9cb39472799a996adf406c176.js",
+    "scripts/daily-apply/n_2decc006f4e146989fda1bd2aded53a3.js",
+    "scripts/daily-apply/n_d3b2fccd98e0411c9929aa668421ca24.js",
+    "scripts/daily-apply/n_8c773452bacc43b183b6f504e9d08f62.js",
+    "scripts/daily-apply/n_865d63851c1549c6954181cc2e85fc10.js",
+    "scripts/daily-apply/n_903ad57dc21f4654989e851a314678a4.js",
+    "scripts/daily-apply/n_d51209c3bb9c4742a3096b6308b64ca9.js",
+    "scripts/daily-apply/n_d9767262a8874ba6843a4cbdcd22ea58.js",
+    "scripts/daily-apply/n_3b8a5432f07648d9b1c22d68caa0b3c4.js",
+    "scripts/daily-apply/n_2a0bf136b581497cbfd2ece5bb66840b.js",
+    "scripts/daily-apply/n_c1f3c269241543f993b00853fa836b77.js",
+    "scripts/daily-apply/n_7cd2e164e6694586b378b8f1762609cf.js",
+    "scripts/daily-apply/n_1d594ff7091246758fef83c38aa338db.js",
+    "scripts/daily-apply/n_bfc2a5c8128b4537a2b8902db840475e.js",
+    "scripts/daily-apply/n_51b2afc831c24cae8e8969cd157f06db.js",
+    "scripts/daily-apply/n_4518889a15c74cbbabcd33281d132895.js",
+    "scripts/daily-apply/n_b9a86436691448fd9af5350c9bb31d91.js",
+    "scripts/daily-apply/n_937adbce3e504085ad027459555f09b3.js",
+    "scripts/daily-apply/n_31a237750da046a5b1a3c5175a952023.js",
+    "scripts/daily-apply/n_ffb3ea38e46a4607b4b9c5d8e0bc7274.js",
+    "scripts/daily-apply/n_023e9a0f647b40b09ee12bcf18dbbb25.js",
+    "flows/daily-apply.mmd",
+    "nodes/daily-apply.json",
+    "schemas/inputs/daily-apply.json",
+    "schemas/results/daily-apply.json",
+    "scripts/account-source/n_2971bf80.js",
+    "scripts/account-source/n_72c263fb.js",
+    "scripts/account-source/n_5ed37dbe.js",
+    "scripts/account-source/n_553acd61.js",
+    "scripts/account-source/n_a14d85b0.js",
+    "flows/account-source.mmd",
+    "nodes/account-source.json",
+    "schemas/inputs/account-source.json",
+    "schemas/results/account-source.json",
+    "scripts/account-safety-index/n_fdf46be6.js",
+    "flows/account-safety-index.mmd",
+    "nodes/account-safety-index.json",
+    "schemas/inputs/account-safety-index.json",
+    "schemas/results/account-safety-index.json",
+    "scripts/unread-closing/n_8933b35270be45b99001cee0fddd72e0.js",
+    "scripts/unread-closing/n_48ed1ff5.js",
+    "scripts/unread-closing/n_ed8aaf1d.js",
+    "scripts/unread-closing/n_422917fa.js",
+    "scripts/unread-closing/n_542b1f67.js",
+    "scripts/unread-closing/n_a5f4b437.js",
+    "flows/unread-closing.mmd",
+    "nodes/unread-closing.json",
+    "schemas/inputs/unread-closing.json",
+    "schemas/results/unread-closing.json",
+    "scripts/resume-send/n_8933b35270be45b99001cee0fddd72e0.js",
+    "scripts/resume-send/n_45629fc1.js",
+    "scripts/resume-send/n_7946f87b.js",
+    "flows/resume-send.mmd",
+    "nodes/resume-send.json",
+    "schemas/inputs/resume-send.json",
+    "schemas/results/resume-send.json",
+    "scripts/job-title-scope/n_82e92c2f.js",
+    "flows/job-title-scope.mmd",
+    "nodes/job-title-scope.json",
+    "schemas/inputs/job-title-scope.json",
+    "schemas/results/job-title-scope.json",
+    "assets/resource-setup.jpg",
+    "prompts/jd-assessment.md",
+    "prompts/message-draft.md",
+    "README.md",
+    "schemas/configuration.json",
+    "schemas/state.json",
+    "config/constants.json",
+    "config/defaults.json"
+  ]
+}

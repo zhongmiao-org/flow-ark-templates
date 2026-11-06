@@ -1,0 +1,24 @@
+flowchart TD
+n_b7b624d7ae1d4929a26cf1cfa3f59f9f["n_b7b624d7ae1d4929a26cf1cfa3f59f9f"]
+n_333cb9baf6034e6eaa73b26d4fac22c6["读取本实例已选择的账号确认结果"]
+n_fd3e8c48d8e44596beddfc937aa65216["入队前读取最新完整状态"]
+n_8933b35270be45b99001cee0fddd72e0["读取并恢复固定未读集合"]
+n_6b881d7d["n_6b881d7d"]
+n_97997d80["依次处理固定未读会话"]
+subgraph n_97997d80__body["body"]
+n_48ed1ff5["核对固定会话完整上下文"]
+n_ed8aaf1d["使用自有AI生成当前会话回复"]
+n_422917fa["预留原来信并只发送一次回复"]
+n_542b1f67["核对网站送达并保存固定成员进度"]
+end
+n_a5f4b437["汇总固定未读收尾结果"]
+n_b7b624d7ae1d4929a26cf1cfa3f59f9f --> n_333cb9baf6034e6eaa73b26d4fac22c6
+n_333cb9baf6034e6eaa73b26d4fac22c6 --> n_fd3e8c48d8e44596beddfc937aa65216
+n_fd3e8c48d8e44596beddfc937aa65216 --> n_8933b35270be45b99001cee0fddd72e0
+n_8933b35270be45b99001cee0fddd72e0 --> n_6b881d7d
+n_6b881d7d --> n_97997d80
+n_97997d80 -->|body| n_48ed1ff5
+n_48ed1ff5 --> n_ed8aaf1d
+n_ed8aaf1d --> n_422917fa
+n_422917fa --> n_542b1f67
+n_97997d80 --> n_a5f4b437

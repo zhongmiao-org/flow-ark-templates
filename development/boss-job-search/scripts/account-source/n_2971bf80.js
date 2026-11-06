@@ -1,0 +1,1 @@
+var stdin_default=async({input,signal})=>{signal.throwIfAborted();if(typeof input!=="string"||input.length>100)throw new Error("账号别名应为不超过100字的文本");const accountAlias=input.trim();if(!accountAlias||/[\r\n]/.test(accountAlias))throw new Error("请先填写固定的本地账号别名，再重新运行");return{version:1,accountAlias}};export{stdin_default as default};

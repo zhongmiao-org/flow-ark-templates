@@ -1,0 +1,4 @@
+.flowark/
+.env*
+!.env.example
+*.flowark-template.zip

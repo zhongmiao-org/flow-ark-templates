@@ -1,0 +1,2019 @@
+{
+  "n_b7b624d7ae1d4929a26cf1cfa3f59f9f": {
+    "node": {
+      "id": "n_b7b624d7ae1d4929a26cf1cfa3f59f9f",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_d206869429834b25a3cf6938f15f724d": {
+    "node": {
+      "id": "n_d206869429834b25a3cf6938f15f724d",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_c65c8e4a4e8b468ba35394c6c11c6986": {
+    "node": {
+      "binding": "account-source-result",
+      "id": "n_c65c8e4a4e8b468ba35394c6c11c6986",
+      "name": "读取本实例已选择的账号确认结果",
+      "operation": "read",
+      "type": "run-result",
+      "version": 1
+    }
+  },
+  "n_a4cf57983951451e8d800ff5e96c3791": {
+    "node": {
+      "id": "n_a4cf57983951451e8d800ff5e96c3791",
+      "name": "入队前读取最新完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_249ad5a9325343da974caa1323c35a67": {
+    "node": {
+      "dependencies": [],
+      "id": "n_249ad5a9325343da974caa1323c35a67",
+      "input": {
+        "account": {
+          "$ref": "steps.n_c65c8e4a4e8b468ba35394c6c11c6986"
+        },
+        "configuration": {
+          "$ref": "steps.n_d206869429834b25a3cf6938f15f724d"
+        },
+        "restoreExistingClosing": {
+          "$ref": "params.restoreExistingClosing"
+        },
+        "state": {
+          "$ref": "steps.n_a4cf57983951451e8d800ff5e96c3791"
+        }
+      },
+      "language": "js",
+      "name": "读取并恢复固定未读集合",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_249ad5a9325343da974caa1323c35a67.js"
+  },
+  "n_c432c6f8474d41b3a9d06133595c1910": {
+    "node": {
+      "binding": "profile",
+      "id": "n_c432c6f8474d41b3a9d06133595c1910",
+      "operation": "read",
+      "type": "skill",
+      "version": 1
+    }
+  },
+  "n_b1779b2afd1e4d05911f06b6a36a9a6c": {
+    "node": {
+      "dependencies": [],
+      "id": "n_b1779b2afd1e4d05911f06b6a36a9a6c",
+      "input": {
+        "cohort": {
+          "$ref": "item"
+        },
+        "profile": {
+          "$ref": "steps.n_c432c6f8474d41b3a9d06133595c1910"
+        }
+      },
+      "language": "js",
+      "name": "核对固定会话完整上下文",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_b1779b2afd1e4d05911f06b6a36a9a6c.js"
+  },
+  "n_f48df1c473684b549cdf944b715ccc41": {
+    "node": {
+      "id": "n_f48df1c473684b549cdf944b715ccc41",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_87fe718888ef4daf93bf143915123ac5": {
+    "node": {
+      "binding": "account-source-result",
+      "id": "n_87fe718888ef4daf93bf143915123ac5",
+      "name": "读取本实例已选择的账号确认结果",
+      "operation": "read",
+      "type": "run-result",
+      "version": 1
+    }
+  },
+  "n_31a80c88fca942d9a471721613cbc9a3": {
+    "node": {
+      "id": "n_31a80c88fca942d9a471721613cbc9a3",
+      "name": "入队前读取最新完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_ea3bcba738ed4a0b9a46df1f35ea04d9": {
+    "node": {
+      "dependencies": [],
+      "id": "n_ea3bcba738ed4a0b9a46df1f35ea04d9",
+      "input": {
+        "account": {
+          "$ref": "steps.n_87fe718888ef4daf93bf143915123ac5"
+        },
+        "closingSource": {
+          "$ref": "steps.n_b1779b2afd1e4d05911f06b6a36a9a6c"
+        },
+        "configuration": {
+          "$ref": "steps.n_f48df1c473684b549cdf944b715ccc41"
+        },
+        "state": {
+          "$ref": "steps.n_31a80c88fca942d9a471721613cbc9a3"
+        }
+      },
+      "language": "js",
+      "name": "核对当前附件请求与关联岗位",
+      "timeoutMs": 180000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_ea3bcba738ed4a0b9a46df1f35ea04d9.js"
+  },
+  "n_0d7b5e2f421b4b2da77e162f4bddca7e": {
+    "node": {
+      "dependencies": [],
+      "id": "n_0d7b5e2f421b4b2da77e162f4bddca7e",
+      "input": {
+        "fileName": {
+          "$ref": "params.resumeFile"
+        },
+        "source": {
+          "$ref": "steps.n_ea3bcba738ed4a0b9a46df1f35ea04d9"
+        }
+      },
+      "language": "js",
+      "name": "核对本人确认的网站现有附件并预留",
+      "timeoutMs": 600000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_0d7b5e2f421b4b2da77e162f4bddca7e.js"
+  },
+  "n_67364d3f00314fe89ac4d820c2876e94": {
+    "node": {
+      "dependencies": [],
+      "id": "n_67364d3f00314fe89ac4d820c2876e94",
+      "input": {
+        "$ref": "steps.n_0d7b5e2f421b4b2da77e162f4bddca7e"
+      },
+      "language": "js",
+      "name": "原生发送现有附件并核对同会话回执",
+      "timeoutMs": 600000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_67364d3f00314fe89ac4d820c2876e94.js"
+  },
+  "n_ddabe6914ee44fdcb5377adb6ea9fe76": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_0d7b5e2f421b4b2da77e162f4bddca7e.execute"
+      },
+      "expected": true,
+      "id": "n_ddabe6914ee44fdcb5377adb6ea9fe76",
+      "name": "仅本次新附件请求允许继续",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_63b3ea9d": {
+    "node": {
+      "dependencies": [],
+      "id": "n_63b3ea9d",
+      "input": {
+        "$ref": "steps.n_b1779b2afd1e4d05911f06b6a36a9a6c"
+      },
+      "language": "js",
+      "name": "原生处理当前会话微信交换请求",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_63b3ea9d.js"
+  },
+  "n_dba391ce": {
+    "node": {
+      "dependencies": [],
+      "id": "n_dba391ce",
+      "input": {
+        "$ref": "steps.n_b1779b2afd1e4d05911f06b6a36a9a6c"
+      },
+      "language": "js",
+      "name": "原生处理当前会话手机号交换请求",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_dba391ce.js"
+  },
+  "n_30e96516": {
+    "node": {
+      "dependencies": [],
+      "id": "n_30e96516",
+      "input": {
+        "$ref": "steps.n_b1779b2afd1e4d05911f06b6a36a9a6c"
+      },
+      "language": "js",
+      "name": "原生动作后重读当前固定会话上下文",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_30e96516.js"
+  },
+  "n_740c3cd1711d448caa25e3eaddf770c7": {
+    "node": {
+      "dependencies": [],
+      "id": "n_740c3cd1711d448caa25e3eaddf770c7",
+      "input": {
+        "$ref": "steps.n_30e96516"
+      },
+      "language": "js",
+      "name": "使用自有AI生成当前会话回复",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_740c3cd1711d448caa25e3eaddf770c7.js"
+  },
+  "n_3d1228bd6ec24938a3f78b663238a589": {
+    "node": {
+      "dependencies": [],
+      "id": "n_3d1228bd6ec24938a3f78b663238a589",
+      "input": {
+        "$ref": "steps.n_740c3cd1711d448caa25e3eaddf770c7"
+      },
+      "language": "js",
+      "name": "预留原来信并只发送一次回复",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_3d1228bd6ec24938a3f78b663238a589.js"
+  },
+  "n_66b8619abf9d4a94a5548ede5aa3e191": {
+    "node": {
+      "dependencies": [],
+      "id": "n_66b8619abf9d4a94a5548ede5aa3e191",
+      "input": {
+        "$ref": "steps.n_3d1228bd6ec24938a3f78b663238a589"
+      },
+      "language": "js",
+      "name": "核对网站送达并保存固定成员进度",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_66b8619abf9d4a94a5548ede5aa3e191.js"
+  },
+  "n_c5d0afc93c5a419eb2a7eeb120bb4a38": {
+    "node": {
+      "id": "n_c5d0afc93c5a419eb2a7eeb120bb4a38",
+      "items": {
+        "$ref": "steps.n_249ad5a9325343da974caa1323c35a67.items"
+      },
+      "name": "依次处理固定未读会话",
+      "type": "loop",
+      "version": 1
+    }
+  },
+  "n_f7142cfb34f843dbb59308d417a1d272": {
+    "node": {
+      "dependencies": [],
+      "id": "n_f7142cfb34f843dbb59308d417a1d272",
+      "input": {
+        "$ref": "steps.n_249ad5a9325343da974caa1323c35a67"
+      },
+      "language": "js",
+      "name": "汇总固定未读收尾结果",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_f7142cfb34f843dbb59308d417a1d272.js"
+  },
+  "n_8933b35270be45b99001cee0fddd72e0": {
+    "node": {
+      "dependencies": [],
+      "id": "n_8933b35270be45b99001cee0fddd72e0",
+      "input": {
+        "approvedGreetingText": {
+          "$ref": "params.approvedGreetingText"
+        },
+        "batchSize": {
+          "$ref": "params.batchSize"
+        },
+        "closing": {
+          "$ref": "steps.n_249ad5a9325343da974caa1323c35a67"
+        },
+        "configuration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        },
+        "dailyApplyLimit": {
+          "$ref": "params.dailyApplyLimit"
+        }
+      },
+      "language": "js",
+      "name": "核对求职条件与每日打招呼准备",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_8933b35270be45b99001cee0fddd72e0.js"
+  },
+  "n_17229d62d7ef4f3badf8155fc5371841": {
+    "node": {
+      "binding": "resume-materials",
+      "file": {
+        "$ref": "params.resumeFile"
+      },
+      "id": "n_17229d62d7ef4f3badf8155fc5371841",
+      "name": "解析本批明确选择的简历",
+      "type": "document",
+      "version": 1
+    }
+  },
+  "n_1fa3b414954b43c18745bc184523b308": {
+    "node": {
+      "id": "n_1fa3b414954b43c18745bc184523b308",
+      "name": "读取本次求职城市配置",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_add977e6c9ec43aebc6871cb23b56ba1": {
+    "node": {
+      "dependencies": [],
+      "id": "n_add977e6c9ec43aebc6871cb23b56ba1",
+      "input": {
+        "cityPosition": {
+          "$ref": "params.cityPosition"
+        },
+        "configuration": {
+          "$ref": "steps.n_1fa3b414954b43c18745bc184523b308"
+        }
+      },
+      "language": "js",
+      "name": "核对配置城市并准备目标检索",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_add977e6c9ec43aebc6871cb23b56ba1.js"
+  },
+  "n_333cb9baf6034e6eaa73b26d4fac22c6": {
+    "node": {
+      "binding": "account-source-result",
+      "id": "n_333cb9baf6034e6eaa73b26d4fac22c6",
+      "name": "读取本实例已选择的账号确认结果",
+      "operation": "read",
+      "type": "run-result",
+      "version": 1
+    }
+  },
+  "n_fdf93140598a462499b395442cb4314e": {
+    "node": {
+      "dependencies": [],
+      "id": "n_fdf93140598a462499b395442cb4314e",
+      "input": {
+        "$ref": "steps.n_333cb9baf6034e6eaa73b26d4fac22c6"
+      },
+      "language": "js",
+      "name": "校验所选账号确认来源",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_fdf93140598a462499b395442cb4314e.js"
+  },
+  "n_e94d08c7632b4dacbaff713c1ec6c88e": {
+    "node": {
+      "dependencies": [],
+      "id": "n_e94d08c7632b4dacbaff713c1ec6c88e",
+      "input": {
+        "expected": {
+          "$ref": "steps.n_fdf93140598a462499b395442cb4314e"
+        }
+      },
+      "language": "js",
+      "name": "核对当前账号与所选确认来源一致",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_e94d08c7632b4dacbaff713c1ec6c88e.js"
+  },
+  "n_96692eb6211548ce8415b6132fa2c62a": {
+    "node": {
+      "dependencies": [],
+      "id": "n_96692eb6211548ce8415b6132fa2c62a",
+      "input": {
+        "$ref": "steps.n_add977e6c9ec43aebc6871cb23b56ba1"
+      },
+      "language": "js",
+      "name": "保持已初始化列表，仅在目标改变时打开检索",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_96692eb6211548ce8415b6132fa2c62a.js"
+  },
+  "n_c03e7ed7b0c945afb46e76e4936a730f": {
+    "node": {
+      "framePath": [],
+      "id": "n_c03e7ed7b0c945afb46e76e4936a730f",
+      "name": "记录实际地址",
+      "operation": "url",
+      "selector": "",
+      "type": "browser",
+      "value": null,
+      "version": 4
+    }
+  },
+  "n_b391cc7e4a1541f3b50d2ca8284d0048": {
+    "node": {
+      "framePath": [],
+      "id": "n_b391cc7e4a1541f3b50d2ca8284d0048",
+      "name": "读取当前网页实际城市",
+      "operation": "read",
+      "selector": "body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > span",
+      "type": "browser",
+      "value": null,
+      "version": 2
+    }
+  },
+  "n_633c3edee66142e3866872888ef0247e": {
+    "node": {
+      "dependencies": [],
+      "id": "n_633c3edee66142e3866872888ef0247e",
+      "input": {},
+      "language": "js",
+      "name": "打开城市弹层一次并核对实际分组",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_633c3edee66142e3866872888ef0247e.js"
+  },
+  "n_bf2e22f9d2b64db19aca7b3b0f3077cb": {
+    "node": {
+      "framePath": [],
+      "id": "n_bf2e22f9d2b64db19aca7b3b0f3077cb",
+      "name": "等待求职城市分组可见（再读取真实数量）",
+      "operation": "wait",
+      "selector": ".city-select-wrapper > .city-char-list > li:nth-of-type(1)",
+      "timeoutMs": 10000,
+      "type": "browser",
+      "value": null,
+      "version": 2
+    }
+  },
+  "n_207ad832f3f245feb98d91d79c936c8f": {
+    "node": {
+      "framePath": [],
+      "id": "n_207ad832f3f245feb98d91d79c936c8f",
+      "name": "统计城市分组数量",
+      "operation": "count",
+      "selector": ".city-select-wrapper > .city-char-list > li",
+      "type": "browser",
+      "value": null,
+      "version": 4
+    }
+  },
+  "n_9c7035536d134f6d8cd382eb20618a46": {
+    "node": {
+      "dependencies": [],
+      "id": "n_9c7035536d134f6d8cd382eb20618a46",
+      "input": {
+        "configuration": {
+          "$ref": "steps.n_add977e6c9ec43aebc6871cb23b56ba1"
+        },
+        "count": {
+          "$ref": "steps.n_207ad832f3f245feb98d91d79c936c8f"
+        }
+      },
+      "language": "js",
+      "name": "按配置逐组查找城市，匹配即停止",
+      "timeoutMs": 300000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_9c7035536d134f6d8cd382eb20618a46.js"
+  },
+  "n_a7b94c9ae1d94346835023545fceedcb": {
+    "node": {
+      "dependencies": [],
+      "id": "n_a7b94c9ae1d94346835023545fceedcb",
+      "input": {
+        "catalog": {
+          "$ref": "steps.n_9c7035536d134f6d8cd382eb20618a46"
+        },
+        "configuration": {
+          "$ref": "steps.n_add977e6c9ec43aebc6871cb23b56ba1"
+        }
+      },
+      "language": "js",
+      "name": "核对城市查找结果与本次固定配置",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_a7b94c9ae1d94346835023545fceedcb.js"
+  },
+  "n_da7cb6aecc5449ab838366928feaefc8": {
+    "node": {
+      "framePath": [],
+      "id": "n_da7cb6aecc5449ab838366928feaefc8",
+      "name": "重新打开匹配城市所在分组",
+      "operation": "click",
+      "selector": {
+        "$ref": "steps.n_a7b94c9ae1d94346835023545fceedcb.candidate.groupSelector"
+      },
+      "type": "browser",
+      "value": null,
+      "version": 8
+    }
+  },
+  "n_67282b36f7e44c67b78f65ebaef1bdb3": {
+    "node": {
+      "framePath": [],
+      "id": "n_67282b36f7e44c67b78f65ebaef1bdb3",
+      "name": "回读匹配分组名称",
+      "operation": "read",
+      "selector": {
+        "$ref": "steps.n_a7b94c9ae1d94346835023545fceedcb.candidate.groupSelector"
+      },
+      "type": "browser",
+      "value": null,
+      "version": 8
+    }
+  },
+  "n_cb6599efeb0b45418e1f495dc91540ef": {
+    "node": {
+      "framePath": [],
+      "id": "n_cb6599efeb0b45418e1f495dc91540ef",
+      "name": "回读待选择城市完整名称",
+      "operation": "read",
+      "selector": {
+        "$ref": "steps.n_a7b94c9ae1d94346835023545fceedcb.candidate.citySelector"
+      },
+      "type": "browser",
+      "value": null,
+      "version": 8
+    }
+  },
+  "n_0a52c6290a954606ba265c8bc59be714": {
+    "node": {
+      "dependencies": [],
+      "id": "n_0a52c6290a954606ba265c8bc59be714",
+      "input": {
+        "catalog": {
+          "$ref": "steps.n_a7b94c9ae1d94346835023545fceedcb"
+        },
+        "cityName": {
+          "$ref": "steps.n_cb6599efeb0b45418e1f495dc91540ef"
+        },
+        "groupName": {
+          "$ref": "steps.n_67282b36f7e44c67b78f65ebaef1bdb3"
+        }
+      },
+      "language": "js",
+      "name": "核对当前分组与候选城市",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_0a52c6290a954606ba265c8bc59be714.js"
+  },
+  "n_a5c1fe63496a4367bdf118cb018d085f": {
+    "node": {
+      "framePath": [],
+      "id": "n_a5c1fe63496a4367bdf118cb018d085f",
+      "name": "选择已核对的配置城市",
+      "operation": "click",
+      "selector": {
+        "$ref": "steps.n_0a52c6290a954606ba265c8bc59be714.citySelector"
+      },
+      "type": "browser",
+      "value": null,
+      "version": 8
+    }
+  },
+  "n_805d37928f94427ba8ac73a9738b7baa": {
+    "node": {
+      "framePath": [],
+      "id": "n_805d37928f94427ba8ac73a9738b7baa",
+      "name": "读取选择后网页实际城市",
+      "operation": "read",
+      "selector": "body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > span",
+      "type": "browser",
+      "value": null,
+      "version": 8
+    }
+  },
+  "n_4e79da15f9314336a7346b85f25d387e": {
+    "node": {
+      "dependencies": [],
+      "id": "n_4e79da15f9314336a7346b85f25d387e",
+      "input": {
+        "actualCity": {
+          "$ref": "steps.n_805d37928f94427ba8ac73a9738b7baa"
+        },
+        "clickReceipt": {
+          "$ref": "steps.n_a5c1fe63496a4367bdf118cb018d085f"
+        },
+        "precheck": {
+          "$ref": "steps.n_0a52c6290a954606ba265c8bc59be714"
+        }
+      },
+      "language": "js",
+      "name": "核对并记录实际选中城市",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_4e79da15f9314336a7346b85f25d387e.js"
+  },
+  "n_22a446adfaf2478196d8e322096c0abe": {
+    "node": {
+      "dependencies": [],
+      "id": "n_22a446adfaf2478196d8e322096c0abe",
+      "input": {
+        "$ref": "steps.n_a7b94c9ae1d94346835023545fceedcb"
+      },
+      "language": "js",
+      "name": "记录未匹配城市并提醒本人",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_22a446adfaf2478196d8e322096c0abe.js"
+  },
+  "n_92def1c134aa44648ff4f649b45c9883": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_a7b94c9ae1d94346835023545fceedcb.ready"
+      },
+      "expected": true,
+      "id": "n_92def1c134aa44648ff4f649b45c9883",
+      "name": "目录匹配通过后才允许选择城市",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_1688f8d4556f46c4bb900c2ff628c8d5": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_b391cc7e4a1541f3b50d2ca8284d0048"
+      },
+      "expected": {
+        "$ref": "steps.n_add977e6c9ec43aebc6871cb23b56ba1.expectedCity"
+      },
+      "id": "n_1688f8d4556f46c4bb900c2ff628c8d5",
+      "name": "实际城市已符合配置，直接继续",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_592e51a000c44c899cf2f3decfeab860": {
+    "node": {
+      "framePath": [],
+      "id": "n_592e51a000c44c899cf2f3decfeab860",
+      "name": "选城后等待候选列表就绪",
+      "operation": "wait",
+      "selector": "div:nth-of-type(1) > div:nth-of-type(1) > li:nth-of-type(1)",
+      "type": "browser",
+      "value": null,
+      "version": 2
+    }
+  },
+  "n_b8959b1328e44601b4237a4dafcb6bbd": {
+    "node": {
+      "dependencies": [],
+      "id": "n_b8959b1328e44601b4237a4dafcb6bbd",
+      "input": {
+        "account": {
+          "$ref": "steps.n_e94d08c7632b4dacbaff713c1ec6c88e"
+        },
+        "configuration": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        }
+      },
+      "language": "js",
+      "name": "准备本次单轮加载检查",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_b8959b1328e44601b4237a4dafcb6bbd.js"
+  },
+  "n_140b18b639a04c5b93cf91053b42dec6": {
+    "node": {
+      "dependencies": [],
+      "id": "n_140b18b639a04c5b93cf91053b42dec6",
+      "input": {
+        "account": {
+          "$ref": "steps.n_e94d08c7632b4dacbaff713c1ec6c88e"
+        },
+        "configuration": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        },
+        "fixedConfiguration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        },
+        "pass": {
+          "$ref": "item"
+        }
+      },
+      "language": "js",
+      "name": "核对待处理数量与实际新增链接，决定是否滚动",
+      "timeoutMs": 120000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_140b18b639a04c5b93cf91053b42dec6.js"
+  },
+  "n_e21e152106d14eb184664ece57b53b0d": {
+    "node": {
+      "direction": "down",
+      "distance": 2000,
+      "framePath": [],
+      "id": "n_e21e152106d14eb184664ece57b53b0d",
+      "name": "有限滚动当前岗位列表（随后等待与核对）",
+      "operation": "scroll",
+      "selector": "body",
+      "type": "browser",
+      "version": 12
+    }
+  },
+  "n_6110bfca69e146e19d5d41a3b5519f7a": {
+    "node": {
+      "dependencies": [],
+      "id": "n_6110bfca69e146e19d5d41a3b5519f7a",
+      "input": {
+        "check": {
+          "$ref": "steps.n_140b18b639a04c5b93cf91053b42dec6"
+        },
+        "scroll": {
+          "$ref": "steps.n_e21e152106d14eb184664ece57b53b0d"
+        }
+      },
+      "language": "js",
+      "name": "滚动后有限等待并复验实际城市与列表稳定",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_6110bfca69e146e19d5d41a3b5519f7a.js"
+  },
+  "n_e08be3cd150042d7a7b0981180ba1f10": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_140b18b639a04c5b93cf91053b42dec6.shouldScroll"
+      },
+      "expected": true,
+      "id": "n_e08be3cd150042d7a7b0981180ba1f10",
+      "name": "只有本批候选不足时继续滚动",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_8a2708fe10e7432f93623014024c405c": {
+    "node": {
+      "id": "n_8a2708fe10e7432f93623014024c405c",
+      "items": {
+        "$ref": "steps.n_b8959b1328e44601b4237a4dafcb6bbd"
+      },
+      "name": "当前列表耗尽时检查一次加载周期",
+      "type": "loop",
+      "version": 1
+    }
+  },
+  "n_6a674c78d1664fea8af1c6c912246640": {
+    "node": {
+      "framePath": [],
+      "id": "n_6a674c78d1664fea8af1c6c912246640",
+      "name": "读取当前候选卡片数量",
+      "operation": "count",
+      "selector": "div > div:nth-of-type(1) > li",
+      "type": "browser",
+      "value": null,
+      "version": 4
+    }
+  },
+  "n_3f15667cd7f9435ea1eb71f4749b0658": {
+    "node": {
+      "dependencies": [],
+      "id": "n_3f15667cd7f9435ea1eb71f4749b0658",
+      "input": null,
+      "language": "js",
+      "name": "生成本次有限批次标识",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_3f15667cd7f9435ea1eb71f4749b0658.js"
+  },
+  "n_fd3e8c48d8e44596beddfc937aa65216": {
+    "node": {
+      "id": "n_fd3e8c48d8e44596beddfc937aa65216",
+      "name": "入队前读取最新完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_a532f131bc0441d7bb4982b692cc076c": {
+    "node": {
+      "dependencies": [],
+      "id": "n_a532f131bc0441d7bb4982b692cc076c",
+      "input": {
+        "account": {
+          "$ref": "steps.n_e94d08c7632b4dacbaff713c1ec6c88e"
+        },
+        "cardCount": {
+          "$ref": "steps.n_6a674c78d1664fea8af1c6c912246640"
+        },
+        "configuration": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        },
+        "fixedConfiguration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        },
+        "state": {
+          "$ref": "steps.n_fd3e8c48d8e44596beddfc937aa65216"
+        }
+      },
+      "language": "js",
+      "name": "读取完整岗位来源并准备队列更新",
+      "timeoutMs": 300000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_a532f131bc0441d7bb4982b692cc076c.js"
+  },
+  "n_88cfed9a7c604045a06fc0f6de75844b": {
+    "node": {
+      "expectedRevision": {
+        "$ref": "steps.n_a532f131bc0441d7bb4982b692cc076c.expectedRevision"
+      },
+      "id": "n_88cfed9a7c604045a06fc0f6de75844b",
+      "name": "按最新修订保存完整候选队列",
+      "operation": "state.write",
+      "type": "context",
+      "value": {
+        "$ref": "steps.n_a532f131bc0441d7bb4982b692cc076c.value"
+      },
+      "version": 1
+    }
+  },
+  "n_1b8e56cce1704da79fbc98d64ba438e6": {
+    "node": {
+      "id": "n_1b8e56cce1704da79fbc98d64ba438e6",
+      "name": "保存后重新读取完整候选队列",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_04d937c01f4d4675b7d7b4fe874c50a2": {
+    "node": {
+      "dependencies": [],
+      "id": "n_04d937c01f4d4675b7d7b4fe874c50a2",
+      "input": {
+        "plan": {
+          "$ref": "steps.n_a532f131bc0441d7bb4982b692cc076c"
+        },
+        "receipt": {
+          "$ref": "steps.n_88cfed9a7c604045a06fc0f6de75844b"
+        },
+        "state": {
+          "$ref": "steps.n_1b8e56cce1704da79fbc98d64ba438e6"
+        }
+      },
+      "language": "js",
+      "name": "核对队列写入回执并选择有限批次",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_04d937c01f4d4675b7d7b4fe874c50a2.js"
+  },
+  "n_0f440ee2aa8d4eaab43c5c6dc0a48f0b": {
+    "node": {
+      "binding": "profile",
+      "id": "n_0f440ee2aa8d4eaab43c5c6dc0a48f0b",
+      "name": "初始化本次固定个人Skill",
+      "operation": "read",
+      "type": "skill",
+      "version": 1
+    }
+  },
+  "n_bcb3f2767353425ba21158827d05be12": {
+    "node": {
+      "framePath": [],
+      "id": "n_bcb3f2767353425ba21158827d05be12",
+      "name": "读取当前网页实际城市",
+      "operation": "read",
+      "selector": "body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(1) > span",
+      "type": "browser",
+      "value": null,
+      "version": 2
+    }
+  },
+  "n_2c71608b61314cfd93b2fd2b8c733cd9": {
+    "node": {
+      "id": "n_2c71608b61314cfd93b2fd2b8c733cd9",
+      "name": "本项处理前读取最新完整队列",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_53166be296cb41189803a0eb662506c0": {
+    "node": {
+      "dependencies": [],
+      "id": "n_53166be296cb41189803a0eb662506c0",
+      "input": {
+        "city": {
+          "$ref": "steps.n_bcb3f2767353425ba21158827d05be12"
+        },
+        "configuration": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        },
+        "entry": {
+          "$ref": "item"
+        },
+        "index": {
+          "$ref": "index"
+        },
+        "range": {
+          "$ref": "steps.n_04d937c01f4d4675b7d7b4fe874c50a2"
+        },
+        "state": {
+          "$ref": "steps.n_2c71608b61314cfd93b2fd2b8c733cd9"
+        }
+      },
+      "language": "js",
+      "name": "核对完整链接队列并准备本项处理状态",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_53166be296cb41189803a0eb662506c0.js"
+  },
+  "n_f5f95ca3b48b4299ac39ba6294dffe8d": {
+    "node": {
+      "expectedRevision": {
+        "$ref": "steps.n_53166be296cb41189803a0eb662506c0.expectedRevision"
+      },
+      "id": "n_f5f95ca3b48b4299ac39ba6294dffe8d",
+      "name": "按最新修订保存本项处理中状态",
+      "operation": "state.write",
+      "type": "context",
+      "value": {
+        "$ref": "steps.n_53166be296cb41189803a0eb662506c0.value"
+      },
+      "version": 1
+    }
+  },
+  "n_12d9ffb254964678a506ce647daa46f0": {
+    "node": {
+      "id": "n_12d9ffb254964678a506ce647daa46f0",
+      "name": "重新读取本项处理中状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_9852d7d94937499ca93d92c90ea70d5c": {
+    "node": {
+      "dependencies": [],
+      "id": "n_9852d7d94937499ca93d92c90ea70d5c",
+      "input": {
+        "plan": {
+          "$ref": "steps.n_53166be296cb41189803a0eb662506c0"
+        },
+        "receipt": {
+          "$ref": "steps.n_f5f95ca3b48b4299ac39ba6294dffe8d"
+        },
+        "state": {
+          "$ref": "steps.n_12d9ffb254964678a506ce647daa46f0"
+        }
+      },
+      "language": "js",
+      "name": "核对本项处理中回执后准备独立详情",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_9852d7d94937499ca93d92c90ea70d5c.js"
+  },
+  "n_08d056c280f842c79c6bb6ec3fb0f8fe": {
+    "node": {
+      "framePath": [],
+      "id": "n_08d056c280f842c79c6bb6ec3fb0f8fe",
+      "name": "点击左侧本项岗位卡片",
+      "operation": "click",
+      "selector": {
+        "$ref": "steps.n_9852d7d94937499ca93d92c90ea70d5c.selector"
+      },
+      "type": "browser",
+      "value": null,
+      "version": 8
+    }
+  },
+  "n_5b42f65cafe14677907e766892a3f829": {
+    "node": {
+      "dependencies": [],
+      "id": "n_5b42f65cafe14677907e766892a3f829",
+      "input": {},
+      "language": "js",
+      "name": "等待岗位选中及沟通入口就绪",
+      "timeoutMs": 15000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_5b42f65cafe14677907e766892a3f829.js"
+  },
+  "n_b90f34a5fd954712866954542c8173a4": {
+    "node": {
+      "dependencies": [],
+      "id": "n_b90f34a5fd954712866954542c8173a4",
+      "input": {
+        "click": {
+          "$ref": "steps.n_08d056c280f842c79c6bb6ec3fb0f8fe"
+        },
+        "detail": {
+          "$ref": "steps.n_9852d7d94937499ca93d92c90ea70d5c"
+        }
+      },
+      "language": "js",
+      "name": "读取选中岗位薪资与沟通状态",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_b90f34a5fd954712866954542c8173a4.js"
+  },
+  "n_96244c537ddc46d9ac05dc43bce980e7": {
+    "node": {
+      "dependencies": [],
+      "id": "n_96244c537ddc46d9ac05dc43bce980e7",
+      "input": {
+        "candidate": {
+          "$ref": "steps.n_b90f34a5fd954712866954542c8173a4"
+        }
+      },
+      "language": "js",
+      "name": "保持当前岗位详情并核对同一来源",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_96244c537ddc46d9ac05dc43bce980e7.js"
+  },
+  "n_fd5d40ec392d47e298048edb099f7623": {
+    "node": {
+      "dependencies": [],
+      "id": "n_fd5d40ec392d47e298048edb099f7623",
+      "input": {
+        "candidate": {
+          "$ref": "steps.n_96244c537ddc46d9ac05dc43bce980e7"
+        },
+        "configuration": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        }
+      },
+      "language": "js",
+      "name": "按月薪交集及沟通状态分流",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_fd5d40ec392d47e298048edb099f7623.js"
+  },
+  "n_4df4f1b879ba4d13880572dc21532148": {
+    "node": {
+      "id": "n_4df4f1b879ba4d13880572dc21532148",
+      "name": "读取最新投递账本状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_a02a6d7ebb4f477aa6279ad88dc99661": {
+    "node": {
+      "dependencies": [],
+      "id": "n_a02a6d7ebb4f477aa6279ad88dc99661",
+      "input": {
+        "account": {
+          "$ref": "steps.n_e94d08c7632b4dacbaff713c1ec6c88e"
+        },
+        "candidate": {
+          "$ref": "steps.n_fd5d40ec392d47e298048edb099f7623"
+        },
+        "configuration": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        },
+        "fixedConfiguration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        },
+        "state": {
+          "$ref": "steps.n_4df4f1b879ba4d13880572dc21532148"
+        }
+      },
+      "language": "js",
+      "name": "核对本项去重与当日额度",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_a02a6d7ebb4f477aa6279ad88dc99661.js"
+  },
+  "n_b600d592ef564cb58ebdf5cf138ef45a": {
+    "node": {
+      "id": "n_b600d592ef564cb58ebdf5cf138ef45a",
+      "name": "读取本次固定求职条件",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_fcf5b3b9cb39472799a996adf406c176": {
+    "node": {
+      "dependencies": [],
+      "id": "n_fcf5b3b9cb39472799a996adf406c176",
+      "input": {
+        "candidate": {
+          "$ref": "steps.n_96244c537ddc46d9ac05dc43bce980e7"
+        },
+        "configuration": {
+          "$ref": "steps.n_b600d592ef564cb58ebdf5cf138ef45a"
+        },
+        "hardConditions": {
+          "$ref": "steps.n_fd5d40ec392d47e298048edb099f7623"
+        },
+        "ledger": {
+          "$ref": "steps.n_a02a6d7ebb4f477aa6279ad88dc99661"
+        },
+        "resume": {
+          "$ref": "steps.n_17229d62d7ef4f3badf8155fc5371841"
+        }
+      },
+      "language": "js",
+      "name": "准备本项直接招呼来源",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_fcf5b3b9cb39472799a996adf406c176.js"
+  },
+  "n_2decc006f4e146989fda1bd2aded53a3": {
+    "node": {
+      "dependencies": [],
+      "id": "n_2decc006f4e146989fda1bd2aded53a3",
+      "input": {
+        "$ref": "steps.n_fcf5b3b9cb39472799a996adf406c176"
+      },
+      "language": "js",
+      "name": "采用本人确认的薪资与选中规则",
+      "timeoutMs": 780000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_2decc006f4e146989fda1bd2aded53a3.js"
+  },
+  "n_d3b2fccd98e0411c9929aa668421ca24": {
+    "node": {
+      "dependencies": [],
+      "id": "n_d3b2fccd98e0411c9929aa668421ca24",
+      "input": {
+        "$ref": "steps.n_2decc006f4e146989fda1bd2aded53a3"
+      },
+      "language": "js",
+      "name": "登记本人判断待办并保存建议",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_d3b2fccd98e0411c9929aa668421ca24.js"
+  },
+  "n_8c773452bacc43b183b6f504e9d08f62": {
+    "node": {
+      "dependencies": [],
+      "id": "n_8c773452bacc43b183b6f504e9d08f62",
+      "input": {
+        "$ref": "steps.n_2decc006f4e146989fda1bd2aded53a3"
+      },
+      "language": "js",
+      "name": "将直接招呼来源交给外发准备",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_8c773452bacc43b183b6f504e9d08f62.js"
+  },
+  "n_865d63851c1549c6954181cc2e85fc10": {
+    "node": {
+      "dependencies": [],
+      "id": "n_865d63851c1549c6954181cc2e85fc10",
+      "input": {
+        "expected": {
+          "$ref": "steps.n_fdf93140598a462499b395442cb4314e"
+        },
+        "snapshot": {
+          "$ref": "steps.n_e94d08c7632b4dacbaff713c1ec6c88e"
+        }
+      },
+      "language": "js",
+      "name": "投递前在当前网页核对初始化账号",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_865d63851c1549c6954181cc2e85fc10.js"
+  },
+  "n_03504cab42ce4569bee1b8270a6dbe51": {
+    "node": {
+      "framePath": [],
+      "id": "n_03504cab42ce4569bee1b8270a6dbe51",
+      "name": "发送前读取当前详情实际城市",
+      "operation": "read",
+      "selector": ".job-header-info .tag-list > :nth-child(1)",
+      "type": "browser",
+      "value": null,
+      "version": 2
+    }
+  },
+  "n_03a4a672357e4f278ce0e4faf88cc3c8": {
+    "node": {
+      "framePath": [],
+      "id": "n_03a4a672357e4f278ce0e4faf88cc3c8",
+      "name": "读取当前详情地址，不重新打开",
+      "operation": "url",
+      "selector": "",
+      "type": "browser",
+      "value": null,
+      "version": 4
+    }
+  },
+  "n_f59da0e34b264d9a97a6fc6114360d1c": {
+    "node": {
+      "id": "n_f59da0e34b264d9a97a6fc6114360d1c",
+      "name": "投递预留前读取最新完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_903ad57dc21f4654989e851a314678a4": {
+    "node": {
+      "dependencies": [],
+      "id": "n_903ad57dc21f4654989e851a314678a4",
+      "input": {
+        "account": {
+          "$ref": "steps.n_865d63851c1549c6954181cc2e85fc10"
+        },
+        "candidate": {
+          "$ref": "steps.n_fd5d40ec392d47e298048edb099f7623"
+        },
+        "configuration": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        },
+        "fixedConfiguration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        },
+        "state": {
+          "$ref": "steps.n_f59da0e34b264d9a97a6fc6114360d1c"
+        }
+      },
+      "language": "js",
+      "name": "预留前再核对岗位去重与额度",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_903ad57dc21f4654989e851a314678a4.js"
+  },
+  "n_d51209c3bb9c4742a3096b6308b64ca9": {
+    "node": {
+      "dependencies": [],
+      "id": "n_d51209c3bb9c4742a3096b6308b64ca9",
+      "input": {
+        "account": {
+          "$ref": "steps.n_865d63851c1549c6954181cc2e85fc10"
+        },
+        "advice": {
+          "$ref": "steps.n_2decc006f4e146989fda1bd2aded53a3.result"
+        },
+        "batch": {
+          "$ref": "steps.n_3f15667cd7f9435ea1eb71f4749b0658"
+        },
+        "candidate": {
+          "$ref": "steps.n_fd5d40ec392d47e298048edb099f7623"
+        },
+        "city": {
+          "$ref": "steps.n_03504cab42ce4569bee1b8270a6dbe51"
+        },
+        "configuration": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        },
+        "fixedConfiguration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        },
+        "ledger": {
+          "$ref": "steps.n_903ad57dc21f4654989e851a314678a4"
+        },
+        "profile": {
+          "$ref": "steps.n_0f440ee2aa8d4eaab43c5c6dc0a48f0b"
+        },
+        "resume": {
+          "$ref": "steps.n_17229d62d7ef4f3badf8155fc5371841"
+        },
+        "state": {
+          "$ref": "steps.n_f59da0e34b264d9a97a6fc6114360d1c"
+        }
+      },
+      "language": "js",
+      "name": "核对最新来源并准备投递预留",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_d51209c3bb9c4742a3096b6308b64ca9.js"
+  },
+  "n_19e1844a3c07468cb169d13aa49421b5": {
+    "node": {
+      "expectedRevision": {
+        "$ref": "steps.n_d51209c3bb9c4742a3096b6308b64ca9.expectedRevision"
+      },
+      "id": "n_19e1844a3c07468cb169d13aa49421b5",
+      "name": "按最新修订持久保存本项预留",
+      "operation": "state.write",
+      "type": "context",
+      "value": {
+        "$ref": "steps.n_d51209c3bb9c4742a3096b6308b64ca9.value"
+      },
+      "version": 1
+    }
+  },
+  "n_448b8283e21c4cc7b05faa9e0bbaabef": {
+    "node": {
+      "id": "n_448b8283e21c4cc7b05faa9e0bbaabef",
+      "name": "写出后重新读取投递预留",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_d9767262a8874ba6843a4cbdcd22ea58": {
+    "node": {
+      "dependencies": [],
+      "id": "n_d9767262a8874ba6843a4cbdcd22ea58",
+      "input": {
+        "plan": {
+          "$ref": "steps.n_d51209c3bb9c4742a3096b6308b64ca9"
+        },
+        "receipt": {
+          "$ref": "steps.n_19e1844a3c07468cb169d13aa49421b5"
+        },
+        "reread": {
+          "$ref": "steps.n_448b8283e21c4cc7b05faa9e0bbaabef"
+        }
+      },
+      "language": "js",
+      "name": "核对持久预留回执（尚未提交网页）",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_d9767262a8874ba6843a4cbdcd22ea58.js"
+  },
+  "n_3b8a5432f07648d9b1c22d68caa0b3c4": {
+    "node": {
+      "dependencies": [],
+      "id": "n_3b8a5432f07648d9b1c22d68caa0b3c4",
+      "input": {
+        "account": {
+          "$ref": "steps.n_865d63851c1549c6954181cc2e85fc10"
+        },
+        "advice": {
+          "$ref": "steps.n_2decc006f4e146989fda1bd2aded53a3.result"
+        },
+        "approvedGreetingText": {
+          "$ref": "params.approvedGreetingText"
+        },
+        "prepared": {
+          "$ref": "steps.n_fcf5b3b9cb39472799a996adf406c176"
+        },
+        "profileRef": {
+          "$ref": "steps.n_0f440ee2aa8d4eaab43c5c6dc0a48f0b.ref"
+        },
+        "reservation": {
+          "$ref": "steps.n_d9767262a8874ba6843a4cbdcd22ea58"
+        }
+      },
+      "language": "js",
+      "name": "整理本项独立投递操作与完整核对内容",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_3b8a5432f07648d9b1c22d68caa0b3c4.js"
+  },
+  "n_7df6da0b316f44b79f9426f7489a8630": {
+    "node": {
+      "action": "apply",
+      "description": {
+        "$ref": "steps.n_3b8a5432f07648d9b1c22d68caa0b3c4.description"
+      },
+      "id": "n_7df6da0b316f44b79f9426f7489a8630",
+      "key": {
+        "$ref": "steps.n_3b8a5432f07648d9b1c22d68caa0b3c4.key"
+      },
+      "name": "准备本项唯一投递操作（尚不提交网页）",
+      "operation": "prepare",
+      "review": {
+        "content": {
+          "$ref": "steps.n_3b8a5432f07648d9b1c22d68caa0b3c4.review.content"
+        },
+        "target": {
+          "$ref": "steps.n_3b8a5432f07648d9b1c22d68caa0b3c4.review.target"
+        },
+        "version": 1
+      },
+      "timeoutMs": 600000,
+      "type": "effect",
+      "version": 1
+    }
+  },
+  "n_dbe4a902e9fe4118ad4a55d623c68186": {
+    "node": {
+      "framePath": [],
+      "id": "n_dbe4a902e9fe4118ad4a55d623c68186",
+      "name": "提交前核对实际首次沟通入口文字",
+      "operation": "read",
+      "selector": ".job-detail-container div:nth-of-type(2) > a:nth-of-type(2)",
+      "type": "browser",
+      "value": null,
+      "version": 2
+    }
+  },
+  "n_2a0bf136b581497cbfd2ece5bb66840b": {
+    "node": {
+      "dependencies": [],
+      "id": "n_2a0bf136b581497cbfd2ece5bb66840b",
+      "input": {
+        "account": {
+          "$ref": "steps.n_865d63851c1549c6954181cc2e85fc10"
+        },
+        "buttonText": {
+          "$ref": "steps.n_dbe4a902e9fe4118ad4a55d623c68186"
+        },
+        "prepared": {
+          "$ref": "steps.n_fcf5b3b9cb39472799a996adf406c176"
+        },
+        "receipt": {
+          "$ref": "steps.n_7df6da0b316f44b79f9426f7489a8630"
+        },
+        "source": {
+          "$ref": "steps.n_3b8a5432f07648d9b1c22d68caa0b3c4"
+        }
+      },
+      "language": "js",
+      "name": "复验选中薪资与预留后允许点击",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_2a0bf136b581497cbfd2ece5bb66840b.js"
+  },
+  "n_aee5a82b54ca49409411306d21f19aaa": {
+    "node": {
+      "framePath": [],
+      "id": "n_aee5a82b54ca49409411306d21f19aaa",
+      "name": "对本项职位实际打招呼（点击一次立即沟通）",
+      "operation": "click",
+      "selector": {
+        "$ref": "steps.n_2a0bf136b581497cbfd2ece5bb66840b.selector"
+      },
+      "type": "browser",
+      "value": null,
+      "version": 8
+    }
+  },
+  "n_c1f3c269241543f993b00853fa836b77": {
+    "node": {
+      "dependencies": [],
+      "id": "n_c1f3c269241543f993b00853fa836b77",
+      "input": {
+        "check": {
+          "$ref": "steps.n_2a0bf136b581497cbfd2ece5bb66840b"
+        },
+        "click": {
+          "$ref": "steps.n_aee5a82b54ca49409411306d21f19aaa"
+        }
+      },
+      "language": "js",
+      "name": "等待网站返回本次结果（不重试点击）",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_c1f3c269241543f993b00853fa836b77.js"
+  },
+  "n_89cf3460a58543899f6e10d59b0908fa": {
+    "node": {
+      "framePath": [],
+      "id": "n_89cf3460a58543899f6e10d59b0908fa",
+      "name": "读取首次沟通后网站实际地址",
+      "operation": "url",
+      "selector": "",
+      "type": "browser",
+      "value": null,
+      "version": 4
+    }
+  },
+  "n_5615227ccd2b4a69890bf2dd954d43cd": {
+    "node": {
+      "framePath": [],
+      "id": "n_5615227ccd2b4a69890bf2dd954d43cd",
+      "name": "读取首次沟通后网站页面文字",
+      "operation": "read",
+      "selector": "body",
+      "type": "browser",
+      "value": null,
+      "version": 8
+    }
+  },
+  "n_7cd2e164e6694586b378b8f1762609cf": {
+    "node": {
+      "dependencies": [],
+      "id": "n_7cd2e164e6694586b378b8f1762609cf",
+      "input": {
+        "check": {
+          "$ref": "steps.n_2a0bf136b581497cbfd2ece5bb66840b"
+        },
+        "clickResult": {
+          "$ref": "steps.n_c1f3c269241543f993b00853fa836b77"
+        },
+        "pageText": {
+          "$ref": "steps.n_5615227ccd2b4a69890bf2dd954d43cd"
+        },
+        "pageUrl": {
+          "$ref": "steps.n_89cf3460a58543899f6e10d59b0908fa"
+        },
+        "receipt": {
+          "$ref": "steps.n_7df6da0b316f44b79f9426f7489a8630"
+        },
+        "source": {
+          "$ref": "steps.n_3b8a5432f07648d9b1c22d68caa0b3c4"
+        }
+      },
+      "language": "js",
+      "name": "核对网站默认招呼成功并留在本页",
+      "timeoutMs": 90000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_7cd2e164e6694586b378b8f1762609cf.js"
+  },
+  "n_63cf524bd7f7494b9b11665d73565102": {
+    "node": {
+      "fields": [
+        {
+          "attribute": null,
+          "key": "jobTitle",
+          "operation": "text",
+          "required": true,
+          "selector": ".job-detail-container .job-name"
+        },
+        {
+          "attribute": null,
+          "key": "contact",
+          "operation": "text",
+          "required": true,
+          "selector": ".job-detail-container div:nth-of-type(2) > a:nth-of-type(2)"
+        },
+        {
+          "attribute": null,
+          "key": "city",
+          "operation": "text",
+          "required": true,
+          "selector": ".job-header-info .tag-list > :nth-child(1)"
+        },
+        {
+          "attribute": null,
+          "key": "salary",
+          "operation": "text",
+          "required": true,
+          "selector": ".job-detail-container .job-salary"
+        }
+      ],
+      "framePath": [],
+      "id": "n_63cf524bd7f7494b9b11665d73565102",
+      "name": "同次读取本次聊天岗位与消息回执",
+      "operation": "collect",
+      "selector": "body",
+      "type": "browser",
+      "version": 7
+    }
+  },
+  "n_c7e2ba2ee58243f6b7f8a0991418d9f7": {
+    "node": {
+      "id": "n_c7e2ba2ee58243f6b7f8a0991418d9f7",
+      "name": "送达回执保存前读取最新完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_1d594ff7091246758fef83c38aa338db": {
+    "node": {
+      "dependencies": [],
+      "id": "n_1d594ff7091246758fef83c38aa338db",
+      "input": {
+        "chat": {
+          "$ref": "steps.n_7cd2e164e6694586b378b8f1762609cf"
+        },
+        "check": {
+          "$ref": "steps.n_2a0bf136b581497cbfd2ece5bb66840b"
+        },
+        "clickResult": {
+          "$ref": "steps.n_c1f3c269241543f993b00853fa836b77"
+        },
+        "fields": {
+          "$ref": "steps.n_63cf524bd7f7494b9b11665d73565102"
+        },
+        "pageText": {
+          "$ref": "steps.n_5615227ccd2b4a69890bf2dd954d43cd"
+        },
+        "pageUrl": {
+          "$ref": "steps.n_89cf3460a58543899f6e10d59b0908fa"
+        },
+        "receipt": {
+          "$ref": "steps.n_7df6da0b316f44b79f9426f7489a8630"
+        },
+        "source": {
+          "$ref": "steps.n_3b8a5432f07648d9b1c22d68caa0b3c4"
+        },
+        "state": {
+          "$ref": "steps.n_c7e2ba2ee58243f6b7f8a0991418d9f7"
+        }
+      },
+      "language": "js",
+      "name": "核对本次实际消息并准备保存送达状态",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_1d594ff7091246758fef83c38aa338db.js"
+  },
+  "n_2df85dc823f144d394fcd72254b66998": {
+    "node": {
+      "expectedRevision": {
+        "$ref": "steps.n_1d594ff7091246758fef83c38aa338db.expectedRevision"
+      },
+      "id": "n_2df85dc823f144d394fcd72254b66998",
+      "name": "按最新修订保存本项招呼送达",
+      "operation": "state.write",
+      "type": "context",
+      "value": {
+        "$ref": "steps.n_1d594ff7091246758fef83c38aa338db.value"
+      },
+      "version": 1
+    }
+  },
+  "n_26ca1c1db83e46c5be69aab91ac6cb59": {
+    "node": {
+      "id": "n_26ca1c1db83e46c5be69aab91ac6cb59",
+      "name": "保存送达后重新读取完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_bfc2a5c8128b4537a2b8902db840475e": {
+    "node": {
+      "dependencies": [],
+      "id": "n_bfc2a5c8128b4537a2b8902db840475e",
+      "input": {
+        "list": {
+          "$ref": "steps.n_b90f34a5fd954712866954542c8173a4"
+        },
+        "plan": {
+          "$ref": "steps.n_1d594ff7091246758fef83c38aa338db"
+        },
+        "receipt": {
+          "$ref": "steps.n_2df85dc823f144d394fcd72254b66998"
+        },
+        "reread": {
+          "$ref": "steps.n_26ca1c1db83e46c5be69aab91ac6cb59"
+        }
+      },
+      "language": "js",
+      "name": "核对送达保存回执并返回列表继续",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_bfc2a5c8128b4537a2b8902db840475e.js"
+  },
+  "n_51b2afc831c24cae8e8969cd157f06db": {
+    "node": {
+      "dependencies": [],
+      "id": "n_51b2afc831c24cae8e8969cd157f06db",
+      "input": {
+        "receipt": {
+          "$ref": "steps.n_7df6da0b316f44b79f9426f7489a8630"
+        },
+        "source": {
+          "$ref": "steps.n_3b8a5432f07648d9b1c22d68caa0b3c4"
+        }
+      },
+      "language": "js",
+      "name": "保存已有操作结果并阻止重放",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_51b2afc831c24cae8e8969cd157f06db.js"
+  },
+  "n_1abb0cb76a354ca8b1edf38abee836c5": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_7df6da0b316f44b79f9426f7489a8630.execute"
+      },
+      "expected": true,
+      "id": "n_1abb0cb76a354ca8b1edf38abee836c5",
+      "name": "仅本次新操作允许进入后续网页阶段",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_4373ab628d4d41af98a314fda47b6b12": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_d51209c3bb9c4742a3096b6308b64ca9.readyForReservation"
+      },
+      "expected": true,
+      "id": "n_4373ab628d4d41af98a314fda47b6b12",
+      "name": "最新来源允许持久预留",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_4518889a15c74cbbabcd33281d132895": {
+    "node": {
+      "dependencies": [],
+      "id": "n_4518889a15c74cbbabcd33281d132895",
+      "input": {
+        "$ref": "steps.n_2decc006f4e146989fda1bd2aded53a3"
+      },
+      "language": "js",
+      "name": "保存不符建议并跳过本项（无外发）",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_4518889a15c74cbbabcd33281d132895.js"
+  },
+  "n_0c8df9507aa54bf090bc35dfbc87f6e8": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_2decc006f4e146989fda1bd2aded53a3.result.decision"
+      },
+      "expected": "match",
+      "id": "n_0c8df9507aa54bf090bc35dfbc87f6e8",
+      "name": "本项直接招呼条件已通过",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_d2cffbfce2554c3cb4c84e843bddeb16": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_2decc006f4e146989fda1bd2aded53a3.result.decision"
+      },
+      "expected": "review",
+      "id": "n_d2cffbfce2554c3cb4c84e843bddeb16",
+      "name": "规则来源是否需要本人核对",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_b9a86436691448fd9af5350c9bb31d91": {
+    "node": {
+      "dependencies": [],
+      "id": "n_b9a86436691448fd9af5350c9bb31d91",
+      "input": {
+        "$ref": "steps.n_fcf5b3b9cb39472799a996adf406c176.reviewRecord"
+      },
+      "language": "js",
+      "name": "登记JD或求职条件缺口并保存结果",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_b9a86436691448fd9af5350c9bb31d91.js"
+  },
+  "n_36b8d86c8048424d9c5ca46320cc7095": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_fcf5b3b9cb39472799a996adf406c176.ready"
+      },
+      "expected": true,
+      "id": "n_36b8d86c8048424d9c5ca46320cc7095",
+      "name": "本项选中及薪资来源已就绪",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_fd304687fe37496ea9de69706cc542a9": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_a02a6d7ebb4f477aa6279ad88dc99661.readyForSkillAssessment"
+      },
+      "expected": true,
+      "id": "n_fd304687fe37496ea9de69706cc542a9",
+      "name": "薪资与外发账本允许首次沟通",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_08f1512bd15c49bcbf0588ed8d3043d9": {
+    "node": {
+      "id": "n_08f1512bd15c49bcbf0588ed8d3043d9",
+      "name": "本项结束后读取最新完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_937adbce3e504085ad027459555f09b3": {
+    "node": {
+      "dependencies": [],
+      "id": "n_937adbce3e504085ad027459555f09b3",
+      "input": {
+        "conditions": {
+          "$ref": "steps.n_fd5d40ec392d47e298048edb099f7623"
+        },
+        "started": {
+          "$ref": "steps.n_9852d7d94937499ca93d92c90ea70d5c"
+        },
+        "state": {
+          "$ref": "steps.n_08f1512bd15c49bcbf0588ed8d3043d9"
+        }
+      },
+      "language": "js",
+      "name": "按真实意图与硬条件准备本项队列分类",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_937adbce3e504085ad027459555f09b3.js"
+  },
+  "n_e670026662fe4831854b23af1580836c": {
+    "node": {
+      "expectedRevision": {
+        "$ref": "steps.n_937adbce3e504085ad027459555f09b3.expectedRevision"
+      },
+      "id": "n_e670026662fe4831854b23af1580836c",
+      "name": "按最新修订保存本项队列分类",
+      "operation": "state.write",
+      "type": "context",
+      "value": {
+        "$ref": "steps.n_937adbce3e504085ad027459555f09b3.value"
+      },
+      "version": 1
+    }
+  },
+  "n_7e9507810cb04f3abaab7e65cd643dd2": {
+    "node": {
+      "id": "n_7e9507810cb04f3abaab7e65cd643dd2",
+      "name": "重新读取本项队列分类",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_31a237750da046a5b1a3c5175a952023": {
+    "node": {
+      "dependencies": [],
+      "id": "n_31a237750da046a5b1a3c5175a952023",
+      "input": {
+        "expectedCity": {
+          "$ref": "steps.n_b90f34a5fd954712866954542c8173a4.actualCity"
+        },
+        "plan": {
+          "$ref": "steps.n_937adbce3e504085ad027459555f09b3"
+        },
+        "receipt": {
+          "$ref": "steps.n_e670026662fe4831854b23af1580836c"
+        },
+        "returnUrl": {
+          "$ref": "steps.n_b90f34a5fd954712866954542c8173a4.returnUrl"
+        },
+        "state": {
+          "$ref": "steps.n_7e9507810cb04f3abaab7e65cd643dd2"
+        }
+      },
+      "language": "js",
+      "name": "核对分类回执，返回列表继续下一岗位",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_31a237750da046a5b1a3c5175a952023.js"
+  },
+  "n_d1bdac2af75846aa95871887b74d7d4f": {
+    "node": {
+      "id": "n_d1bdac2af75846aa95871887b74d7d4f",
+      "items": {
+        "$ref": "steps.n_04d937c01f4d4675b7d7b4fe874c50a2.items"
+      },
+      "name": "逐次筛选并打招呼（有限批次）",
+      "type": "loop",
+      "version": 1
+    }
+  },
+  "n_ffb3ea38e46a4607b4b9c5d8e0bc7274": {
+    "node": {
+      "dependencies": [],
+      "id": "n_ffb3ea38e46a4607b4b9c5d8e0bc7274",
+      "input": {
+        "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+      },
+      "language": "js",
+      "name": "记录未完成原因与本人待办",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_ffb3ea38e46a4607b4b9c5d8e0bc7274.js"
+  },
+  "n_2cc79290ae9c4649ad08961dabdc239d": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0.readyForLoop"
+      },
+      "expected": true,
+      "id": "n_2cc79290ae9c4649ad08961dabdc239d",
+      "name": "用户条件与额度已配置",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_023e9a0f647b40b09ee12bcf18dbbb25": {
+    "node": {
+      "dependencies": [],
+      "id": "n_023e9a0f647b40b09ee12bcf18dbbb25",
+      "input": {
+        "accountBranch": {
+          "$ref": "steps.n_2cc79290ae9c4649ad08961dabdc239d"
+        },
+        "closing": {
+          "$ref": "steps.n_249ad5a9325343da974caa1323c35a67"
+        },
+        "closingSummary": {
+          "$ref": "steps.n_f7142cfb34f843dbb59308d417a1d272"
+        },
+        "fixedConfiguration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        }
+      },
+      "language": "js",
+      "name": "汇总本段进度并继续处理下一岗位",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/daily-apply/n_023e9a0f647b40b09ee12bcf18dbbb25.js"
+  }
+}

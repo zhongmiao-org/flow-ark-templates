@@ -1,0 +1,87 @@
+{
+  "n_d5a5c25c": {
+    "node": {
+      "binding": "resume-materials",
+      "file": {
+        "$ref": "params.resumeFile"
+      },
+      "id": "n_d5a5c25c",
+      "name": "解析明确选择的简历文件",
+      "type": "document",
+      "version": 1
+    }
+  },
+  "n_893a40d7": {
+    "node": {
+      "binding": "profile",
+      "id": "n_893a40d7",
+      "name": "读取固定确认的个人Skill",
+      "operation": "read",
+      "type": "skill",
+      "version": 1
+    }
+  },
+  "n_ba7226ce": {
+    "node": {
+      "dependencies": [],
+      "id": "n_ba7226ce",
+      "input": {
+        "profile": {
+          "$ref": "steps.n_893a40d7"
+        },
+        "resume": {
+          "$ref": "steps.n_d5a5c25c"
+        }
+      },
+      "language": "js",
+      "name": "整理简历与Skill来源（不判断事实）",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/profile-sources/n_ba7226ce.js"
+  },
+  "n_d5d8705e": {
+    "node": {
+      "dependencies": [],
+      "id": "n_d5d8705e",
+      "input": {
+        "$ref": "steps.n_ba7226ce"
+      },
+      "language": "js",
+      "name": "保存资料来源就绪结果（不授权使用）",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/profile-sources/n_d5d8705e.js"
+  },
+  "n_00b866de": {
+    "node": {
+      "dependencies": [],
+      "id": "n_00b866de",
+      "input": {
+        "$ref": "steps.n_ba7226ce"
+      },
+      "language": "js",
+      "name": "登记简历资料缺口并结束",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/profile-sources/n_00b866de.js"
+  },
+  "n_009bf41d": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_ba7226ce.ready"
+      },
+      "expected": true,
+      "id": "n_009bf41d",
+      "name": "简历来源是否完整可读",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  }
+}

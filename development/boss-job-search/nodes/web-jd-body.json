@@ -1,0 +1,211 @@
+{
+  "n_bce98798": {
+    "node": {
+      "fields": [
+        {
+          "attribute": null,
+          "key": "title",
+          "operation": "text",
+          "required": true,
+          "selector": "head > title"
+        },
+        {
+          "attribute": null,
+          "key": "loginGate",
+          "operation": "text",
+          "required": false,
+          "selector": "div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)"
+        },
+        {
+          "attribute": null,
+          "key": "jobTitle",
+          "operation": "text",
+          "required": false,
+          "selector": "h1"
+        },
+        {
+          "attribute": null,
+          "key": "companyLabel",
+          "operation": "text",
+          "required": false,
+          "selector": "div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)"
+        }
+      ],
+      "framePath": [],
+      "id": "n_bce98798",
+      "operation": "collect",
+      "selector": "html",
+      "type": "browser",
+      "version": 5
+    }
+  },
+  "n_b6b29ad6": {
+    "node": {
+      "dependencies": [],
+      "id": "n_b6b29ad6",
+      "input": {
+        "$ref": "steps.n_bce98798"
+      },
+      "language": "js",
+      "name": "整理网页JD来源与遮挡",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/web-jd-body/n_b6b29ad6.js"
+  },
+  "n_e78436b7": {
+    "node": {
+      "fields": [
+        {
+          "attribute": null,
+          "key": "description",
+          "operation": "selection-text",
+          "required": true,
+          "selector": ".job-sec-text"
+        },
+        {
+          "attribute": null,
+          "key": "title",
+          "operation": "text",
+          "required": true,
+          "selector": "head > title"
+        },
+        {
+          "attribute": null,
+          "key": "loginGate",
+          "operation": "text",
+          "required": false,
+          "selector": "div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)"
+        },
+        {
+          "attribute": null,
+          "key": "jobTitle",
+          "operation": "text",
+          "required": false,
+          "selector": "h1"
+        },
+        {
+          "attribute": null,
+          "key": "companyLabel",
+          "operation": "text",
+          "required": false,
+          "selector": "div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)"
+        }
+      ],
+      "framePath": [],
+      "id": "n_e78436b7",
+      "operation": "collect",
+      "renderPolicy": "bounded-selection-text-v1",
+      "selector": "html",
+      "type": "browser",
+      "version": 9
+    }
+  },
+  "n_92e815ba": {
+    "node": {
+      "dependencies": [],
+      "id": "n_92e815ba",
+      "input": {
+        "collection": {
+          "$ref": "steps.n_e78436b7"
+        },
+        "preflight": {
+          "$ref": "steps.n_b6b29ad6"
+        }
+      },
+      "language": "js",
+      "name": "核对同次正文与原目标",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/web-jd-body/n_92e815ba.js"
+  },
+  "n_61a97a4d": {
+    "node": {
+      "dependencies": [],
+      "id": "n_61a97a4d",
+      "input": {
+        "$ref": "steps.n_92e815ba"
+      },
+      "language": "js",
+      "name": "本人完整阅读并核对正文",
+      "timeoutMs": 600000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/web-jd-body/n_61a97a4d.js"
+  },
+  "n_7ae96796": {
+    "node": {
+      "dependencies": [],
+      "id": "n_7ae96796",
+      "input": {
+        "$ref": "steps.n_61a97a4d"
+      },
+      "language": "js",
+      "name": "保存本人正文确认或拒绝结果",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/web-jd-body/n_7ae96796.js"
+  },
+  "n_66c37dd6": {
+    "node": {
+      "dependencies": [],
+      "id": "n_66c37dd6",
+      "input": {
+        "$ref": "steps.n_92e815ba"
+      },
+      "language": "js",
+      "name": "保存正文不完整原因与本人待办",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/web-jd-body/n_66c37dd6.js"
+  },
+  "n_72913591": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_92e815ba.readyForReview"
+      },
+      "expected": true,
+      "id": "n_72913591",
+      "name": "正文候选可完整阅读核对",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  },
+  "n_e5995039": {
+    "node": {
+      "dependencies": [],
+      "id": "n_e5995039",
+      "input": {
+        "$ref": "steps.n_b6b29ad6"
+      },
+      "language": "js",
+      "name": "保存来源核对与本人待办",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/web-jd-body/n_e5995039.js"
+  },
+  "n_0ac490c6": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_b6b29ad6.readyForBody"
+      },
+      "expected": true,
+      "id": "n_0ac490c6",
+      "name": "预检允许读取正文候选",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  }
+}

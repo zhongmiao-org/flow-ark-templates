@@ -1,0 +1,100 @@
+{
+  "n_b7b624d7ae1d4929a26cf1cfa3f59f9f": {
+    "node": {
+      "id": "n_b7b624d7ae1d4929a26cf1cfa3f59f9f",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_333cb9baf6034e6eaa73b26d4fac22c6": {
+    "node": {
+      "binding": "account-source-result",
+      "id": "n_333cb9baf6034e6eaa73b26d4fac22c6",
+      "name": "读取本实例已选择的账号确认结果",
+      "operation": "read",
+      "type": "run-result",
+      "version": 1
+    }
+  },
+  "n_fd3e8c48d8e44596beddfc937aa65216": {
+    "node": {
+      "id": "n_fd3e8c48d8e44596beddfc937aa65216",
+      "name": "入队前读取最新完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_8933b35270be45b99001cee0fddd72e0": {
+    "node": {
+      "dependencies": [],
+      "id": "n_8933b35270be45b99001cee0fddd72e0",
+      "input": {
+        "account": {
+          "$ref": "steps.n_333cb9baf6034e6eaa73b26d4fac22c6"
+        },
+        "configuration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        },
+        "state": {
+          "$ref": "steps.n_fd3e8c48d8e44596beddfc937aa65216"
+        }
+      },
+      "language": "js",
+      "name": "核对当前附件请求与关联岗位",
+      "timeoutMs": 180000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/resume-send/n_8933b35270be45b99001cee0fddd72e0.js"
+  },
+  "n_45629fc1": {
+    "node": {
+      "dependencies": [],
+      "id": "n_45629fc1",
+      "input": {
+        "fileName": {
+          "$ref": "params.resumeFile"
+        },
+        "source": {
+          "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+        }
+      },
+      "language": "js",
+      "name": "核对本人确认的网站现有附件并预留",
+      "timeoutMs": 600000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/resume-send/n_45629fc1.js"
+  },
+  "n_7946f87b": {
+    "node": {
+      "dependencies": [],
+      "id": "n_7946f87b",
+      "input": {
+        "$ref": "steps.n_45629fc1"
+      },
+      "language": "js",
+      "name": "原生发送现有附件并核对同会话回执",
+      "timeoutMs": 600000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/resume-send/n_7946f87b.js"
+  },
+  "n_74cdd663": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_45629fc1.execute"
+      },
+      "expected": true,
+      "id": "n_74cdd663",
+      "name": "仅本次新附件请求允许继续",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  }
+}

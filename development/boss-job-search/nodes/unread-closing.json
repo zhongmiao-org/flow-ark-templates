@@ -1,0 +1,152 @@
+{
+  "n_b7b624d7ae1d4929a26cf1cfa3f59f9f": {
+    "node": {
+      "id": "n_b7b624d7ae1d4929a26cf1cfa3f59f9f",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_333cb9baf6034e6eaa73b26d4fac22c6": {
+    "node": {
+      "binding": "account-source-result",
+      "id": "n_333cb9baf6034e6eaa73b26d4fac22c6",
+      "name": "读取本实例已选择的账号确认结果",
+      "operation": "read",
+      "type": "run-result",
+      "version": 1
+    }
+  },
+  "n_fd3e8c48d8e44596beddfc937aa65216": {
+    "node": {
+      "id": "n_fd3e8c48d8e44596beddfc937aa65216",
+      "name": "入队前读取最新完整状态",
+      "operation": "state.read",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_8933b35270be45b99001cee0fddd72e0": {
+    "node": {
+      "dependencies": [],
+      "id": "n_8933b35270be45b99001cee0fddd72e0",
+      "input": {
+        "account": {
+          "$ref": "steps.n_333cb9baf6034e6eaa73b26d4fac22c6"
+        },
+        "configuration": {
+          "$ref": "steps.n_b7b624d7ae1d4929a26cf1cfa3f59f9f"
+        },
+        "state": {
+          "$ref": "steps.n_fd3e8c48d8e44596beddfc937aa65216"
+        }
+      },
+      "language": "js",
+      "name": "读取并恢复固定未读集合",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/unread-closing/n_8933b35270be45b99001cee0fddd72e0.js"
+  },
+  "n_6b881d7d": {
+    "node": {
+      "binding": "profile",
+      "id": "n_6b881d7d",
+      "operation": "read",
+      "type": "skill",
+      "version": 1
+    }
+  },
+  "n_48ed1ff5": {
+    "node": {
+      "dependencies": [],
+      "id": "n_48ed1ff5",
+      "input": {
+        "cohort": {
+          "$ref": "item"
+        },
+        "profile": {
+          "$ref": "steps.n_6b881d7d"
+        }
+      },
+      "language": "js",
+      "name": "核对固定会话完整上下文",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/unread-closing/n_48ed1ff5.js"
+  },
+  "n_ed8aaf1d": {
+    "node": {
+      "dependencies": [],
+      "id": "n_ed8aaf1d",
+      "input": {
+        "$ref": "steps.n_48ed1ff5"
+      },
+      "language": "js",
+      "name": "使用自有AI生成当前会话回复",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/unread-closing/n_ed8aaf1d.js"
+  },
+  "n_422917fa": {
+    "node": {
+      "dependencies": [],
+      "id": "n_422917fa",
+      "input": {
+        "$ref": "steps.n_ed8aaf1d"
+      },
+      "language": "js",
+      "name": "预留原来信并只发送一次回复",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/unread-closing/n_422917fa.js"
+  },
+  "n_542b1f67": {
+    "node": {
+      "dependencies": [],
+      "id": "n_542b1f67",
+      "input": {
+        "$ref": "steps.n_422917fa"
+      },
+      "language": "js",
+      "name": "核对网站送达并保存固定成员进度",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/unread-closing/n_542b1f67.js"
+  },
+  "n_97997d80": {
+    "node": {
+      "id": "n_97997d80",
+      "items": {
+        "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0.items"
+      },
+      "name": "依次处理固定未读会话",
+      "type": "loop",
+      "version": 1
+    }
+  },
+  "n_a5f4b437": {
+    "node": {
+      "dependencies": [],
+      "id": "n_a5f4b437",
+      "input": {
+        "$ref": "steps.n_8933b35270be45b99001cee0fddd72e0"
+      },
+      "language": "js",
+      "name": "汇总固定未读收尾结果",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/unread-closing/n_a5f4b437.js"
+  }
+}

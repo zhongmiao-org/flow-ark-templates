@@ -1,0 +1,32 @@
+flowchart TD
+n_2971bf80["核对本次账号别名"]
+n_d9ea1fe5["打开当前求职账号管理页（只读）"]
+n_59100b16["等待账号手机号内容非空"]
+n_78923a76["等待登录账号名称非空"]
+n_d3c8c5c3["读取当前求职账号可见来源"]
+n_72c263fb["校验账号来源并准备本人核对"]
+n_f778d8a3["账号来源完整且可供本人核对"]
+subgraph n_f778d8a3__then["then"]
+n_5ed37dbe["请本人确认当前求职账号"]
+n_316c02cb["本人确认后重新核对当前账号"]
+subgraph n_316c02cb__then["then"]
+n_aa6c592c133943b5a842cfd9cab3c268["本人确认后重新采集当前账号来源"]
+n_553acd61["复验账号来源并保存本次结论"]
+end
+subgraph n_316c02cb__else["else"]
+end
+end
+subgraph n_f778d8a3__else["else"]
+n_a14d85b0["保存账号来源缺口并通知本人"]
+end
+n_2971bf80 --> n_d9ea1fe5
+n_d9ea1fe5 --> n_59100b16
+n_59100b16 --> n_78923a76
+n_78923a76 --> n_d3c8c5c3
+n_d3c8c5c3 --> n_72c263fb
+n_72c263fb --> n_f778d8a3
+n_f778d8a3 -->|then| n_5ed37dbe
+n_5ed37dbe --> n_316c02cb
+n_316c02cb -->|then| n_aa6c592c133943b5a842cfd9cab3c268
+n_aa6c592c133943b5a842cfd9cab3c268 --> n_553acd61
+n_f778d8a3 -->|else| n_a14d85b0

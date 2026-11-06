@@ -1,0 +1,72 @@
+{
+  "n_bce98798": {
+    "node": {
+      "fields": [
+        {
+          "attribute": null,
+          "key": "title",
+          "operation": "text",
+          "required": true,
+          "selector": "head > title"
+        },
+        {
+          "attribute": null,
+          "key": "loginGate",
+          "operation": "text",
+          "required": false,
+          "selector": "div:nth-of-type(3) > div > div > div:nth-of-type(1) > span"
+        },
+        {
+          "attribute": null,
+          "key": "jobTitle",
+          "operation": "text",
+          "required": false,
+          "selector": "h1"
+        },
+        {
+          "attribute": null,
+          "key": "companyLabel",
+          "operation": "text",
+          "required": false,
+          "selector": "div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div:nth-of-type(2)"
+        }
+      ],
+      "framePath": [],
+      "id": "n_bce98798",
+      "operation": "collect",
+      "selector": "html",
+      "type": "browser",
+      "version": 5
+    }
+  },
+  "n_b6b29ad6": {
+    "node": {
+      "dependencies": [],
+      "id": "n_b6b29ad6",
+      "input": {
+        "$ref": "steps.n_bce98798"
+      },
+      "language": "js",
+      "name": "整理网页JD来源与遮挡",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/web-jd-source/n_b6b29ad6.js"
+  },
+  "n_e5995039": {
+    "node": {
+      "dependencies": [],
+      "id": "n_e5995039",
+      "input": {
+        "$ref": "steps.n_b6b29ad6"
+      },
+      "language": "js",
+      "name": "保存来源核对与本人待办",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/web-jd-source/n_e5995039.js"
+  }
+}

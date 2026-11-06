@@ -1,0 +1,27 @@
+{
+  "n_06f86a8f": {
+    "node": {
+      "binding": "account-source-result",
+      "id": "n_06f86a8f",
+      "name": "读取本人确认的账号来源",
+      "operation": "read",
+      "type": "run-result",
+      "version": 1
+    }
+  },
+  "n_fdf46be6": {
+    "node": {
+      "dependencies": [],
+      "id": "n_fdf46be6",
+      "input": {
+        "$ref": "steps.n_06f86a8f"
+      },
+      "language": "js",
+      "name": "核对既有索引或由本人首次建立",
+      "timeoutMs": 660000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/account-safety-index/n_fdf46be6.js"
+  }
+}

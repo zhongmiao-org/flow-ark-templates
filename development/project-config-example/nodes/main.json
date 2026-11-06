@@ -1,0 +1,15 @@
+{
+  "capture": {
+    "node": {
+      "id": "capture",
+      "name": "读取固定配置与常量",
+      "type": "script",
+      "version": 1,
+      "language": "ts",
+      "input": {},
+      "dependencies": [],
+      "timeoutMs": 30000
+    },
+    "script": "scripts/main.ts"
+  }
+}
