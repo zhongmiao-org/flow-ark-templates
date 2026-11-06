@@ -1,0 +1,16 @@
+flowchart TD
+n_d5a5c25c["解析明确选择的简历文件"]
+n_893a40d7["读取固定确认的个人Skill"]
+n_ba7226ce["整理简历与Skill来源（不判断事实）"]
+n_009bf41d["简历来源是否完整可读"]
+subgraph n_009bf41d__then["then"]
+n_d5d8705e["保存资料来源就绪结果（不授权使用）"]
+end
+subgraph n_009bf41d__else["else"]
+n_00b866de["登记简历资料缺口并结束"]
+end
+n_d5a5c25c --> n_893a40d7
+n_893a40d7 --> n_ba7226ce
+n_ba7226ce --> n_009bf41d
+n_009bf41d -->|then| n_d5d8705e
+n_009bf41d -->|else| n_00b866de

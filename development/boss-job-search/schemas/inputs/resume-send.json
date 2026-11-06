@@ -1,0 +1,14 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "resumeFile": {
+      "description": "由本人先在 BOSS 原生附件库确认该 PDF 为最新简历，再填写网站显示的完整文件名。仅复用唯一匹配的现有附件；不读取本地 PDF，不上传、不删除、不改名。当前会话须有未处理附件请求并已独立批准具体收件人；发送前防重，发送后核对同一会话回执。缺少或歧义时停止。",
+      "title": "本人确认的网站现有附件完整文件名",
+      "type": "string"
+    }
+  },
+  "required": [
+    "resumeFile"
+  ],
+  "type": "object"
+}

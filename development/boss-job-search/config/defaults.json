@@ -1,0 +1,13 @@
+{
+  "acceptanceNewGreetings": 0,
+  "confirmedPersonalFacts": "",
+  "firstContactDailyBudget": 0,
+  "knownContactAccountAlias": "",
+  "knownContactPhoneMask": "",
+  "knownContactedJobs": [],
+  "knownGreetingDate": "",
+  "knownGreetingsUsed": 0,
+  "recoveryEvidenceName": "",
+  "replyDailyLimit": 0,
+  "replyTimeZone": "Asia/Shanghai"
+}

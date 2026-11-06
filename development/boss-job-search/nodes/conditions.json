@@ -1,0 +1,69 @@
+{
+  "n_054c884e": {
+    "node": {
+      "id": "n_054c884e",
+      "name": "读取本次求职条件",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_70c234d1": {
+    "node": {
+      "dependencies": [],
+      "id": "n_70c234d1",
+      "input": {
+        "$ref": "steps.n_054c884e"
+      },
+      "language": "js",
+      "name": "检查求职条件一致性（不判断JD）",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/conditions/n_70c234d1.js"
+  },
+  "n_888b575d": {
+    "node": {
+      "dependencies": [],
+      "id": "n_888b575d",
+      "input": {
+        "$ref": "steps.n_70c234d1"
+      },
+      "language": "js",
+      "name": "保存条件核对通过结果（不授权外发）",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/conditions/n_888b575d.js"
+  },
+  "n_e5c83f60": {
+    "node": {
+      "dependencies": [],
+      "id": "n_e5c83f60",
+      "input": {
+        "$ref": "steps.n_70c234d1"
+      },
+      "language": "js",
+      "name": "登记条件待核对提醒并结束",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/conditions/n_e5c83f60.js"
+  },
+  "n_da51cdf5": {
+    "node": {
+      "actual": {
+        "$ref": "steps.n_70c234d1.ready"
+      },
+      "expected": true,
+      "id": "n_da51cdf5",
+      "name": "求职条件格式是否通过",
+      "operator": "equals",
+      "type": "condition",
+      "version": 1
+    }
+  }
+}

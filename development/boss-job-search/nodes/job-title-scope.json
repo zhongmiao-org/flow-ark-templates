@@ -1,0 +1,25 @@
+{
+  "n_7d2e1509": {
+    "node": {
+      "id": "n_7d2e1509",
+      "operation": "configuration",
+      "type": "context",
+      "version": 1
+    }
+  },
+  "n_82e92c2f": {
+    "node": {
+      "dependencies": [],
+      "id": "n_82e92c2f",
+      "input": {
+        "$ref": "steps.n_7d2e1509"
+      },
+      "language": "js",
+      "name": "读取当前选中完整标题并核对允许词",
+      "timeoutMs": 60000,
+      "type": "script",
+      "version": 1
+    },
+    "script": "scripts/job-title-scope/n_82e92c2f.js"
+  }
+}

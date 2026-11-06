@@ -1,0 +1,28 @@
+flowchart TD
+n_bce98798["n_bce98798"]
+n_b6b29ad6["整理网页JD来源与遮挡"]
+n_0ac490c6["预检允许读取正文候选"]
+subgraph n_0ac490c6__then["then"]
+n_e78436b7["n_e78436b7"]
+n_92e815ba["核对同次正文与原目标"]
+n_72913591["正文候选可完整阅读核对"]
+subgraph n_72913591__then["then"]
+n_61a97a4d["本人完整阅读并核对正文"]
+n_7ae96796["保存本人正文确认或拒绝结果"]
+end
+subgraph n_72913591__else["else"]
+n_66c37dd6["保存正文不完整原因与本人待办"]
+end
+end
+subgraph n_0ac490c6__else["else"]
+n_e5995039["保存来源核对与本人待办"]
+end
+n_bce98798 --> n_b6b29ad6
+n_b6b29ad6 --> n_0ac490c6
+n_0ac490c6 -->|then| n_e78436b7
+n_e78436b7 --> n_92e815ba
+n_92e815ba --> n_72913591
+n_72913591 -->|then| n_61a97a4d
+n_61a97a4d --> n_7ae96796
+n_72913591 -->|else| n_66c37dd6
+n_0ac490c6 -->|else| n_e5995039

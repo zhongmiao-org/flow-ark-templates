@@ -8,4 +8,4 @@ CI 在 PR、main 推送及手动触发时执行上述校验和构建；分支/PR
 
 仅初次初始化允许一个不含文件的空提交。破坏兼容变更记录 `BREAKING CHANGE:`。示例只用虚构数据；禁止提交密钥、简历、浏览器登录态、数据库和运行产物。治理说明集中在 flow-ark 仓库 docs/templates，不在此复制 AGENTS 或总体架构。不得导入相邻客户端源码、建立跨仓库 workspace 或符号链接依赖。
 
-使用者模板目录只保留 README 与一个当前 ZIP，二者说明逐字节一致；源码示例归 development。修改示例后递增模板版本并同步 catalog.json，再运行 pnpm package:templates。客户端模板由作者 UI 导出，原 ZIP 摘要固定在 client-checkpoints.json；不得手改或重打包该归档。
+使用者模板目录只保留 README 与一个当前 ZIP，二者说明逐字节一致；源码示例归 development。修改示例后递增模板版本并同步 catalog.json，再运行 pnpm package:templates。客户端模板由作者UI或本轮正式工程打包工具导出，原 ZIP 摘要固定在 client-checkpoints.json；不得手改或重打包该归档。

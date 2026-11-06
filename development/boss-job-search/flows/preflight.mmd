@@ -1,0 +1,14 @@
+flowchart TD
+n_375515b5["同次读取页面标题与登录提示"]
+n_bb9ceca5["整理网页状态（不核准账号）"]
+n_c5e18c4f["是否需要本人登录"]
+subgraph n_c5e18c4f__then["then"]
+n_7aac6071["登记本人登录待办并结束"]
+end
+subgraph n_c5e18c4f__else["else"]
+n_9daec46d["登记账号待核验并结束"]
+end
+n_375515b5 --> n_bb9ceca5
+n_bb9ceca5 --> n_c5e18c4f
+n_c5e18c4f -->|then| n_7aac6071
+n_c5e18c4f -->|else| n_9daec46d

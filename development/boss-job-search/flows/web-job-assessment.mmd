@@ -1,0 +1,72 @@
+flowchart TD
+n_bce98798["n_bce98798"]
+n_b6b29ad6["整理网页JD来源与遮挡"]
+n_0ac490c6["预检允许读取正文候选"]
+subgraph n_0ac490c6__then["then"]
+n_e78436b7["n_e78436b7"]
+n_92e815ba["核对同次正文与原目标"]
+n_72913591["正文候选可完整阅读核对"]
+subgraph n_72913591__then["then"]
+n_61a97a4d["本人完整核对并选择是否评估"]
+n_070e44e9["本人明确请求本次评估"]
+subgraph n_070e44e9__then["then"]
+n_b389c576ff1146e3b08f4bd621c43519["确认后复核同次网页与正文"]
+n_6d5f52d7["固定本次求职条件与修订"]
+n_4445b1ba["核对确认后来源与评估输入预算"]
+n_0d10c02a["来源与条件就绪才评估"]
+subgraph n_0d10c02a__then["then"]
+n_ff4602d9["读取本次固定确认Skill"]
+n_f1d80eef["用自有Key评估本次网页JD"]
+n_a3006719["核对网页JD原句与请求故障"]
+n_0a023098["评估结果需要本人判断"]
+subgraph n_0a023098__then["then"]
+n_4022575b["登记本人判断与模型故障待办"]
+end
+subgraph n_0a023098__else["else"]
+n_29bc6498["明确建议是否符合目标"]
+subgraph n_29bc6498__then["then"]
+n_422f0834["保存符合方向建议与本人待办"]
+end
+subgraph n_29bc6498__else["else"]
+n_696bb0c6["保存明确不符合建议与本人待办"]
+end
+end
+end
+subgraph n_0d10c02a__else["else"]
+n_099a54fa["保存来源变化或条件缺口待办"]
+end
+end
+subgraph n_070e44e9__else["else"]
+n_2e755d6f["保存本人拒绝评估与待办"]
+end
+end
+subgraph n_72913591__else["else"]
+n_66c37dd6["保存正文不完整原因与本人待办"]
+end
+end
+subgraph n_0ac490c6__else["else"]
+n_e5995039["保存来源核对与本人待办"]
+end
+n_bce98798 --> n_b6b29ad6
+n_b6b29ad6 --> n_0ac490c6
+n_0ac490c6 -->|then| n_e78436b7
+n_e78436b7 --> n_92e815ba
+n_92e815ba --> n_72913591
+n_72913591 -->|then| n_61a97a4d
+n_61a97a4d --> n_070e44e9
+n_070e44e9 -->|then| n_b389c576ff1146e3b08f4bd621c43519
+n_b389c576ff1146e3b08f4bd621c43519 --> n_6d5f52d7
+n_6d5f52d7 --> n_4445b1ba
+n_4445b1ba --> n_0d10c02a
+n_0d10c02a -->|then| n_ff4602d9
+n_ff4602d9 --> n_f1d80eef
+n_f1d80eef --> n_a3006719
+n_a3006719 --> n_0a023098
+n_0a023098 -->|then| n_4022575b
+n_0a023098 -->|else| n_29bc6498
+n_29bc6498 -->|then| n_422f0834
+n_29bc6498 -->|else| n_696bb0c6
+n_0d10c02a -->|else| n_099a54fa
+n_070e44e9 -->|else| n_2e755d6f
+n_72913591 -->|else| n_66c37dd6
+n_0ac490c6 -->|else| n_e5995039

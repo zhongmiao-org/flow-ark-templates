@@ -1,0 +1,54 @@
+flowchart TD
+n_bfd6c7e8["读取本次固定求职条件"]
+n_5f7682db["模型前读取最新会话控制状态"]
+n_22f52238["核对JD、来信完整性与本人接管"]
+n_39f0804e["JD与来信完整且未由本人接管"]
+subgraph n_39f0804e__then["then"]
+n_e1b60b6f["读取固定确认的个人Skill"]
+n_86f9736c["使用自有Key评估JD方向（仅建议）"]
+n_4a3bbecd["JD评估后复查控制状态再决定是否继续模型"]
+n_2d0a046c["核对JD原句或请求故障；缺口转本人"]
+n_2dfc8270["评估建议是否需要本人判断"]
+subgraph n_2dfc8270__then["then"]
+n_60242c2b["登记本人判断待办并保存建议"]
+end
+subgraph n_2dfc8270__else["else"]
+n_71b730e8["明确建议是否符合目标"]
+subgraph n_71b730e8__then["then"]
+n_d596ea4f["使用自有Key分类来信并生成简短草稿"]
+n_7da9663e["草稿生成后再次读取最新会话状态"]
+n_adc66c1e["核对Skill事实或请求故障；不确定转本人"]
+n_56ade4fa["来信是否需要本人处理或附件核对"]
+subgraph n_56ade4fa__then["then"]
+n_5447c54f["保存本人待办；未发送消息或简历"]
+end
+subgraph n_56ade4fa__else["else"]
+n_e46dfa6e["保存普通回复草稿；仅供本人核对"]
+end
+end
+subgraph n_71b730e8__else["else"]
+n_dd293c99["保存明确不符合建议；尚未点击不感兴趣"]
+end
+end
+end
+subgraph n_39f0804e__else["else"]
+n_bfb208ae["登记JD、来信或接管缺口并保存结果"]
+end
+n_bfd6c7e8 --> n_5f7682db
+n_5f7682db --> n_22f52238
+n_22f52238 --> n_39f0804e
+n_39f0804e -->|then| n_e1b60b6f
+n_e1b60b6f --> n_86f9736c
+n_86f9736c --> n_4a3bbecd
+n_4a3bbecd --> n_2d0a046c
+n_2d0a046c --> n_2dfc8270
+n_2dfc8270 -->|then| n_60242c2b
+n_2dfc8270 -->|else| n_71b730e8
+n_71b730e8 -->|then| n_d596ea4f
+n_d596ea4f --> n_7da9663e
+n_7da9663e --> n_adc66c1e
+n_adc66c1e --> n_56ade4fa
+n_56ade4fa -->|then| n_5447c54f
+n_56ade4fa -->|else| n_e46dfa6e
+n_71b730e8 -->|else| n_dd293c99
+n_39f0804e -->|else| n_bfb208ae

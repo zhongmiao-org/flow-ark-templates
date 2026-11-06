@@ -1,0 +1,62 @@
+{
+  "projectVersion": 1,
+  "metadata": {
+    "id": "ts-config",
+    "name": "TS 配置与运行快照核验",
+    "description": "本地流程工程",
+    "version": "1.0.0",
+    "author": "local",
+    "source": "local",
+    "minimumClientVersion": "0.3.1"
+  },
+  "configurationSchema": "schemas/configuration.json",
+  "stateSchema": "schemas/state.json",
+  "constants": "config/constants.json",
+  "defaults": "config/defaults.json",
+  "entries": [
+    {
+      "id": "main",
+      "name": "主流程",
+      "graph": "flows/main.mmd",
+      "nodes": "nodes/main.json",
+      "inputSchema": "schemas/inputs/main.json",
+      "resultSchema": "schemas/results/main.json",
+      "parameters": {},
+      "capabilities": [
+        "script",
+        "context",
+        "template-data-v1"
+      ],
+      "resourceIds": [],
+      "actionIds": [],
+      "schedulable": false
+    }
+  ],
+  "resources": [],
+  "actions": [],
+  "prompts": [],
+  "promptBindings": {
+    "main": []
+  },
+  "dependencies": [],
+  "environment": [
+    {
+      "variable": "FLOWARK_AMOUNT",
+      "field": "amount",
+      "type": "integer"
+    }
+  ],
+  "publicFiles": [
+    "flows/main.mmd",
+    "nodes/main.json",
+    "schemas/inputs/main.json",
+    "schemas/results/main.json",
+    "README.md",
+    "schemas/configuration.json",
+    "schemas/state.json",
+    "config/constants.json",
+    "config/defaults.json",
+    "scripts/main.ts",
+    ".env.example"
+  ]
+}

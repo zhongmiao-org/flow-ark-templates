@@ -6,3 +6,5 @@ test-results/
 *.log
 *.sqlite*
 .DS_Store
+
+!.env.example
