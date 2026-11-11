@@ -1,9 +1,9 @@
 [
   {
     "id": "feishu-bitable",
-    "version": "0.1.3-draft",
+    "version": "0.1.4-draft",
     "status": "draft",
     "path": "skills/feishu-bitable/SKILL.md",
-    "sha256": "ea1f642c6b1f12c4f15fcbc072a84b6041d51b82ac22bb55c8a5c4323139a982"
+    "sha256": "3747d7b589e9942ce2b02adccb9d0e7c7a388f1b209987e2b750073be741a659"
   }
 ]
