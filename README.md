@@ -14,6 +14,12 @@
 | [智联招聘适配检查](templates/recruiting-zhaopin/README.md)                 | 1.0.1       | 演示/适配示例        | 原业务规则已迁入模板仓库；真实站点尚未校准，入口只返回限制信息                                                                                                                              |
 | [简单网页表单](templates/simple-web-form/README.md)                        | 1.0.1       | 演示/适配示例        | 虚构数据验收模板；不含用户资料或密钥                                                                                                                                                        |
 
+## 平台作者 Skill
+
+[飞书多维表格](skills/feishu-bitable/SKILL.md)（0.1.2-draft）供作者按现场证据规划、检查和修复流程，明确选区、已有选项、通知、保存及unknown边界。平台Skill不是流程ZIP；当前客户端尚无平台作者Skill发现/选择入口，不会因下载或构建本仓库而自动加载。普通使用者不需要编辑该文件。外部作者须明确读取所选版本后使用，仍须实际验收；未验证项会停止写入。
+
+`skills/catalog.json` 固定正文摘要；`pnpm validate`及`pnpm build`核对元数据、摘要与公开内容限制，并原样输出`dist/skills/`。通用作者SDK和权限仍由安装客户端提供，平台业务规则留在本仓库。
+
 ## 使用顺序
 
 1. 读模板 README，核对用途、当前限制和所需客户端能力。

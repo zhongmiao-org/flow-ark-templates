@@ -1,3 +1,4 @@
+import { buildPlatformSkills } from './platform-skills';
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import { join, dirname, resolve } from "node:path";
 import { build } from "esbuild";
@@ -110,6 +111,7 @@ export async function buildTemplate(directory: string) {
   return buildSource(directory);
 }
 export async function buildAll(publish = false) {
+  await buildPlatformSkills();
   await mkdir("dist", { recursive: true });
   const entries = await readCatalog();
   for (const entry of entries) {
