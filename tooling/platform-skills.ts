@@ -35,5 +35,5 @@ export async function buildPlatformSkills() {
     if (!(await readFile(target)).equals(bytes)) throw Error('平台Skill构建读回不一致');
   }
   await mkdir('dist/skills',{recursive:true});await writeFile('dist/skills/catalog.json',catalogBytes);
-  console.log(`platform skills: ${checked.length} verified (draft; not loaded by client)`);
+  console.log(`platform skills: ${checked.length} verified (assets copied; client snapshot adoption not checked)`);
 }
